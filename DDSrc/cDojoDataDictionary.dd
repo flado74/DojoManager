@@ -15,8 +15,6 @@ Class cDojoDataDictionary is a DataDictionary
         Set Main_File to Dojo.File_Number
 
         Set Add_System_File to Settings.File_Number DD_Lock_On_All
-
-        Set Add_Client_File to Members.File_Number
         Set Add_Client_File to Seminars.File_Number
 
         Set Foreign_Field_Option DD_KEYFIELD DD_NOPUT to True

@@ -129,8 +129,6 @@ Class cMembersDataDictionary is a DataDictionary
 
         Set Add_Client_File to MemberRanks.File_Number
 
-        Set Add_Server_File to Dojo.File_Number
-
         Set Foreign_Field_Option DD_KEYFIELD DD_NOPUT to True
         Set Foreign_Field_Option DD_KEYFIELD DD_FINDREQ to True
         Set Foreign_Field_Option DD_INDEXFIELD DD_NOPUT to True
@@ -138,7 +136,6 @@ Class cMembersDataDictionary is a DataDictionary
         Set Field_WebPrompt_Object Field Members.Member to oMembersWebLookup
 
         Set Field_WebPrompt_Object Field Members.Dojo to oMembersWebLookup
-        Set Field_Option Field Members.Dojo DD_REQUIRED to True
 
         Set Field_WebPrompt_Object Field Members.Name to oMembersWebLookup
         Set Field_Option Field Members.Name DD_REQUIRED to True
@@ -188,6 +185,9 @@ Class cMembersDataDictionary is a DataDictionary
                 Saverecord Settings
                 Unlock
             End
+        End
+        If (Members.Dojo = 0) Begin 
+            Move 99 to Members.Dojo
         End
     End_Procedure
 

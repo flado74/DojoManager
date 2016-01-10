@@ -42,7 +42,9 @@ Object oDojo is a cWebView
     End_Object
 
     Object oMembers_DD is a cMembersDataDictionary
-        Set DDO_Server To oDojo_DD
+        Set pbUseDDRelates to True
+        Set Field_Related_FileField Field Members.Dojo to File_Field Dojo.Dojo
+        Set DDO_Server to oDojo_DD
         Set Constrain_File To Dojo.File_Number
     End_Object 
 
@@ -126,7 +128,6 @@ Object oDojo is a cWebView
                     Procedure OnClick
                         Register_Object oMembers
                         Register_Object oDetailGrid
-//                        Send Show_oMembers_FromXX of oMembers "" Dojo.Dojo
                         WebSet psRowId of oMembers to ""
                         WebSet piDojo of oMembers to Dojo.Dojo
                         Send Popup of oMembers oDetailGrid                        

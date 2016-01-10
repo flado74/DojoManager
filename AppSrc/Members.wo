@@ -43,7 +43,9 @@ Object oMembers is a cWebModalDialog
     End_Object 
 
     Object oMembers_DD is a cMembersDataDictionary
-        Set DDO_Server To oDojo_DD
+        Set pbUseDDRelates to True
+        Set Field_Related_FileField Field Members.Dojo to File_Field Dojo.Dojo
+        Set DDO_Server to oDojo_DD
         Set No_Delete_State to True
 
         Procedure OnPreFind Integer eMessage
@@ -473,6 +475,7 @@ Object oMembers is a cWebModalDialog
         If (sRowId <> "") Begin 
             Send FindByRowId of oMembers_DD Members.File_Number (DeserializeRowID(sRowId))
             WebSet pbEnabled of oMembers_Member to False
+            WebSet pbEnabled of oDojoDojo to True 
         End
         Else Begin 
             Send Clear of oMembers_DD
@@ -480,6 +483,7 @@ Object oMembers is a cWebModalDialog
             Move iDojo to Dojo.Dojo 
             Send Find of oDojo_DD EQ 1
             WebSet pbEnabled of oMembers_Member to True
+            WebSet pbEnabled of oDojoDojo to False
         End
     End_Procedure
 

@@ -72,7 +72,7 @@ Class cSeminarAttendeesDataDictionary is a DataDictionary
 
     Procedure Update
         Forward Send Update
-        Move Seminars.Dojo to SeminarAttendees.Dojo
+//        Move Seminars.Dojo to SeminarAttendees.Dojo
         If (SeminarAttendees.MebershipPayed) Begin //membership is payed at the semianr
             Lock
             Clear Payments

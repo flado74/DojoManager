@@ -3,13 +3,18 @@ Source441=WebSet psCurrentRowID to sRowID
 ConditionEnabled441=0
 Condition441= 
 441=1
-[C:\DojoManager\AppSrc\Members.wo]
-Source331=Move (BikenRanks(oMemberRanks_DD(Self)))  to hoValidationObject
-ConditionEnabled331=0
-Condition331= 
-331=1
 [C:\DojoManager\DDSrc\cSeminarAttendeesDataDictionary.dd]
 Source131=Get Field_Current_Value Field SeminarAttendees.Participant to sName
 ConditionEnabled131=0
 Condition131= 
 131=1
+[C:\DojoManager\DDSrc\cMembersDataDictionary.dd]
+Source188=If (Members.Dojo = 0) Begin
+ConditionEnabled188=0
+Condition188= 
+188=1
+[C:\DojoManager\AppSrc\Members.wo]
+Source333=Move (BikenRanks(oMemberRanks_DD(Self)))  to hoValidationObject
+ConditionEnabled333=0
+Condition333= 
+333=1
