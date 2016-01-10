@@ -1840,7 +1840,7 @@ Including file: cWebColumnImage.pkg    (C:\Program Files (x86)\DataFlex 18.2\Pkg
 30394>>>
 30394>>>                    Object oMembersType is a cWebColumnCombo
 30396>>>                        Entry_Item Members.Type
-30397>>>                        Set psCaption to "Type"
+30397>>>                        Set psCaption to "Type" 
 30398>>>                        Set piWidth to 148
 30399>>>                    End_Object 
 30400>>>

@@ -188,7 +188,7 @@ Object oDojo is a cWebView
 
                     Object oMembersType is a cWebColumnCombo
                         Entry_Item Members.Type
-                        Set psCaption to "Type"
+                        Set psCaption to "Type" 
                         Set piWidth to 148
                     End_Object 
 
