@@ -1,0 +1,13 @@
+#REPLACE FILE1 Dojo
+#REPLACE Dojo.Recnum |FN1,0
+#REPLACE Dojo.Dojo |FN1,1
+#REPLACE Dojo.Name |FS1,2
+#REPLACE Dojo.Main |FN1,3
+#REPLACE Dojo.Description |FS1,4
+#REPLACE Dojo.DojoCho |FS1,5
+#REPLACE Dojo.Address |FS1,6
+#REPLACE Dojo.PAddress |FS1,7
+#REPLACE Dojo.City |FS1,8
+#REPLACE Dojo.Phone |FS1,9
+#REPLACE Dojo.Mobile |FS1,10
+#REPLACE Dojo.SeminarID |FN1,11

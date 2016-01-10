@@ -1,0 +1,8 @@
+#REPLACE FILE4 MemberRanks
+#REPLACE MemberRanks.Recnum |FN4,0
+#REPLACE MemberRanks.Member |FN4,1
+#REPLACE MemberRanks.Type |FN4,2
+#REPLACE MemberRanks.Rank |FN4,3
+#REPLACE MemberRanks.Examiner |FN4,4
+#REPLACE MemberRanks.Date |FD4,5
+#REPLACE MemberRanks.Notes |FS4,6

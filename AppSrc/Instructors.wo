@@ -1,0 +1,42 @@
+// C:\DojoManager\AppSrc\Members.wo
+// Members
+//
+
+Use cWebView.pkg
+Use cWebPanel.pkg
+Use cWebForm.pkg
+
+Use cTeachersDataDictionary.dd
+
+Object oInstructors is a cWebView
+    Set piColumnCount to 12
+    Set psCaption to "Instructors"
+    Set piWidth to 700
+
+    Object oTeachers_DD is a cTeachersDataDictionary
+    End_Object
+
+    Set Main_DD to oTeachers_DD
+    Set Server  to oTeachers_DD
+
+    Object oWebMainPanel is a cWebPanel
+        Set piColumnCount to 12
+
+        Object oInstructorsName is a cWebForm
+            Entry_Item Teachers.Name
+            Set piColumnSpan to 12
+            Set piColumnIndex to 0
+            Set psLabel to "Name:"
+            Set peLabelAlign to alignLeft
+        End_Object 
+
+        Object oMembersType is a cWebCombo
+            Entry_Item Teachers.Type
+            Set piColumnSpan to 6
+            Set piColumnIndex to 0
+            Set psLabel to "Type:"
+            Set peLabelAlign to alignLeft
+        End_Object 
+    End_Object 
+
+End_Object 

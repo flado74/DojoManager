@@ -1,0 +1,199 @@
+Use DataDict.pkg
+
+Open Members
+Open Dojo
+Open MemberRanks
+Open Settings
+Open Teachers
+Open SeminarAttendees
+Open Payments
+
+Object MemberTypes is a CodeValidationTable
+    Set Type_Value to "MEMBTYPES"
+End_Object
+
+Object JinenkanMemberTypes is a CodeValidationTable
+    Set Type_Value to "JMEMBTYPES"
+End_Object
+
+Object PaymentMonth is a DescriptionValidationTable
+    Procedure Fill_List
+        Forward Send Fill_List
+        Send Add_Table_Value "0" "Guest"
+        Send Add_Table_Value "1" "January"
+        Send Add_Table_Value "2" "February"
+        Send Add_Table_Value "3" "March"
+        Send Add_Table_Value "4" "April"
+        Send Add_Table_Value "5" "May"
+        Send Add_Table_Value "6" "June"
+        Send Add_Table_Value "7" "July"
+        Send Add_Table_Value "8" "August"
+        Send Add_Table_Value "9" "September"
+        Send Add_Table_Value "10" "October"
+        Send Add_Table_Value "11" "November"
+        Send Add_Table_Value "12" "December"
+    End_Procedure
+End_Object
+
+Object BikenRanks is a DescriptionValidationTable
+    Procedure Fill_List
+        Forward Send Fill_List
+        Send Add_Table_Value "0" "No rank"
+        Send Add_Table_Value "1" "Chi no maki"
+        Send Add_Table_Value "2" "Mizu no maki"
+        Send Add_Table_Value "3" "Hi no maki"
+        Send Add_Table_Value "4" "Fu no maki"
+        Send Add_Table_Value "5" "Ku no maki"
+        Send Add_Table_Value "6" "Menkyo Kaiden"
+    End_Procedure
+End_Object
+
+Object NitoRanks is a DescriptionValidationTable
+    Procedure Fill_List
+        Forward Send Fill_List
+        Send Add_Table_Value "0" "No rank"
+        Send Add_Table_Value "1" "Kiso no maki"
+        Send Add_Table_Value "2" "Ten no maki"
+        Send Add_Table_Value "3" "Chi no maki"
+        Send Add_Table_Value "4" "Menkyo Kaiden"
+    End_Procedure
+End_Object
+
+Object TantoRanks is a DescriptionValidationTable
+    Procedure Fill_List
+        Forward Send Fill_List
+        Send Add_Table_Value "0" "No rank"
+        Send Add_Table_Value "1" "Kiso no maki"
+        Send Add_Table_Value "2" "Kihon gata"
+        Send Add_Table_Value "3" "Sabaki gata"
+        Send Add_Table_Value "4" "Menkyo Kaiden"
+    End_Procedure
+End_Object
+
+Object JutteRanks is a DescriptionValidationTable
+    Procedure Fill_List
+        Forward Send Fill_List
+        Send Add_Table_Value "0" "No rank"
+        Send Add_Table_Value "1" "Kiso no maki"
+        Send Add_Table_Value "2" "Kihon gata"
+        Send Add_Table_Value "3" "Sabaki gata"
+        Send Add_Table_Value "4" "Menkyo Kaiden"
+    End_Procedure
+End_Object
+
+Object KusariRanks is a DescriptionValidationTable
+    Procedure Fill_List
+        Forward Send Fill_List
+        Send Add_Table_Value "0" "No rank"
+        Send Add_Table_Value "1" "Kiso no maki"
+        Send Add_Table_Value "2" "Sabaki gata"
+        Send Add_Table_Value "3" "Menkyo Kaiden"
+    End_Procedure
+End_Object
+
+Object KobudoRanks is a DescriptionValidationTable
+    Procedure Fill_List
+        Forward Send Fill_List
+        Send Add_Table_Value "0" "Mukyu"
+        Send Add_Table_Value "1" "Rokukyu"
+        Send Add_Table_Value "2" "Gokyu"
+        Send Add_Table_Value "3" "Yonkyu"
+        Send Add_Table_Value "4" "Sankyu"
+        Send Add_Table_Value "5" "Nikyu"
+        Send Add_Table_Value "6" "Ikkyu"
+        Send Add_Table_Value "7" "Shodan"
+        Send Add_Table_Value "8" "Nidan"
+        Send Add_Table_Value "9" "Sandan"
+        Send Add_Table_Value "10" "Yondan"
+        Send Add_Table_Value "11" "Godan"
+        Send Add_Table_Value "12" "Rokudan"
+        Send Add_Table_Value "13" "Shichidan"
+        Send Add_Table_Value "14" "Hachidan"
+        Send Add_Table_Value "15" "Kudan"
+    End_Procedure
+End_Object
+
+Register_Object oMembersWebLookup
+
+Register_Function ValidateMembersEmail Integer iColumn String sValue Returns Boolean
+
+Register_Object oRanksWebLookup
+
+Class cMembersDataDictionary is a DataDictionary
+    
+    Procedure Construct_Object
+        Forward Send Construct_Object
+        Set Main_File to Members.File_Number
+
+        Set Add_System_File to Settings.File_Number DD_Lock_On_All
+
+        Set Add_Client_File to MemberRanks.File_Number
+
+        Set Add_Server_File to Dojo.File_Number
+
+        Set Foreign_Field_Option DD_KEYFIELD DD_NOPUT to True
+        Set Foreign_Field_Option DD_KEYFIELD DD_FINDREQ to True
+        Set Foreign_Field_Option DD_INDEXFIELD DD_NOPUT to True
+        Set Foreign_Field_Option DD_DEFAULT DD_DISPLAYONLY to True
+        Set Field_WebPrompt_Object Field Members.Member to oMembersWebLookup
+
+        Set Field_WebPrompt_Object Field Members.Dojo to oMembersWebLookup
+        Set Field_Option Field Members.Dojo DD_REQUIRED to True
+
+        Set Field_WebPrompt_Object Field Members.Name to oMembersWebLookup
+        Set Field_Option Field Members.Name DD_REQUIRED to True
+
+        Set Field_Value_Table Field Members.MemberType to JinenkanMemberTypes
+        Set Field_Value_Table Field Members.PaymentDue to PaymentMonth
+
+        Set Field_Value_Table Field Members.Type to MemberTypes
+        Set Field_Option Field Members.Type DD_REQUIRED to True
+
+        Set Field_WebPrompt_Object Field Members.Rank to oRanksWebLookup
+        Set Field_Value_Table Field Members.Rank to KobudoRanks
+
+        Set Field_Value_Table Field Members.BikenRank to BikenRanks
+
+        Set Field_WebPrompt_Object Field Members.NitoRank to oRanksWebLookup
+        Set Field_Value_Table Field Members.NitoRank to NitoRanks
+
+        Set Field_WebPrompt_Object Field Members.TantoRank to oRanksWebLookup
+        Set Field_Value_Table Field Members.TantoRank to TantoRanks
+
+        Set Field_WebPrompt_Object Field Members.JutteRank to oRanksWebLookup
+        Set Field_Value_Table Field Members.JutteRank to JutteRanks
+
+        Set Field_WebPrompt_Object Field Members.KusariRank to oRanksWebLookup
+        Set Field_Value_Table Field Members.KusariRank to KusariRanks
+
+        Set Field_Option Field Members.Email DD_REQUIRED to True
+        Set Field_Validate_msg Field Members.Email to get_ValidateMembersEmail
+
+    End_Procedure
+
+    Function ValidateMembersEmail Integer iColumn String sValue Returns Boolean
+        If (not(sValue contains ".") or (not(sValue contains "@"))) Begin 
+            Send UserError  "This is not a valid e-mail address!"
+            Function_Return True
+        End
+    End_Function
+
+    Procedure Update
+        Forward Send Update
+        If (Members.Member = 0) Begin //no member no set
+            If (Members.Type = 0) Begin //guest member
+                Move (Settings.GuestMembersID + 1) to Members.Member
+                Reread Settings
+                Move Members.Member to Settings.GuestMembersID
+                Saverecord Settings
+                Unlock
+            End
+        End
+    End_Procedure
+
+End_Class
+
+#IFDEF Is$WebApp
+Use MembersWebLookup.wo
+#ELSE
+#ENDIF

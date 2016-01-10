@@ -1,0 +1,12 @@
+#REPLACE FILE7 Seminars
+#REPLACE Seminars.Recnum |FN7,0
+#REPLACE Seminars.Seminar |FN7,1
+#REPLACE Seminars.Dojo |FN7,2
+#REPLACE Seminars.StartDate |FD7,3
+#REPLACE Seminars.EndDate |FD7,4
+#REPLACE Seminars.Topic |FS7,5
+#REPLACE Seminars.Notes |FS7,6
+#REPLACE Seminars.TotAttendanceFee |FN7,7
+#REPLACE Seminars.AttendanceFee |FN7,8
+#REPLACE Seminars.TotalCost |FN7,9
+#REPLACE Seminars.Teachers |FS7,10

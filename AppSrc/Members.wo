@@ -1,0 +1,495 @@
+// C:\DojoManager\AppSrc\Members.wo
+// Members
+//
+
+Use cWebView.pkg
+Use cWebPanel.pkg
+Use cWebForm.pkg
+
+Use cDojoDataDictionary.dd
+Use cMembersDataDictionary.dd
+Use cTeachersDataDictionary.dd
+Use cMemberRanksDataDictionary.dd
+Use cPaymentsDataDictionary.dd
+Use cWebTabContainer.pkg
+Use cWebTabPage.pkg
+Use cWebGrid.pkg
+Use cWebColumn.pkg
+Use cWebButton.pkg
+Use cWebGroup.pkg
+Use cWebHorizontalLine.pkg
+Use cWebLabel.pkg
+Use cWebSpacer.pkg
+Use cWebColumnCombo.pkg
+Use cWebImage.pkg
+
+Object oMembers is a cWebModalDialog
+    Set piColumnCount to 12
+    Set psCaption to "Members"
+    Set piWidth to 700
+    Set pbServerOnShow to True
+
+    { WebProperty=True }
+    Property String psRowId
+    { WebProperty=True }
+    Property Integer piDojo    
+    { WebProperty=True }
+    Property Handle phoCallbackObj
+    
+    Object oTeachers_DD is a cTeachersDataDictionary
+    End_Object
+
+    Object oDojo_DD is a cDojoDataDictionary
+    End_Object 
+
+    Object oMembers_DD is a cMembersDataDictionary
+        Set DDO_Server To oDojo_DD
+        Set No_Delete_State to True
+
+        Procedure OnPreFind Integer eMessage
+            Forward Send OnPreFind eMessage
+        End_Procedure
+    End_Object 
+
+    Object oPayments_DD is a cPaymentsDataDictionary
+        Set pbUseDDRelates to True
+        Set Field_Related_FileField Payments.Member to File_Field Members.Member
+        Set Server to oMembers_DD
+        Set Constrain_File to Members.File_Number
+    End_Object
+
+    Object oMemberRanks_DD is a cMemberRanksDataDictionary
+        Set Constrain_file to Members.File_number
+        Set DDO_Server to oMembers_DD
+        Set DDO_Server to oTeachers_DD
+    End_Object
+
+    Set Main_DD To oMembers_DD
+    Set Server  To oMembers_DD
+    Set pbServerOnHide to True
+    Set pbClearKeys to False
+    Set pbFindKeys to False
+
+
+    Object oWebMainPanel is a cWebPanel
+        Set piColumnCount to 12
+
+        Object oWebGroup1 is a cWebGroup
+            Set psCaption to "Member"
+            Set piColumnCount to 12   
+
+            Object oMembersName is a cWebForm
+                Entry_Item Members.Name
+                Set piColumnSpan to 8
+                Set psLabel to "Name:"
+                Set peLabelAlign to alignLeft
+                Set pbPromptButton to False
+            End_Object 
+
+            Object oWebImage1 is a cWebImage
+                Set psUrl to "Images/delete.png"
+                Set piHeight to 35
+                Set piColumnIndex to 8
+                Set pePosition to wiCenter
+                Set pbServerOnClick to True
+                Set psToolTip to "Delete this member completely"
+
+                Procedure DeleteMember Integer eResponse
+                    If (eResponse = cmYes) Begin 
+                        Send Request_Delete of oMembers_DD
+                        Send Cancel
+                    End
+                End_Procedure
+                WebPublishProcedure DeleteMember
+                
+                Procedure OnClick
+                    Forward Send OnClick
+                    Send ShowYesNo Self (RefProc(DeleteMember)) "Do you want to delete this member completely?"
+                End_Procedure
+            End_Object
+
+            Object oMembersEmail is a cWebForm
+                Entry_Item Members.Email
+                Set piColumnSpan to 8
+                Set psLabel to "Email:"
+                Set peLabelAlign to alignLeft
+            End_Object 
+        End_Object
+
+        Object oWebTabContainer1 is a cWebTabContainer
+            Object oWebTabPage1 is a cWebTabPage
+                Set psCaption to "Details"
+                Set piColumnCount to 12    
+
+                Object oWebGroup2 is a cWebGroup
+                    Set psCaption to "Dojo Membership Details"
+                    Set piColumnCount to 12   
+
+                    Object oDojoDojo is a cWebForm
+                        Set Server to oDojo_DD
+                        Entry_Item Dojo.Name
+                        Set piColumnSpan to 8
+                        Set psLabel to "Dojo:"
+                        Set peLabelAlign to alignLeft
+                    End_Object 
+
+                    Object oMembers_DojoJoinDate is a cWebDateForm
+                        Entry_Item Members.DojoJoinDate
+                        Set piColumnSpan to 8
+                        Set psLabel to "Dojo Join Date:"
+                    End_Object
+
+                    Object oMembersType is a cWebCombo
+                        Entry_Item Members.Type
+                        Set piColumnSpan to 8
+                        Set psLabel to "Role:"
+                        Set peLabelAlign to alignLeft
+                    End_Object 
+
+                    Object oMembers_Active is a cWebCheckbox
+                        Entry_Item Members.Active
+                        Set piColumnSpan to 4
+                        Set psLabel to "Active:"
+                        Set psCaption to "Not Active"
+                        Set piColumnIndex to 8
+                    End_Object
+                End_Object
+
+                Object oWebGroup3 is a cWebGroup
+                    Set psCaption to "Jinenkan Membership Details"
+                    Set piColumnCount to 12   
+
+                    Object oMembers_Member is a cWebForm
+                        Entry_Item Members.Member
+                        Set piColumnSpan to 4
+                        Set psLabel to "Member No:"
+                        Set pbPromptButton to False
+                    End_Object
+
+                    Object oMembers_JoinDate is a cWebDateForm
+                        Entry_Item Members.MemberSince
+                        Set piColumnSpan to 6
+                        Set psLabel to "Member Since:"
+                        Set piColumnIndex to 6
+                    End_Object
+
+                    Object oMembers_MemberType is a cWebCombo
+                        Entry_Item Members.MemberType
+                        Set piColumnSpan to 6
+                        Set psLabel to "MemberType:"
+                    End_Object
+
+                    Object oMembers_PaymentDue is a cWebCombo
+                        Entry_Item Members.PaymentDue
+                        Set piColumnSpan to 6
+                        Set psLabel to "PaymentDue:"
+                        Set piColumnIndex to 6
+                    End_Object
+                End_Object
+            End_Object
+
+            Object oWebTabPage2 is a cWebTabPage
+                Set psCaption to "Current Ranks"
+                Set piColumnCount to 12    
+                Object oMembers_Rank is a cWebCombo
+                    Entry_Item Members.Rank
+                    Set piColumnSpan to 8
+                    Set psLabel to "Kobudo Rank:"
+                End_Object
+
+                Object oWebSpacer1 is a cWebSpacer
+                End_Object
+
+                Object oMembers_BikenRank is a cWebCombo
+                    Entry_Item Members.BikenRank
+                    Set piColumnSpan to 8
+                    Set psLabel to "Biken Rank:"
+                End_Object
+
+                Object oMembers_NitoRank is a cWebCombo
+                    Entry_Item Members.NitoRank
+                    Set piColumnSpan to 8
+                    Set psLabel to "Nito Rank:"
+                End_Object
+
+                Object oMembers_TantoRank is a cWebCombo
+                    Entry_Item Members.TantoRank
+                    Set piColumnSpan to 8
+                    Set psLabel to "Tanto Rank:"
+                End_Object
+
+                Object oMembers_JutteRank is a cWebCombo
+                    Entry_Item Members.JutteRank
+                    Set piColumnSpan to 8
+                    Set psLabel to "Jutte Rank:"
+                End_Object
+
+                Object oMembers_KusariRank is a cWebCombo
+                    Entry_Item Members.KusariRank
+                    Set piColumnSpan to 8
+                    Set psLabel to "Kusari Rank:"
+                End_Object
+            End_Object
+            
+            Object oWebTabPage3 is a cWebTabPage
+                Set psCaption to "Contact Details"
+                Set piColumnCount to 12    
+
+                Object oMembersAddress is a cWebForm
+                    Entry_Item Members.Address
+                    Set piColumnSpan to 12
+                    Set piColumnIndex to 0
+                    Set psLabel to "Address:"
+                    Set peLabelAlign to alignLeft
+                End_Object 
+
+                Object oMembersPAddress is a cWebForm
+                    Entry_Item Members.PAddress
+                    Set piColumnSpan to 12
+                    Set piColumnIndex to 0
+                    Set psLabel to "PAddress:"
+                    Set peLabelAlign to alignLeft
+                End_Object 
+
+                Object oMembersCity is a cWebForm
+                    Entry_Item Members.City
+                    Set piColumnSpan to 12
+                    Set piColumnIndex to 0
+                    Set psLabel to "City:"
+                    Set peLabelAlign to alignLeft
+                End_Object 
+
+                Object oMembersCountry is a cWebForm
+                    Entry_Item Members.Country
+                    Set piColumnSpan to 12
+                    Set piColumnIndex to 0
+                    Set psLabel to "Country:"
+                    Set peLabelAlign to alignLeft
+                End_Object 
+
+                Object oMembersPhone is a cWebForm
+                    Entry_Item Members.Phone
+                    Set piColumnSpan to 12
+                    Set piColumnIndex to 0
+                    Set psLabel to "Phone:"
+                    Set peLabelAlign to alignLeft
+                End_Object 
+
+                Object oMembersMobile is a cWebForm
+                    Entry_Item Members.Mobile
+                    Set piColumnSpan to 12
+                    Set piColumnIndex to 0
+                    Set psLabel to "Mobile:"
+                    Set peLabelAlign to alignLeft
+                End_Object 
+
+                Object oMembersWebpage is a cWebForm
+                    Entry_Item Members.Webpage
+                    Set piColumnSpan to 12
+                    Set piColumnIndex to 0
+                    Set psLabel to "Webpage:"
+                    Set peLabelAlign to alignLeft
+                End_Object 
+            End_Object
+    
+            Object oWebTabPage4 is a cWebTabPage
+                Set psCaption to "Rank Tests"
+                Set piColumnCount to 12    
+
+                Object oWebGrid1 is a cWebGrid
+                    Set pbFillHeight to True
+                    Set Server to oMemberRanks_DD
+                    Set piOrdering to 1
+
+                    Object oMemberRanks_Type is a cWebColumnCombo
+                        Entry_Item MemberRanks.Type
+                        Set psCaption to "Type"
+                        Set piWidth to 50
+                    End_Object
+
+                    Object oRanks_Rank is a cWebColumnCombo
+//                        Set Server to oRanks_DD
+//                        Entry_Item Ranks.Name
+//                        Entry_Item MemberRanks.Rank
+                        Set psCaption to "Rank"
+                        Set piWidth to 50
+                        Set pbServerOnFocus to True
+                        Set pbServerOnChange to True
+
+                        Procedure OnFocus
+                            Forward Send OnFocus
+//                            Send DDFieldEntryMessage 
+                            Send OnFill
+                        End_Procedure
+                        
+                        Procedure OnFill
+                            Integer iCount i iType
+                            Handle hoValidationObject
+                            String sDescr
+                            Forward Send OnFill
+                            Get Field_Current_Value of oMemberRanks_DD Field MemberRanks.Type to iType
+                            If (iType = 2) Begin 
+                                Move (BikenRanks(oMemberRanks_DD(Self)))  to hoValidationObject
+                                Get Item_Count of hoValidationObject to iCount
+                                For i from 0 to (iCount - 1)
+                                    Move (Find_Code_Description(hoValidationObject, i)) to sDescr
+                                    If (sDescr <> "") Begin 
+                                        Send AddComboItem (String(i)) sDescr
+                                    End
+                                Loop
+                            End
+                        End_Procedure
+
+                        Procedure OnChange String sNewValue String sOldValue
+                            Forward Send OnChange sNewValue sOldValue
+                            Set Field_Changed_Value of oMemberRanks_DD Field MemberRanks.Rank to sNewValue
+                        End_Procedure
+                    End_Object
+
+                    Object oInstructors_Instructor is a cWebColumn
+                        Set Server to oTeachers_DD
+                        Entry_Item Teachers.Name
+                        Set psCaption to "Instructor"
+                        Set piWidth to 50
+                    End_Object
+
+                    Object oMemberRanks_Date is a cWebColumnDate
+                        Set Server to oMemberRanks_DD
+                        Entry_Item MemberRanks.Date
+                        Set psCaption to "Date"
+                        Set piWidth to 50
+                    End_Object
+
+                    Object oMemberRanks_Notes is a cWebColumn
+                        Set Server to oMemberRanks_DD
+                        Entry_Item MemberRanks.Notes
+                        Set psCaption to "Notes"
+                        Set piWidth to 50
+                    End_Object
+
+                    Procedure OnChangeCurrentRow String sFromRowID String sToRowID
+                        Forward Send OnChangeCurrentRow sFromRowID sToRowID
+                    End_Procedure
+                End_Object
+            End_Object
+
+            Object oWebTabPage5 is a cWebTabPage
+                Set psCaption to "Payments"
+                Set piColumnCount to 12   
+
+                Object oPaymentList is a cWebList
+                    Set Server to oPayments_DD
+                    Set pbFillHeight to True
+                    Object oWebColumn1 is a cWebColumn
+                        Entry_Item Payments.Date
+                        Set psCaption to "Date"
+                        Set piWidth to 50
+                    End_Object
+
+                    Object oPayments_PaymentType is a cWebColumnCombo
+                        Entry_Item Payments.PaymentType
+                        Set psCaption to "PaymentType"
+                        Set piWidth to 50
+                    End_Object
+
+                    Object oPayments_Payment is a cWebColumn
+                        Entry_Item Payments.Payment
+                        Set psCaption to "Payment"
+                        Set piWidth to 50
+                    End_Object
+
+                    Object oPayments_Comment is a cWebColumn
+                        Entry_Item Payments.Comment
+                        Set psCaption to "Comment"
+                        Set piWidth to 50
+                    End_Object
+
+                    Object oRemovePayment is a cWebColumnImage
+                        Set piWidth to 60
+                        Set pbFixedWidth to True
+                        Set pbResizable to False
+                        Set psImageUrl to "Images/Delete.png"
+                        Set pbServerOnClick to True
+                        
+                        Procedure ImageCallback Integer eConfirmMode
+                            If (eConfirmMode = cmYes) Begin //delete
+                                Send Request_Delete of oPayments_DD
+                                Send FindDDRecordInBuffer of oPaymentList
+                            End
+                        End_Procedure
+                        WebPublishProcedure ImageCallback
+                        
+                        Procedure OnClick String sImage String sRowId
+                            Forward Send OnClick sImage sRowId
+                            Send ShowYesNo Self (RefProc(ImageCallback)) "Detele this payment permanentely?" 
+                        End_Procedure
+
+                        Procedure OnDefineTooltip String  ByRef sTooltip
+                            Forward Send OnDefineTooltip (&sTooltip)
+                            Move "Delete this payment" to sTooltip
+                        End_Procedure
+                    End_Object
+
+                    Procedure OnLoad
+                        Forward Send OnLoad
+                        Send Find of oPayments_DD FIRST_RECORD 1
+                    End_Procedure
+
+                End_Object
+            End_Object 
+        End_Object
+
+        Object oWebButton1 is a cWebButton
+            Set piColumnSpan to 3
+            Set psCaption to "Save"
+            Set piColumnIndex to 6
+        
+            Procedure OnClick
+                Handle hoGrid
+                WebGet phoCallbackObj of oMembers to hoGrid
+                Send Request_Save of oMembers_DD
+                Send FindDDRecordInBuffer of hoGrid
+                Send Hide of oMembers
+            End_Procedure
+        End_Object
+
+        Object oWebButton2 is a cWebButton
+            Set piColumnSpan to 3
+            Set psCaption to "Cancel"
+            Set piColumnIndex to 9
+        
+            Procedure OnClick
+                Send Cancel
+            End_Procedure
+        End_Object
+    End_Object 
+
+    Procedure OnShow
+        Forward Send OnShow
+        String sRowId
+        Integer iDojo
+        WebGet psRowId of oMembers to sRowId
+        WebGet piDojo of oMembers to iDojo
+        If (sRowId <> "") Begin 
+            Send FindByRowId of oMembers_DD Members.File_Number (DeserializeRowID(sRowId))
+            WebSet pbEnabled of oMembers_Member to False
+        End
+        Else Begin 
+            Send Clear of oMembers_DD
+            Send Clear of oDojo_DD
+            Move iDojo to Dojo.Dojo 
+            Send Find of oDojo_DD EQ 1
+            WebSet pbEnabled of oMembers_Member to True
+        End
+    End_Procedure
+
+    Procedure Popup Handle hoReturnObject
+        WebSet phoCallbackObj of oMembers to hoReturnObject
+        Forward Send Popup hoReturnObject
+    End_Procedure
+
+    Procedure Show_oMembers_FromXX String sRowId Integer iDojo
+        Send Show 
+    End_Procedure
+
+End_Object 
