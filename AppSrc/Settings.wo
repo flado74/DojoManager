@@ -1,0 +1,125 @@
+// C:\DojoManager\AppSrc\Settings.wo
+// Settings
+//
+
+Use cWebView.pkg
+Use cWebPanel.pkg
+Use cWebTabContainer.pkg
+Use cWebTabPage.pkg
+Use cWebForm.pkg
+
+Use cSettingsDataDictionary.dd
+
+Object oSettings is a cWebView
+    Set piColumnCount to 12
+    Set psCaption to "Settings"
+    Set piWidth to 700
+
+    Object oSettings_DD is a cSettingsDataDictionary
+    End_Object 
+
+    Set Main_DD To oSettings_DD
+    Set Server  To oSettings_DD
+
+
+    Object oWebMainPanel is a cWebPanel
+        Set piColumnCount to 12
+
+        Object oWebTabContainer is a cWebTabContainer
+            Set pbFillHeight to True
+            Set piColumnSpan to 12
+            Set pbShowLabel to False
+
+            Object oPage1 is a cWebTabPage
+                Set piColumnCount to 12
+                Set psCaption to "Fees"
+
+                Object oSettingsMainDojo is a cWebForm
+                    Entry_Item Settings.MainDojo
+                    Set piColumnSpan to 4
+                    Set piColumnIndex to 0
+                    Set psLabel to "Main Dojo:"
+                    Set peLabelAlign to alignLeft
+                End_Object 
+
+                Object oSettingsFullMemberFee is a cWebForm
+                    Entry_Item Settings.FullMemberFee
+                    Set piColumnSpan to 4
+                    Set piColumnIndex to 0
+                    Set psLabel to "Full Member Fee:"
+                    Set peLabelAlign to alignLeft
+                End_Object 
+
+                Object oSettingsAssociateMemberFee is a cWebForm
+                    Entry_Item Settings.AssociateMemberFee
+                    Set piColumnSpan to 4
+                    Set piColumnIndex to 0
+                    Set psLabel to "Associate Member Fee:"
+                    Set peLabelAlign to alignLeft
+                End_Object 
+
+                Object oSettingsKyuRankFee is a cWebForm
+                    Entry_Item Settings.KyuRankFee
+                    Set piColumnSpan to 4
+                    Set piColumnIndex to 0
+                    Set psLabel to "Kyu Rank Fee:"
+                    Set peLabelAlign to alignLeft
+                End_Object 
+
+                Object oSettingsShodanFee is a cWebForm
+                    Entry_Item Settings.ShodanFee
+                    Set piColumnSpan to 4
+                    Set piColumnIndex to 0
+                    Set psLabel to "Shodan Fee:"
+                    Set peLabelAlign to alignLeft
+                End_Object 
+
+                Object oSettingsNidanFee is a cWebForm
+                    Entry_Item Settings.NidanFee
+                    Set piColumnSpan to 4
+                    Set piColumnIndex to 0
+                    Set psLabel to "Nidan Fee:"
+                    Set peLabelAlign to alignLeft
+                End_Object 
+
+                Object oSettingsSandanFee is a cWebForm
+                    Entry_Item Settings.SandanFee
+                    Set piColumnSpan to 4
+                    Set piColumnIndex to 0
+                    Set psLabel to "Sandan Fee:"
+                    Set peLabelAlign to alignLeft
+                End_Object 
+            End_Object 
+
+            Object oPage2 is a cWebTabPage
+                Set piColumnCount to 12
+                Set psCaption to "Auto Increment IDs"
+
+                Object oSettingsMembersID is a cWebForm
+                    Entry_Item Settings.MembersID
+                    Set piColumnSpan to 4
+                    Set piColumnIndex to 0
+                    Set psLabel to "Members ID:"
+                    Set peLabelAlign to alignLeft
+                End_Object 
+
+                Object oSettingsDojoID is a cWebForm
+                    Entry_Item Settings.DojoID
+                    Set piColumnSpan to 4
+                    Set piColumnIndex to 0
+                    Set psLabel to "Dojo ID:"
+                    Set peLabelAlign to alignLeft
+                End_Object 
+
+                Object oSettingsInstructorsID is a cWebForm
+                    Entry_Item Settings.InstructorsID
+                    Set piColumnSpan to 4
+                    Set piColumnIndex to 0
+                    Set psLabel to "Instructors ID:"
+                    Set peLabelAlign to alignLeft
+                End_Object 
+            End_Object 
+        End_Object 
+    End_Object 
+
+End_Object 

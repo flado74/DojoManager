@@ -1,0 +1,11 @@
+2015-12-12 15:40:37,615 - Verifying filelist C:\Program Files (x86)\DataFlex 18.2\Usr\New\Data\Filelist.cfg
+2015-12-12 15:40:37,615 - Opening filelist C:\Program Files (x86)\DataFlex 18.2\Usr\New\Data\Filelist.cfg
+2015-12-12 15:40:37,615 - Start reindexing
+2015-12-12 15:40:37,631 - No path specified for CodeType
+2015-12-12 15:40:37,631 - Added path C:\Program Files (x86)\DataFlex 18.2\Usr\New\Data\ to original file name
+2015-12-12 15:40:37,631 - Opening C:\Program Files (x86)\DataFlex 18.2\Usr\New\Data\CodeType as 253
+2015-12-12 15:40:37,631 - Reindexing CodeType
+2015-12-12 15:40:37,631 - No path specified for CodeMast
+2015-12-12 15:40:37,646 - Added path C:\Program Files (x86)\DataFlex 18.2\Usr\New\Data\ to original file name
+2015-12-12 15:40:37,646 - Opening C:\Program Files (x86)\DataFlex 18.2\Usr\New\Data\CodeMast as 254
+2015-12-12 15:40:37,646 - Reindexing CodeMast

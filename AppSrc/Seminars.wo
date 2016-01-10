@@ -1,0 +1,289 @@
+// C:\DojoManager\AppSrc\Seminars.wo
+// Seminars
+//
+
+Use cWebView.pkg
+Use cWebPanel.pkg
+Use cWebForm.pkg
+Use cWebEdit.pkg
+Use cWebGrid.pkg
+Use cWebColumn.pkg
+
+Use cDojoDataDictionary.dd
+Use cSeminarsDataDictionary.dd
+Use cSeminarAttendeesDataDictionary.dd
+Use cMembersDataDictionary.dd
+Use cWebTabContainer.pkg
+Use cWebTabPage.pkg
+
+Object oSeminars is a cWebView
+    Set piColumnCount to 12
+    Set psCaption to "Seminars"
+    Set pbServerOnShow to True
+    Set pbClearAfterSave to False
+    
+    { WebProperty=True }
+    Property String psRowId
+
+    Object oDojo_DD is a cDojoDataDictionary
+    End_Object 
+
+    Object oSeminars_DD is a cSeminarsDataDictionary
+        Set DDO_Server to oDojo_DD
+        Set Constrain_File to Dojo.File_Number
+        // this lets you save a new parent DD from within child DD
+        Set Allow_Foreign_New_Save_State to False
+    End_Object 
+
+    Object oSeminarAttendees_DD is a cSeminarAttendeesDataDictionary
+        Set DDO_Server to oSeminars_DD
+        Set Constrain_File To Seminars.File_Number
+        Set Allow_Foreign_New_Save_State to False
+    End_Object 
+
+    Set Main_DD To oSeminars_DD
+    Set Server  To oSeminars_DD
+
+    Object oWebMainPanel is a cWebPanel
+        Set piColumnCount to 12
+
+        Object oDojo_Dojo is a cWebForm
+            Entry_Item Dojo.Dojo
+
+            Set Server to oSeminarAttendees_DD
+            Set piColumnSpan to 0
+            Set psLabel to "Dojo:"
+            Set pbRender to False
+        End_Object
+
+        Object oSeminars_Seminar is a cWebForm
+            Entry_Item Seminars.Seminar
+            Set piColumnSpan to 0
+            Set psLabel to "Seminar:"
+            Set pbRender to False
+        End_Object
+
+        Object oSeminarsTopic is a cWebForm
+            Entry_Item Seminars.Topic
+            Set piColumnSpan to 5
+            Set piColumnIndex to 0
+            Set psLabel to "Topic:"
+            Set peLabelAlign to alignLeft
+        End_Object 
+
+        Object oSeminarsTeachers is a cWebForm
+            Entry_Item Seminars.Teachers
+            Set piColumnSpan to 5
+            Set piColumnIndex to 0
+            Set psLabel to "Teachers:"
+            Set peLabelAlign to alignLeft
+        End_Object 
+
+        Object oSeminarsStartDate is a cWebForm
+            Entry_Item Seminars.StartDate
+            Set piColumnSpan to 2
+            Set piColumnIndex to 0
+            Set psLabel to "StartDate:"
+            Set peLabelAlign to alignLeft
+        End_Object 
+
+        Object oSeminarsEndDate is a cWebForm
+            Entry_Item Seminars.EndDate
+            Set piColumnSpan to 2
+            Set piColumnIndex to 3
+            Set psLabel to "EndDate:"
+            Set peLabelAlign to alignLeft
+        End_Object 
+
+        Object oWebTabContainer1 is a cWebTabContainer
+        Object oWebTabPage2 is a cWebTabPage
+            Set psCaption to "Attendees"
+            Set piColumnCount to 12    
+
+            Object oDetailGrid is a cWebGrid
+                Set Server to oSeminarAttendees_DD
+                Set piOrdering to 1
+                Set pbFillHeight to True
+                Set piColumnSpan to 12
+    
+                Object oMembersName is a cWebColumn
+                    Entry_Item SeminarAttendees.Participant
+                    Set psCaption to "Name"
+                    Set piWidth to 217
+                    Set pbPromptButton to True
+                    Set phoPrompt to oMembersWebLookup
+                    Procedure Prompt_Callback Handle hoPrompt
+                        Forward Send Prompt_Callback hoPrompt
+                        WebSet peUpdateMode of hoPrompt to umPromptValue
+                    End_Procedure
+                End_Object 
+    
+                Object oMembersID is a cWebColumn
+                    Entry_Item SeminarAttendees.MemberID
+                    Set psCaption to "MemberID"
+                    Set piWidth to 217
+                    Set pbRender to False
+                End_Object 
+
+                Object oDojoDojo is a cWebColumn
+                    Entry_Item SeminarAttendees.ParticipantDojo
+                    Set psCaption to "Dojo"
+                    Set piWidth to 174
+//                        Set pbPromptButton to True
+//                        Set phoPrompt to oDojoWebLookup
+                End_Object 
+    
+                Object oMembersEmail is a cWebColumn
+                    Entry_Item SeminarAttendees.ParticipantEmail
+                    Set psCaption to "Email"
+                    Set piWidth to 191
+                End_Object 
+    
+                Object oSeminarAttendeesSeminarFee is a cWebColumn
+                    Entry_Item SeminarAttendees.SeminarFee
+                    Set psCaption to "SeminarFee"
+                    Set piWidth to 82
+                    Set pbFixedWidth to True
+                    Set pbResizable to False
+                End_Object 
+    
+                Object oSeminarAttendeesPayed is a cWebColumnCheckbox
+                    Entry_Item SeminarAttendees.Payed
+                    Set psCaption to "Payed"
+                    Set piWidth to 50
+                    Set pbFixedWidth to True
+                    Set pbResizable to False
+                End_Object 
+    
+                Object oRanksRank is a cWebColumn
+                    Entry_Item SeminarAttendees.RankTest
+                    Set psCaption to "RankTest"
+                    Set piWidth to 66
+                    Set pbFixedWidth to True
+                    Set pbResizable to False
+                    Set pbPromptButton to True
+                End_Object 
+    
+                Object oSeminarAttendeesRankFee is a cWebColumn
+                    Entry_Item SeminarAttendees.RankFee
+                    Set psCaption to "RankFee"
+                    Set piWidth to 63
+                    Set pbFixedWidth to True
+                    Set pbResizable to False
+                End_Object 
+    
+                Object oSeminarAttendeesRankPayed is a cWebColumnCheckbox
+                    Entry_Item SeminarAttendees.RankPayed
+                    Set psCaption to "RankPayed"
+                    Set piWidth to 78
+                    Set pbFixedWidth to True
+                    Set pbResizable to False
+                End_Object 
+    
+                Object oTeachersName is a cWebColumn
+                    Entry_Item SeminarAttendees.Examiner
+                    Set psCaption to "Examinator"
+                    Set piWidth to 191
+                    Set pbPromptButton to True
+                    Set phoPrompt to oTeachersWebLookup
+                End_Object 
+    
+                Object oSeminarAttendeesMembershipFee is a cWebColumn
+                    Entry_Item SeminarAttendees.MembershipFee
+                    Set psCaption to "MembershipFee"
+                    Set piWidth to 100
+                    Set pbFixedWidth to True
+                    Set pbResizable to False
+                End_Object 
+    
+                Object oSeminarAttendeesMebershipPayed is a cWebColumnCheckbox
+                    Entry_Item SeminarAttendees.MebershipPayed
+                    Set psCaption to "MebershipPayed"
+                    Set piWidth to 123
+                End_Object 
+
+                Object oRemoveParticipant is a cWebColumnImage
+                    Set piWidth to 57
+                    Set pbFixedWidth to True
+                    Set pbResizable to False
+                    Set psImageUrl to "Images/Delete.png"
+                    Set pbServerOnClick to True
+                    
+                    Procedure ImageCallback Integer eConfirmMode
+                        If (eConfirmMode = cmYes) Begin //delete
+                            Send Request_Delete of oSeminarAttendees_DD
+                            Send FindDDRecordInBuffer of oDetailGrid
+                        End
+                    End_Procedure
+                    WebPublishProcedure ImageCallback
+                    
+                    Procedure OnClick String sImage String sRowId
+                        Forward Send OnClick sImage sRowId
+                        Send ShowYesNo Self (RefProc(ImageCallback)) "Detele this participant and all payments?" 
+                    End_Procedure
+
+                    Procedure OnDefineTooltip String  ByRef sTooltip
+                        Forward Send OnDefineTooltip (&sTooltip)
+                        Move "Delete this participant" to sTooltip
+                    End_Procedure
+                End_Object
+
+                Procedure OnLoad
+                    Forward Send OnLoad
+                    Send Find of oSeminarAttendees_DD FIRST_RECORD 1
+                End_Procedure
+            End_Object 
+        End_Object
+
+            Object oWebTabPage1 is a cWebTabPage
+                Set psCaption to "Information"
+                Set piColumnCount to 12    
+
+                Object oSeminarsNotes is a cWebEdit
+                    Entry_Item Seminars.Notes
+                    Set piColumnSpan to 10
+                    Set piColumnIndex to 0
+                    Set psLabel to "Notes:"
+                    Set pbFillHeight to True
+                    Set peLabelAlign to alignLeft
+                    Set piMinHeight to 200
+                End_Object 
+
+                Object oSeminarsTotalCost is a cWebForm
+                    Entry_Item Seminars.TotalCost
+                    Set piColumnSpan to 3
+                    Set piColumnIndex to 0
+                    Set psLabel to "Total Cost:"
+                    Set peLabelAlign to alignLeft
+                End_Object 
+
+                Object oSeminarsTotAttendanceFee is a cWebForm
+                    Entry_Item Seminars.TotAttendanceFee
+                    Set piColumnSpan to 3
+                    Set psLabel to "Total Fee:"
+                    Set peLabelAlign to alignLeft
+                End_Object 
+
+                Object oSeminarsAttendanceFee is a cWebForm
+                    Entry_Item Seminars.AttendanceFee
+                    Set piColumnSpan to 3
+                    Set psLabel to "Attendance Fee:"
+                    Set peLabelAlign to alignLeft
+                    Set piColumnIndex to 3
+                End_Object 
+            End_Object
+        End_Object
+    End_Object 
+
+    Procedure OnShow
+        String sRowId
+        WebGet psRowId of oSeminars to sRowId
+        Send FindByRowId of oSeminars_DD Seminars.File_Number (DeserializeRowID(sRowId))
+        Forward Send OnShow
+    End_Procedure
+    
+    Procedure Show_oSeminars_FromXX String sRowId
+        WebSet psRowId of oSeminars to sRowId
+        Send Show
+    End_Procedure
+End_Object 

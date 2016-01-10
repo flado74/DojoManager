@@ -1,0 +1,35 @@
+Use DataDict.pkg
+
+Open Payments
+Open Members
+Open Settings
+
+Object PaymentTypes is a DescriptionValidationTable
+    Procedure Fill_List
+        Forward Send Fill_List
+        Send Add_Table_Value "1" "Membership"
+        Send Add_Table_Value "2" "Rank"
+        Send Add_Table_Value "3" "Seminar"
+    End_Procedure
+End_Object
+
+Class cPaymentsDataDictionary is a DataDictionary
+    
+    Procedure Construct_Object
+        Forward Send Construct_Object
+        Set Main_File to Payments.File_Number
+
+        Set Add_System_File to Settings.File_Number DD_Lock_On_All
+
+        Set Foreign_Field_Option DD_KEYFIELD DD_NOPUT to True
+        Set Foreign_Field_Option DD_KEYFIELD DD_FINDREQ to True
+        Set Foreign_Field_Option DD_INDEXFIELD DD_NOPUT to True
+        Set Foreign_Field_Option DD_DEFAULT DD_DISPLAYONLY to True
+
+        Set Field_Auto_Increment Field Payments.PaymentID to File_Field Settings.PaymentID
+
+        Set Field_Value_Table Field Payments.PaymentType to PaymentTypes
+
+    End_Procedure
+
+End_Class

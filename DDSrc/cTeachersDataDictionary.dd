@@ -1,0 +1,43 @@
+Use DataDict.pkg
+
+Open Teachers
+Open MemberRanks
+Open Settings
+Open SeminarAttendees
+
+Object InstructorTypes is a CodeValidationTable
+    Set Type_Value to "INSTRTYPES"
+End_Object
+
+Register_Object oTeachersWebLookup
+
+Class cTeachersDataDictionary is a DataDictionary
+    
+    Procedure Construct_Object
+        Forward Send Construct_Object
+        Set Main_File to Teachers.File_Number
+
+        Set Add_System_File to Settings.File_Number DD_Lock_On_All
+
+        Set Add_Client_File to MemberRanks.File_Number
+
+        Set Foreign_Field_Option DD_KEYFIELD DD_NOPUT to True
+        Set Foreign_Field_Option DD_KEYFIELD DD_FINDREQ to True
+        Set Foreign_Field_Option DD_INDEXFIELD DD_NOPUT to True
+        Set Foreign_Field_Option DD_DEFAULT DD_DISPLAYONLY to True
+
+        Set Field_WebPrompt_Object Field Teachers.Instructor to oTeachersWebLookup
+        Set Field_Auto_Increment Field Teachers.Instructor to File_Field Settings.InstructorsID
+
+        Set Field_WebPrompt_Object Field Teachers.Name to oTeachersWebLookup
+
+        Set Field_Value_Table Field Teachers.Type to InstructorTypes
+
+    End_Procedure
+
+End_Class
+
+#IFDEF Is$WebApp
+Use TeachersWebLookup.wo
+#ELSE
+#ENDIF

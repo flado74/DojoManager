@@ -1,0 +1,13 @@
+#REPLACE FILE9 DojoAlias
+#REPLACE DojoAlias.Recnum |FN9,0
+#REPLACE DojoAlias.Dojo |FN9,1
+#REPLACE DojoAlias.Name |FS9,2
+#REPLACE DojoAlias.Main |FN9,3
+#REPLACE DojoAlias.Description |FS9,4
+#REPLACE DojoAlias.DojoCho |FS9,5
+#REPLACE DojoAlias.Address |FS9,6
+#REPLACE DojoAlias.PAddress |FS9,7
+#REPLACE DojoAlias.City |FS9,8
+#REPLACE DojoAlias.Phone |FS9,9
+#REPLACE DojoAlias.Mobile |FS9,10
+#REPLACE DojoAlias.SeminarID |FN9,11

@@ -1,0 +1,6 @@
+#REPLACE FILE5 Teachers
+#REPLACE Teachers.Recnum |FN5,0
+#REPLACE Teachers.Instructor |FN5,1
+#REPLACE Teachers.Name |FS5,2
+#REPLACE Teachers.Type |FN5,3
+#REPLACE Teachers.Notes |FS5,4

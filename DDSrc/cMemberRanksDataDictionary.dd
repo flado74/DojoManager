@@ -1,0 +1,212 @@
+Use DataDict.pkg
+
+Open MemberRanks
+Open Members
+Open Teachers
+
+Object RankType is a DescriptionValidationTable
+    Procedure Fill_List
+        Forward Send Fill_List
+        Send Add_Table_Value "1" "Jissen Kobudo"
+        Send Add_Table_Value "2" "Jinen Ryu Bikenjutsu"
+        Send Add_Table_Value "3" "Jinen Ryu Nitojutusu"
+        Send Add_Table_Value "4" "Jinen Ryu Tantojutsu"
+        Send Add_Table_Value "5" "Jinen Ryu Juttejutsu"
+        Send Add_Table_Value "6" "Jinen Ryu Kusarifundojutsu"
+    End_Procedure
+End_Object
+
+Object BikenRanks is a DescriptionValidationTable
+    Procedure Fill_List
+        Forward Send Fill_List
+        Send Add_Table_Value "1" "Chi no maki"
+        Send Add_Table_Value "2" "Mizu no maki"
+        Send Add_Table_Value "3" "Hi no maki"
+        Send Add_Table_Value "4" "Fu no maki"
+        Send Add_Table_Value "5" "Ku no maki"
+        Send Add_Table_Value "6" "Menkyo Kaiden"
+    End_Procedure
+End_Object
+
+Object NitoRanks is a DescriptionValidationTable
+    Procedure Fill_List
+        Forward Send Fill_List
+        Send Add_Table_Value "1" "Kiso no maki"
+        Send Add_Table_Value "2" "Ten no maki"
+        Send Add_Table_Value "3" "Chi no maki"
+        Send Add_Table_Value "4" "Menkyo Kaiden"
+    End_Procedure
+End_Object
+
+Object TantoRanks is a DescriptionValidationTable
+    Procedure Fill_List
+        Forward Send Fill_List
+        Send Add_Table_Value "1" "Kiso no maki"
+        Send Add_Table_Value "2" "Kihon gata"
+        Send Add_Table_Value "3" "Sabaki gata"
+        Send Add_Table_Value "4" "Menkyo Kaiden"
+    End_Procedure
+End_Object
+
+Object JutteRanks is a DescriptionValidationTable
+    Procedure Fill_List
+        Forward Send Fill_List
+        Send Add_Table_Value "1" "Kiso no maki"
+        Send Add_Table_Value "2" "Kihon gata"
+        Send Add_Table_Value "3" "Sabaki gata"
+        Send Add_Table_Value "4" "Menkyo Kaiden"
+    End_Procedure
+End_Object
+
+Object KusariRanks is a DescriptionValidationTable
+    Procedure Fill_List
+        Forward Send Fill_List
+        Send Add_Table_Value "1" "Kiso no maki"
+        Send Add_Table_Value "2" "Sabaki gata"
+        Send Add_Table_Value "3" "Menkyo Kaiden"
+    End_Procedure
+End_Object
+
+Object KobudoRanks is a DescriptionValidationTable
+    Procedure Fill_List
+        Forward Send Fill_List
+        Send Add_Table_Value "1" "Rokukyu"
+        Send Add_Table_Value "2" "Gokyu"
+        Send Add_Table_Value "3" "Yonkyu"
+        Send Add_Table_Value "4" "Sankyu"
+        Send Add_Table_Value "5" "Nikyu"
+        Send Add_Table_Value "6" "Ikkyu"
+        Send Add_Table_Value "7" "Shodan"
+        Send Add_Table_Value "8" "Nidan"
+        Send Add_Table_Value "9" "Sandan"
+        Send Add_Table_Value "10" "Yondan"
+        Send Add_Table_Value "11" "Godan"
+        Send Add_Table_Value "12" "Rokudan"
+        Send Add_Table_Value "13" "Shichidan"
+        Send Add_Table_Value "14" "Hachidan"
+        Send Add_Table_Value "15" "Kudan"
+    End_Procedure
+End_Object
+Object BikenRanks is a DescriptionValidationTable
+    Procedure Fill_List
+        Forward Send Fill_List
+        Send Add_Table_Value "1" "Chi no maki"
+        Send Add_Table_Value "2" "Mizu no maki"
+        Send Add_Table_Value "3" "Hi no maki"
+        Send Add_Table_Value "4" "Fu no maki"
+        Send Add_Table_Value "5" "Ku no maki"
+        Send Add_Table_Value "6" "Menkyo Kaiden"
+    End_Procedure
+End_Object
+
+Object NitoRanks is a DescriptionValidationTable
+    Procedure Fill_List
+        Forward Send Fill_List
+        Send Add_Table_Value "1" "Kiso no maki"
+        Send Add_Table_Value "2" "Ten no maki"
+        Send Add_Table_Value "3" "Chi no maki"
+        Send Add_Table_Value "4" "Menkyo Kaiden"
+    End_Procedure
+End_Object
+
+Object TantoRanks is a DescriptionValidationTable
+    Procedure Fill_List
+        Forward Send Fill_List
+        Send Add_Table_Value "1" "Kiso no maki"
+        Send Add_Table_Value "2" "Kihon gata"
+        Send Add_Table_Value "3" "Sabaki gata"
+        Send Add_Table_Value "4" "Menkyo Kaiden"
+    End_Procedure
+End_Object
+
+Object JutteRanks is a DescriptionValidationTable
+    Procedure Fill_List
+        Forward Send Fill_List
+        Send Add_Table_Value "1" "Kiso no maki"
+        Send Add_Table_Value "2" "Kihon gata"
+        Send Add_Table_Value "3" "Sabaki gata"
+        Send Add_Table_Value "4" "Menkyo Kaiden"
+    End_Procedure
+End_Object
+
+Object KusariRanks is a DescriptionValidationTable
+    Procedure Fill_List
+        Forward Send Fill_List
+        Send Add_Table_Value "1" "Kiso no maki"
+        Send Add_Table_Value "2" "Sabaki gata"
+        Send Add_Table_Value "3" "Menkyo Kaiden"
+    End_Procedure
+End_Object
+
+Object KobudoRanks is a DescriptionValidationTable
+    Procedure Fill_List
+        Forward Send Fill_List
+        Send Add_Table_Value "1" "Rokukyu"
+        Send Add_Table_Value "2" "Gokyu"
+        Send Add_Table_Value "3" "Yonkyu"
+        Send Add_Table_Value "4" "Sankyu"
+        Send Add_Table_Value "5" "Nikyu"
+        Send Add_Table_Value "6" "Ikkyu"
+        Send Add_Table_Value "7" "Shodan"
+        Send Add_Table_Value "8" "Nidan"
+        Send Add_Table_Value "9" "Sandan"
+        Send Add_Table_Value "10" "Yondan"
+        Send Add_Table_Value "11" "Godan"
+        Send Add_Table_Value "12" "Rokudan"
+        Send Add_Table_Value "13" "Shichidan"
+        Send Add_Table_Value "14" "Hachidan"
+        Send Add_Table_Value "15" "Kudan"
+    End_Procedure
+End_Object
+
+Class cMemberRanksDataDictionary is a DataDictionary
+    
+    Procedure Construct_Object
+        Forward Send Construct_Object
+        Set Main_File to MemberRanks.File_Number
+        Set Add_Server_File to Teachers.File_Number
+        Set Add_Server_File to Members.File_Number
+
+        Set Foreign_Field_Option DD_KEYFIELD DD_NOPUT to True
+        Set Foreign_Field_Option DD_KEYFIELD DD_FINDREQ to True
+        Set Foreign_Field_Option DD_KEYFIELD DD_AUTOFIND to True
+        Set Foreign_Field_Option DD_INDEXFIELD DD_NOPUT to True
+        Set Foreign_Field_Option DD_INDEXFIELD DD_AUTOFIND_GE to True
+        Set Foreign_Field_Option DD_INDEXFIELD DD_AUTOFIND to True
+        Set Foreign_Field_Option DD_INDEXFIELD DD_FINDREQ to True
+        Set Foreign_Field_Option DD_DEFAULT DD_DISPLAYONLY to True
+
+        Set Field_Value_Table Field MemberRanks.Type to RankType
+
+        Set Field_Entry_msg Field MemberRanks.Rank to EnterMemberRanksRank
+
+    End_Procedure
+
+    Procedure Update
+        Forward Send Update
+    End_Procedure
+
+    Procedure EnterMemberRanksRank Integer iColumn Integer iValue
+        Integer iType
+        Get Field_Current_Value Field MemberRanks.Type to iType
+        If (iType = 1) Begin 
+            Set Field_Value_Table Field MemberRanks.Rank to KobudoRanks
+        End
+       Else  If (iType = 2) Begin 
+            Set Field_Value_Table Field MemberRanks.Rank to BikenRanks
+        End
+       Else  If (iType = 3) Begin 
+            Set Field_Value_Table Field MemberRanks.Rank to NitoRanks
+        End
+       Else  If (iType = 4) Begin 
+            Set Field_Value_Table Field MemberRanks.Rank to TantoRanks
+        End
+       Else  If (iType = 5) Begin 
+            Set Field_Value_Table Field MemberRanks.Rank to JutteRanks
+        End
+       Else  If (iType = 6) Begin 
+            Set Field_Value_Table Field MemberRanks.Rank to KusariRanks
+        End
+    End_Procedure
+
+End_Class

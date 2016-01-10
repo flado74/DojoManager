@@ -1,0 +1,9 @@
+#REPLACE FILE3 Payments
+#REPLACE Payments.Recnum |FN3,0
+#REPLACE Payments.PaymentID |FN3,1
+#REPLACE Payments.Member |FN3,2
+#REPLACE Payments.Date |FD3,3
+#REPLACE Payments.PaymentType |FN3,4
+#REPLACE Payments.Payment |FN3,5
+#REPLACE Payments.Seminar |FN3,6
+#REPLACE Payments.Comment |FS3,7

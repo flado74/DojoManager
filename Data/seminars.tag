@@ -1,0 +1,10 @@
+Seminar
+Dojo
+StartDate
+EndDate
+Topic
+Notes
+TotAttendanceFee
+AttendanceFee
+TotalCost
+Teachers

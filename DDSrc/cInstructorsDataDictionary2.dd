@@ -1,0 +1,42 @@
+Use DataDict.pkg
+
+Open Instructors
+Open Settings
+Open MemberRanks
+
+Object InstructorTypes is a CodeValidationTable
+    Set Type_Value to "INSTRTYPES"
+End_Object
+
+Register_Object oInstructorsWebLookup
+
+Class cInstructorsDataDictionary is a DataDictionary
+    
+    Procedure Construct_Object
+        Forward Send Construct_Object
+        Set Main_File to Instructors.File_Number
+
+        Set Add_Client_File to MemberRanks.File_Number
+
+        Set Add_System_File to Settings.File_Number DD_Lock_On_All
+
+        Set Foreign_Field_Option DD_KEYFIELD DD_NOPUT to True
+        Set Foreign_Field_Option DD_KEYFIELD DD_FINDREQ to True
+        Set Foreign_Field_Option DD_INDEXFIELD DD_NOPUT to True
+        Set Foreign_Field_Option DD_DEFAULT DD_DISPLAYONLY to True
+
+        Set Field_Auto_Increment Field Instructors.Instructor to File_Field Settings.InstructorsID
+        Set Field_WebPrompt_Object Field Instructors.Instructor to oInstructorsWebLookup
+
+        Set Field_WebPrompt_Object Field Instructors.Name to oInstructorsWebLookup
+
+        Set Field_Value_Table Field Instructors.Type to InstructorTypes
+
+    End_Procedure
+
+End_Class
+
+#IFDEF Is$WebApp
+Use InstructorsWebLookup.wo
+#ELSE
+#ENDIF

@@ -1,0 +1,12 @@
+MembersID
+DojoID
+InstructorsID
+PaymentID
+GuestMembersID
+MainDojo
+FullMemberFee
+AssociateMemberFee
+KyuRankFee
+ShodanFee
+NidanFee
+SandanFee

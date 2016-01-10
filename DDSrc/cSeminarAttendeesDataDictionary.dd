@@ -1,0 +1,187 @@
+Use DataDict.pkg
+
+Open SeminarAttendees
+Open Seminars
+Open Members
+Open Teachers
+Open Payments
+
+Register_Function ValidateSeminarAttendeesSeminarFee Integer iColumn Number nValue Returns Boolean
+Register_Function ValidateSeminarAttendeesMembershipFee Integer iColumn Integer iValue Returns Boolean
+Register_Function ValidateSeminarAttendeesParticipant Integer iColumn String sValue Returns Boolean
+
+Class cSeminarAttendeesDataDictionary is a DataDictionary
+    
+    Procedure Construct_Object
+        Forward Send Construct_Object
+        Set Main_File to SeminarAttendees.File_Number
+
+        Set Add_System_File to Payments.File_Number DD_Lock_On_All
+
+        Set Add_Server_File to Seminars.File_Number
+
+        Set Foreign_Field_Option DD_KEYFIELD DD_NOPUT to True
+        Set Foreign_Field_Option DD_KEYFIELD DD_FINDREQ to True
+        Set Foreign_Field_Option DD_INDEXFIELD DD_NOPUT to True
+        Set Foreign_Field_Option DD_DEFAULT DD_DISPLAYONLY to True
+
+        Set Field_Validate_msg Field SeminarAttendees.Participant to get_ValidateSeminarAttendeesParticipant
+
+        Set Field_Validate_msg Field SeminarAttendees.SeminarFee to get_ValidateSeminarAttendeesSeminarFee
+
+        Set Field_Validate_msg Field SeminarAttendees.MembershipFee to get_ValidateSeminarAttendeesMembershipFee
+
+    End_Procedure
+
+    Function ValidateSeminarAttendeesSeminarFee Integer iColumn Number nValue Returns Boolean
+        If (nValue = 0) Begin 
+            Set Field_Changed_Value Field SeminarAttendees.SeminarFee to Seminars.AttendanceFee
+        End
+    End_Function
+
+    Procedure Backout
+        Forward Send Backout
+        Move (Seminars.TotAttendanceFee - SeminarAttendees.SeminarFee) to Seminars.TotAttendanceFee
+        If (OPERATION_MODE = MODE_DELETING) Begin //deleting a participant should also delete payments
+            If (SeminarAttendees.MembPayID) Begin 
+                Clear Payments 
+                Move SeminarAttendees.MembPayID to Payments.PaymentID
+                Find eq Payments by Index.1
+                If (Found) Begin 
+                    Delete Payments 
+                End
+            End
+            If (SeminarAttendees.RankPayID) Begin 
+                Clear Payments 
+                Move SeminarAttendees.RankPayID to Payments.PaymentID
+                Find eq Payments by Index.1
+                If (Found) Begin 
+                    Delete Payments 
+                End
+            End
+            If (SeminarAttendees.SeminarPayID) Begin 
+                Clear Payments 
+                Move SeminarAttendees.SeminarPayID to Payments.PaymentID
+                Find eq Payments by Index.1
+                If (Found) Begin 
+                    Delete Payments 
+                End
+            End
+        End
+    End_Procedure
+
+    Procedure Update
+        Forward Send Update
+        Move Seminars.Dojo to SeminarAttendees.Dojo
+        If (SeminarAttendees.MebershipPayed) Begin //membership is payed at the semianr
+            Lock
+            Clear Payments
+            Move (Settings.PaymentID + 1) to Payments.PaymentID
+            Move SeminarAttendees.MemberID to Payments.Member
+            Move (CurrentDateTime()) to Payments.Date
+            Move 1 to Payments.PaymentType
+            Move SeminarAttendees.MembershipFee to Payments.Payment
+            SaveRecord Payments
+            Unlock
+            Reread Settings
+            Move Payments.PaymentID to Settings.PaymentID 
+            SaveRecord Settings
+            Unlock
+            Move Payments.PaymentID to SeminarAttendees.MembPayID
+        End
+        If (SeminarAttendees.RankPayed) Begin //ranktest is payed at the semianr
+            Lock
+            Clear Payments
+            Move (Settings.PaymentID + 1) to Payments.PaymentID
+            Move SeminarAttendees.MemberID to Payments.Member
+            Move (CurrentDateTime()) to Payments.Date
+            Move 2 to Payments.PaymentType
+            Move SeminarAttendees.RankFee to Payments.Payment
+            SaveRecord Payments
+            Unlock
+            Reread Settings
+            Move Payments.PaymentID to Settings.PaymentID 
+            SaveRecord Settings
+            Unlock
+            Move Payments.PaymentID to SeminarAttendees.RankPayID
+        End
+        If (SeminarAttendees.Payed) Begin //seminar is payed at the semianr
+            Lock
+            Clear Payments
+            Move (Settings.PaymentID + 1) to Payments.PaymentID
+            Move SeminarAttendees.MemberID to Payments.Member
+            Move (CurrentDateTime()) to Payments.Date
+            Move 3 to Payments.PaymentType
+            Move SeminarAttendees.SeminarFee to Payments.Payment
+            SaveRecord Payments
+            Unlock
+            Reread Settings
+            Move Payments.PaymentID to Settings.PaymentID 
+            SaveRecord Settings
+            Unlock
+            Move Payments.PaymentID to SeminarAttendees.SeminarPayID
+        End
+
+        Move (Seminars.TotAttendanceFee + SeminarAttendees.SeminarFee) to Seminars.TotAttendanceFee
+    End_Procedure
+
+    Function ValidateSeminarAttendeesMembershipFee Integer iColumn Integer iValue Returns Boolean
+        Integer iMemberId
+        String sName
+        Boolean bSave
+        Get Field_Current_Value Field SeminarAttendees.Participant to sName
+        Get Field_Current_Value Field SeminarAttendees.MemberID to iMemberId
+        If (iValue = 0) Begin 
+            Clear Members
+            Move sName to Members.Name 
+            Find ge Members by Index.4
+            Repeat
+                If ((Found) and (Members.Name = sName)) Begin 
+                    Set Field_Changed_Value Field SeminarAttendees.MemberID to Members.Member
+                    Set Field_Changed_Value Field SeminarAttendees.ParticipantEmail to (Trim(Members.Email))
+                    Clear Dojo
+                    Move Members.Dojo to Dojo.Dojo
+                    Find eq Dojo by Index.1
+                    Set Field_Changed_Value Field SeminarAttendees.ParticipantDojo to (Trim(Dojo.Name))
+                    Move True to bSave
+                End
+                Find gt Members by Index.4
+            Until (bSave)
+        End
+        
+        Get Field_Current_Value Field SeminarAttendees.MemberID to iMemberId
+        Clear Members
+        Move iMemberId to Members.Member
+        Find eq Members by Index.1
+        If (Found) Begin 
+            If (Members.Type = 1) Begin //full member
+                Set Field_Changed_Value iColumn to Settings.FullMemberFee
+            End
+            Else Begin //associate member
+                Set Field_Changed_Value iColumn to Settings.AssociateMemberFee
+            End
+        End
+    End_Function
+
+    Function ValidateSeminarAttendeesParticipant Integer iColumn String sValue Returns Boolean
+        Boolean bSave
+        If (sValue <> "") Begin //if there is a participant, find him/her in members
+            Clear Members
+            Move sValue to Members.Name 
+            Find ge Members by Index.4
+            Repeat
+                If ((Found) and (Members.Name = sValue)) Begin 
+                    Set Field_Changed_Value Field SeminarAttendees.MemberID to Members.Member
+                    Set Field_Changed_Value Field SeminarAttendees.ParticipantEmail to (Trim(Members.Email))
+                    Clear Dojo
+                    Move Members.Dojo to Dojo.Dojo
+                    Find eq Dojo by Index.1
+                    Set Field_Changed_Value Field SeminarAttendees.ParticipantDojo to (Trim(Dojo.Name))
+                    Move True to bSave
+                End
+                Find gt Members by Index.4
+            Until (bSave)
+        End
+    End_Function
+
+End_Class

@@ -1,0 +1,3261 @@
+Compiling Program: C:\DojoManager\AppSrc\WebApp.src
+Memory Available: 2147483647
+1>Use AllWebAppClasses.pkg
+Using pre-compiled package ALLWEBAPPCLASSES.PKG
+Including file: AllWebAppClasses.pkd    (C:\Program Files (x86)\DataFlex 18.2\Pkg\AllWebAppClasses.pkd)
+28834>Use cWebMenuItemLoadView.pkg
+28834>
+28834>Object oApplication is a cApplication
+28836>End_Object
+28837>
+28837>Object oWebApp is a cWebApp
+28839>    Set psTheme to "Df_Web_Creme"
+28840>    Set psEncryptPassword to "^j>fAj1@qj^jjpyq)zBt/a?|(z*0\b2Zzn:mk2fL"
+28841>
+28841>    Object oCommandbar is a cWebCommandBar                
+28843>        Object oMenuBar is a cWebMenuBar
+28845>            Object oFileMenu is a cWebMenuItem
+28847>                Set psCaption to C_$File
+28848>                
+28848>                Object oClearMenuItem is a cWebMenuClear
+28850>                End_Object  
+28851>                             
+28851>                Object oClearAllMenuItem is a cWebMenuClearAll
+28853>                End_Object  
+28854>                
+28854>                Object oPromptMenuItem is a cWebMenuPrompt
+28856>                    Set pbBeginGroup to True
+28857>                End_Object  
+28858>                               
+28858>                Object oFindMenuItem is a cWebMenuFind
+28860>                End_Object  
+28861>
+28861>                Object oNextMenuItem is a cWebMenuFindNext
+28863>                End_Object  
+28864>
+28864>                Object oPreviousMenuItem is a cWebMenuFindPrevious
+28866>                End_Object  
+28867>                
+28867>                Object oLastMenuItem is a cWebMenuFindLast
+28869>                End_Object                
+28870>                                
+28870>                Object oFirstMenuItem is a cWebMenuFindFirst
+28872>                End_Object  
+28873>                
+28873>                Object oSaveMenuItem is a cWebMenuSave
+28875>                    Set pbBeginGroup to True
+28876>                End_Object  
+28877>                
+28877>                Object oDeleteMenuItem is a cWebMenuDelete
+28879>                End_Object  
+28880>                
+28880>                Object oLoginMenuItem is a cWebMenuItem
+28882>                    Set psCaption to C_$LogIn
+28883>                    Set pbBeginGroup to True
+28884>                    Set psCSSClass to "WebLoginMenuItem"
+28885>
+28885>                    Procedure OnClick
+28888>                        Send RequestLogin to ghoWebSessionManager
+28889>                    End_Procedure
+28890>                    
+28890>                    Procedure OnLoad
+28893>                        Integer eLoginMode
+28893>                        Handle hoLogin
+28893>                        Get GetLoginView to hoLogin
+28894>                        Get peLoginMode to eLoginMode
+28895>                        WebSet pbRender to  (hoLogin and eLoginMode<>lmLoginNone)
+28896>                    End_Procedure  // OnLoad
+28897>                    
+28897>                End_Object  
+28898>
+28898>                Object oLogoutMenuItem is a cWebMenuItem
+28900>                    Set psCaption to C_$LogOut
+28901>                    Set psCSSClass to "WebLogoutMenuItem"
+28902>
+28902>                    Procedure OnClick
+28905>                        Send RequestLogOut of ghoWebSessionManager
+28906>                    End_Procedure
+28907>
+28907>                    Procedure OnLoad
+28910>                        Integer eLoginMode
+28910>                        Handle hoLogin
+28910>                        Get GetLoginView to hoLogin
+28911>                        Get peLoginMode to eLoginMode
+28912>                        WebSet pbRender to  (hoLogin and eLoginMode<>lmLoginNone)
+28913>                    End_Procedure
+28914>                End_Object  
+28915>            End_Object  
+28916>    
+28916>            Object oViewMenu is a cWebMenuItem
+28918>                Set psCaption to C_$View
+28919>
+28919>                Object oDojoEntryItem1 is a cWebMenuItemLoadView
+28921>                    Set psCaption to "Dojo Entry"
+28922>                    Set psLoadViewOnClick to "oDojo"
+28923>                End_Object
+28924>
+28924>                Object oInstructors is a cWebMenuItemLoadView
+28926>                    Set psCaption to "Instructors"
+28927>                    Set psLoadViewOnClick to "oInstructors"
+28928>                End_Object
+28929>
+28929>                Object oMembersItem1 is a cWebMenuItemLoadView
+28931>                    Set psCaption to "Members"
+28932>                    Set psLoadViewOnClick to "oMembers"
+28933>                End_Object
+28934>
+28934>                Object oSeminarsItem1 is a cWebMenuItemLoadView
+28936>                    Set psCaption to "Seminars"
+28937>                    Set psLoadViewOnClick to "oSeminars"
+28938>                End_Object
+28939>
+28939>                Object oSettingsItem1 is a cWebMenuItemLoadView
+28941>                    Set psCaption to "Settings"
+28942>                    Set psLoadViewOnClick to "oSettings"
+28943>                End_Object
+28944>
+28944>            End_Object  
+28945>        End_Object  
+28946>        
+28946>        Object oFindToolBar is a cWebToolBar
+28948>            Object oFirstMenuItem is a cWebMenuFindFirst
+28950>            End_Object  
+28951>    
+28951>            Object oPreviousMenuItem is a cWebMenuFindPrevious
+28953>            End_Object  
+28954>
+28954>            Object oFindMenuItem is a cWebMenuFind
+28956>            End_Object  
+28957>
+28957>            Object oNextMenuItem is a cWebMenuFindNext
+28959>            End_Object  
+28960>            
+28960>            Object oLastMenuItem is a cWebMenuFindLast
+28962>            End_Object
+28963>                           
+28963>            Object oPromptMenuItem is a cWebMenuPrompt
+28965>            End_Object 
+28966>        End_Object
+28967>        
+28967>        Object oFileToolBar is a cWebToolBar
+28969>            Set pbShowCaption to True
+28970>            
+28970>            Object oClearMenuItem is a cWebMenuClear
+28972>            End_Object              
+28973>             
+28973>            Object oClearAllMenuItem is a cWebMenuClearAll
+28975>            End_Object   
+28976>                        
+28976>            Object oSaveMenuItem is a cWebMenuSave
+28978>            End_Object  
+28979>            
+28979>            Object oDeleteMenuItem is a cWebMenuDelete
+28981>            End_Object 
+28982>        End_Object
+28983>    End_Object
+28984>
+28984>    Use SessionManager.wo
+Including file: SessionManager.wo    (C:\DojoManager\AppSrc\SessionManager.wo)
+28984>>>Use cWebSessionManagerStandard.pkg
+Including file: cWebSessionManagerStandard.pkg    (C:\Program Files (x86)\DataFlex 18.2\Pkg\cWebSessionManagerStandard.pkg)
+28984>>>>>Use cWebSessionManager.pkg
+28984>>>>>Use cWebAppSessionDataDictionary.dd
+Including file: cWebAppSessionDataDictionary.dd    (C:\Program Files (x86)\DataFlex 18.2\Pkg\cWebAppSessionDataDictionary.dd)
+28984>>>>>>>Use DataDict.pkg
+28984>>>>>>>
+28984>>>>>>>Open WebAppSession
+Including file: WebAppSession.fd    (C:\DojoManager\DDSrc\WebAppSession.fd)
+28986>>>>>>>Open WebAppUser
+Including file: WebAppUser.fd    (C:\DojoManager\DDSrc\WebAppUser.fd)
+28988>>>>>>>
+28988>>>>>>>Class cWebAppSessionDataDictionary is a DataDictionary
+28989>>>>>>>    
+28989>>>>>>>    Procedure Construct_Object
+28991>>>>>>>        Forward Send Construct_Object
+28993>>>>>>>        Set Main_File to WebAppSession.File_Number
+28994>>>>>>>
+28994>>>>>>>        Set Add_Server_File to WebAppUser.File_Number
+28995>>>>>>>
+28995>>>>>>>        Set ParentNullAllowed WebAppUser.File_Number to True
+28996>>>>>>>
+28996>>>>>>>        Set Foreign_Field_Option DD_KEYFIELD DD_NOPUT to True
+28997>>>>>>>        Set Foreign_Field_Option DD_KEYFIELD DD_FINDREQ to True
+28998>>>>>>>        Set Foreign_Field_Option DD_INDEXFIELD DD_NOPUT to True
+28999>>>>>>>        Set Foreign_Field_Option DD_DEFAULT DD_DISPLAYONLY to True
+29000>>>>>>>
+29000>>>>>>>        Set Field_Option Field WebAppSession.Active DD_RETAIN to True
+29001>>>>>>>        Set Field_Checkbox_Values Field WebAppSession.Active to "Y" "N"
+29002>>>>>>>        Set Field_Error Field WebAppSession.Active to 500 "Invalid WebAppSession Active State"
+29003>>>>>>>
+29003>>>>>>>    End_Procedure
+29004>>>>>>>
+29004>>>>>>>    Procedure Creating
+29006>>>>>>>        DateTime dtCurrentDateTime
+29006>>>>>>>        
+29006>>>>>>>        Forward Send Creating
+29008>>>>>>>        
+29008>>>>>>>        //  Init usecounter
+29008>>>>>>>        Move 0 to WebAppSession.UseCount
+29009>>>>>>>        
+29009>>>>>>>        //  Set the creation and access time to the current time
+29009>>>>>>>        Move (CurrentDateTime()) to dtCurrentDateTime
+29010>>>>>>>    
+29010>>>>>>>        Get TimeToString dtCurrentDateTime to WebAppSession.CreateTime
+29011>>>>>>>        Get TimeToString dtCurrentDateTime to WebAppSession.LastAccessTime
+29012>>>>>>>        
+29012>>>>>>>        Move dtCurrentDateTime to WebAppSession.CreateDate
+29013>>>>>>>        Move dtCurrentDateTime to WebAppSession.LastAccessDate
+29014>>>>>>>    End_Procedure
+29015>>>>>>>    
+29015>>>>>>>    
+29015>>>>>>>    
+29015>>>>>>>    //
+29015>>>>>>>    //  Converts the given time to an string that can be saved in the database.
+29015>>>>>>>    //
+29015>>>>>>>    //  Params:
+29015>>>>>>>    //      dtTime  Time to convert
+29015>>>>>>>    //  Returns:
+29015>>>>>>>    //      String with "HH:MM:SS" format
+29015>>>>>>>    //
+29015>>>>>>>    Function TimeToString DateTime dtTime Returns String
+29017>>>>>>>        String sHours sMinutes sSeconds
+29017>>>>>>>        
+29017>>>>>>>        //  Extract parts
+29017>>>>>>>        Move (String(DateGetHour(dtTime))) to sHours
+29018>>>>>>>        Move (String(DateGetMinute(dtTime))) to sMinutes
+29019>>>>>>>        Move (String(DateGetSecond(dtTime))) to sSeconds
+29020>>>>>>>        
+29020>>>>>>>        //  Fill out with 0
+29020>>>>>>>        If (Length(sHours) = 1) Move ("0" + sHours) to sHours
+29023>>>>>>>        If (Length(sMinutes) = 1) Move ("0" + sMinutes) to sMinutes
+29026>>>>>>>        If (Length(sSeconds) = 1) Move ("0" + sSeconds) to sSeconds
+29029>>>>>>>        
+29029>>>>>>>        Function_Return (sHours + ":" + sMinutes + ":" + sSeconds)
+29030>>>>>>>    End_Function
+29031>>>>>>>    
+29031>>>>>>>    //
+29031>>>>>>>    //  Sets the time of the datetime variable to the time in the string.
+29031>>>>>>>    //
+29031>>>>>>>    //  Params:
+29031>>>>>>>    //      dtTime  Datetime variable to add time to
+29031>>>>>>>    //      sTimeString String with time in the format "HH:MM:SS"
+29031>>>>>>>    //  Returns:
+29031>>>>>>>    //      dtDateTime with the loaded time
+29031>>>>>>>    //
+29031>>>>>>>    Function StringToTime DateTime dtTime String sTimeString Returns DateTime
+29033>>>>>>>        String sHours sMinutes sSeconds
+29033>>>>>>>        
+29033>>>>>>>        //  Extract parts
+29033>>>>>>>        Move (Mid(sTimeString, 2, 1)) to sHours
+29034>>>>>>>        Move (Mid(sTimeString, 2, 4)) to sMinutes
+29035>>>>>>>        Move (Mid(sTimeString, 2, 7)) to sSeconds
+29036>>>>>>>        
+29036>>>>>>>        //  Set to DateTime
+29036>>>>>>>        Move (DateSetHour(dtTime, (Integer(sHours)))) to dtTime
+29037>>>>>>>        Move (DateSetMinute(dtTime, (Integer(sMinutes)))) to dtTime
+29038>>>>>>>        Move (DateSetSecond(dtTime, (Integer(sSeconds)))) to dtTime
+29039>>>>>>>        
+29039>>>>>>>        Function_Return dtTime
+29040>>>>>>>    End_Function
+29041>>>>>>>
+29041>>>>>>>End_Class
+29042>>>>>Use cWebAppUserDataDictionary.dd
+Including file: cWebAppUserDataDictionary.dd    (C:\Program Files (x86)\DataFlex 18.2\Pkg\cWebAppUserDataDictionary.dd)
+29042>>>>>>>Use DataDict.pkg
+29042>>>>>>>Open WebAppUser
+29044>>>>>>>Open WebAppSession
+29046>>>>>>>
+29046>>>>>>>Class cWebAppUserDataDictionary is a DataDictionary
+29047>>>>>>>    
+29047>>>>>>>    Procedure Construct_Object
+29049>>>>>>>        Forward Send Construct_Object
+29051>>>>>>>        Set Main_File to WebAppUser.File_Number
+29052>>>>>>>
+29052>>>>>>>        Set Add_Client_File to WebAppSession.File_Number
+29053>>>>>>>
+29053>>>>>>>        Set Foreign_Field_Option DD_KEYFIELD DD_NOPUT to True
+29054>>>>>>>        Set Foreign_Field_Option DD_KEYFIELD DD_FINDREQ to True
+29055>>>>>>>        Set Foreign_Field_Option DD_INDEXFIELD DD_NOPUT to True
+29056>>>>>>>        Set Foreign_Field_Option DD_DEFAULT DD_DISPLAYONLY to True
+29057>>>>>>>    End_Procedure
+29058>>>>>>>
+29058>>>>>>>End_Class
+29059>>>>>
+29059>>>>>Class cWebSessionManagerStandard is a cWebSessionManager
+29060>>>>>    
+29060>>>>>    Procedure Construct_Object
+29062>>>>>        Handle hoUserDD hoSessionDD
+29062>>>>>        
+29062>>>>>        Forward Send Construct_Object
+29064>>>>>        
+29064>>>>>        Property Handle phoUserDD 0      // Handle to the WebAppUser DDO
+29065>>>>>        Property Handle phoSessionDD 0   // Handle to the WebAppSession DDO        
+29066>>>>>        
+29066>>>>>        Get Create (RefClass(cWebAppUserDataDictionary)) to hoUserDD
+29067>>>>>        Get Create (RefClass(cWebAppSessionDataDictionary)) to hoSessionDD
+29068>>>>>        Set DDO_Server of hoSessionDD to hoUserDD
+29069>>>>>
+29069>>>>>        Set phoUserDD to hoUserDD
+29070>>>>>        Set phoSessionDD to hoSessionDD
+29071>>>>>        Property Boolean pbCreatingNewSession False
+29072>>>>>        Property Integer piSessionTimeout 480        
+29073>>>>>        Property String psLoginName
+29074>>>>>        Property String psUserName ""
+29075>>>>>        Property Integer piUserRights 0
+29076>>>>>    End_Procedure
+29077>>>>>    
+29077>>>>>    Function CreateSession String sRemoteAddress Returns String
+29079>>>>>        String sSessionKey
+29079>>>>>        Integer iErr
+29079>>>>>        Boolean bLogWebSession
+29079>>>>>        Handle hoSessionDD       
+29079>>>>>        Get phoSessionDD to hoSessionDD
+29080>>>>>        
+29080>>>>>        //  Get session key
+29080>>>>>        Forward Get CreateSession sRemoteAddress to sSessionKey
+29082>>>>>        
+29082>>>>>        Get pbLogWebSession to bLogWebSession
+29083>>>>>        If not bLogWebSession Begin
+29085>>>>>            Function_Return sSessionKey        
+29086>>>>>        End
+29086>>>>>>
+29086>>>>>
+29086>>>>>        //  Store session
+29086>>>>>        Send Clear of hoSessionDD
+29087>>>>>        Set Field_Changed_Value of hoSessionDD Field WebAppSession.SessionKey to sSessionKey
+29088>>>>>        Set Field_Changed_Value of hoSessionDD Field WebAppSession.RemoteAddress to sRemoteAddress
+29089>>>>>        Set Field_Changed_Value of hoSessionDD Field WebAppSession.Active to "Y"
+29090>>>>>        Get Request_Validate of hoSessionDD to iErr
+29091>>>>>        If (iErr) Begin
+29093>>>>>            // this should not happen. If it does its a programming error
+29093>>>>>            Error DFERR_PROGRAM C_$WebAppSesionValidateFailed
+29094>>>>>>
+29094>>>>>            Function_Return ""
+29095>>>>>        End
+29095>>>>>>
+29095>>>>>        Send Request_Save of hoSessionDD
+29096>>>>>       
+29096>>>>>        Function_Return sSessionKey        
+29097>>>>>    End_Function
+29098>>>>>    
+29098>>>>>    
+29098>>>>>    Function ValidateSession String sSessionKey Returns Boolean
+29100>>>>>        DateTime dtLastAccess dtCurrent
+29100>>>>>        TimeSpan tsDiff
+29100>>>>>        Integer iErr iSessionTimeout iSpanMinutes
+29100>>>>>        Boolean bResult bCreatingNewSession
+29100>>>>>        Boolean bLogWebSession 
+29100>>>>>        Integer eLoginMode
+29100>>>>>        String sTime
+29100>>>>>        Handle hoSessionDD hoUserDD       
+29100>>>>>        
+29100>>>>>        Get phoSessionDD to hoSessionDD
+29101>>>>>        Get phoUserDD to hoUserDD
+29102>>>>>        
+29102>>>>>        Get pbLogWebSession to bLogWebSession
+29103>>>>>        Get peLoginMode to eLoginMode
+29104>>>>>        
+29104>>>>>        // for this object, you can only disable logging if login completely is disabled
+29104>>>>>        If (not(bLogWebSession) and (eLoginMode<>lmLoginNone)) Begin
+29106>>>>>            Error DFERR_PROGRAM C_$WebSessionLoggingMustBeEnabled
+29107>>>>>>
+29107>>>>>            Function_Return False
+29108>>>>>        End
+29108>>>>>>
+29108>>>>>
+29108>>>>>        //  Clear session properties
+29108>>>>>        Send UpdateSessionProperties True
+29109>>>>>        
+29109>>>>>        If not bLogWebSession Begin
+29111>>>>>            Forward Get ValidateSession sSessionKey to bResult
+29113>>>>>            Function_Return bResult
+29114>>>>>        End        
+29114>>>>>>
+29114>>>>>        
+29114>>>>>        Move False to bResult
+29115>>>>>        Get piSessionTimeout to iSessionTimeout 
+29116>>>>>        
+29116>>>>>        //  Check if session exists
+29116>>>>>        Send Clear of hoSessionDD
+29117>>>>>        Move sSessionKey to WebAppSession.SessionKey
+29118>>>>>        Send Find of hoSessionDD EQ Index.1
+29119>>>>>            
+29119>>>>>        If (Found) Begin
+29121>>>>>            //  Calculate timespan between now and last access time
+29121>>>>>            Move (CurrentDateTime()) to dtCurrent
+29122>>>>>            Move WebAppSession.LastAccessDate to dtLastAccess
+29123>>>>>            Get StringToTime of hoSessionDD dtLastAccess WebAppSession.LastAccessTime to dtLastAccess
+29124>>>>>            Move (dtCurrent - dtLastAccess) to tsDiff
+29125>>>>>            Move (SpanTotalMinutes(tsDiff)) to iSpanMinutes
+29126>>>>>            
+29126>>>>>            //  Check if session didn't time out
+29126>>>>>            If ((iSessionTimeout <= 0 or (iSpanMinutes < iSessionTimeout)) and WebAppSession.Active = "Y") Begin
+29128>>>>>                Forward Get ValidateSession sSessionKey to bResult
+29130>>>>>                   
+29130>>>>>                If (bResult) Begin
+29132>>>>>                    //  Update session record
+29132>>>>>                    Get TimeToString of hoSessionDD dtCurrent to sTime 
+29133>>>>>                    Set Field_Changed_Value of hoSessionDD Field WebAppSession.LastAccessDate to dtCurrent
+29134>>>>>                    Set Field_Changed_Value of hoSessionDD Field WebAppSession.LastAccessTime to sTime
+29135>>>>>                    Set Field_Changed_Value of hoSessionDD Field WebAppSession.UseCount to (WebAppSession.UseCount + 1)
+29136>>>>>                    Get Request_Validate of hoSessionDD to iErr
+29137>>>>>                    If (iErr) Begin
+29139>>>>>                        // this should not happen. If it does its a programming error
+29139>>>>>                        Error DFERR_PROGRAM C_$WebAppSesionValidateFailed
+29140>>>>>>
+29140>>>>>                        Function_Return False
+29141>>>>>                    End
+29141>>>>>>
+29141>>>>>                    Send Request_Save of hoSessionDD
+29142>>>>>                    
+29142>>>>>                    //  Update user properties
+29142>>>>>                    Send UpdateSessionProperties False
+29143>>>>>                End
+29143>>>>>>
+29143>>>>>            End
+29143>>>>>>
+29143>>>>>            Else Begin
+29144>>>>>                // Test the Creating New Session Flag to protect against infinite recursion....
+29144>>>>>                Get pbCreatingNewSession to bCreatingNewSession
+29145>>>>>                
+29145>>>>>                If (not(bCreatingNewSession)) Begin
+29147>>>>>                    Set pbCreatingNewSession to True                    
+29148>>>>>                    Send RecreateSession to ghoWebApp
+29149>>>>>                    Error DFERR_WEBAPP_SESSION_TIMEOUT "Your application session has timed out or is inactive, please login again."
+29150>>>>>>
+29150>>>>>                    Send NavigateRefresh of ghoWebApp          // refresh the WebApp at the client (triggers a login)
+29151>>>>>                    Set pbCreatingNewSession to False
+29152>>>>>                End
+29152>>>>>>
+29152>>>>>            End
+29152>>>>>>
+29152>>>>>        End
+29152>>>>>>
+29152>>>>>        Else Begin
+29153>>>>>            Error DFERR_WEBAPP_BAD_SESSION_KEY "Session key not known (reload page to recreate session)"
+29154>>>>>>
+29154>>>>>        End
+29154>>>>>>
+29154>>>>>        
+29154>>>>>        Function_Return bResult
+29155>>>>>    End_Function
+29156>>>>>    
+29156>>>>>    Function UserLogin String sLoginName String sPassword Returns Boolean
+29158>>>>>        String sSessionKey sUserPassword
+29158>>>>>        Handle hoSessionDD hoUserDD
+29158>>>>>        Boolean bMatch  
+29158>>>>>        
+29158>>>>>        Get phoSessionDD to hoSessionDD
+29159>>>>>        Get phoUserDD to hoUserDD
+29160>>>>>        Integer iErr eLoginMode
+29160>>>>>        
+29160>>>>>        // Refind session record
+29160>>>>>        Get psSessionKey to sSessionKey
+29161>>>>>        Send Clear of hoSessionDD
+29162>>>>>        Move sSessionKey to WebAppSession.SessionKey
+29163>>>>>        Send Find of hoSessionDD EQ Index.1
+29164>>>>>        
+29164>>>>>        If (Found and WebAppSession.SessionKey = sSessionKey) Begin
+29166>>>>>            Get peLoginMode to eLoginMode
+29167>>>>>            
+29167>>>>>            //  Find the user
+29167>>>>>            Move sLoginName to WebAppUser.LoginName
+29168>>>>>            Send Find of hoUserDD EQ Index.1
+29169>>>>>            
+29169>>>>>            // Check username and password
+29169>>>>>            If (Found and (Lowercase(sLoginName) = Lowercase(Trim(WebAppUser.LoginName)))) Begin
+29171>>>>>                Get Field_Current_Value of hoUserDD Field WebAppUser.Password to sUserPassword
+29172>>>>>                Get ComparePasswords (Trim(sUserPassword)) (Trim(sPassword)) to bMatch
+29173>>>>>                
+29173>>>>>                If (bMatch) Begin
+29175>>>>>                    // Store the login
+29175>>>>>                    Set Field_Changed_Value of hoUserDD Field WebAppUser.LastLogin to (CurrentDateTime())
+29176>>>>>                    Get Request_Validate of hoSessionDD to iErr
+29177>>>>>                    If (iErr) Begin
+29179>>>>>                        // this should not happen. If it does its a programming error
+29179>>>>>                        Error DFERR_PROGRAM C_$WebAppSesionValidateFailed
+29180>>>>>>
+29180>>>>>                        Function_Return False
+29181>>>>>                    End
+29181>>>>>>
+29181>>>>>                    
+29181>>>>>                    Send Request_Save of hoSessionDD
+29182>>>>>                    
+29182>>>>>                    // Update session properties
+29182>>>>>                    Send UpdateSessionProperties False
+29183>>>>>                    Send NotifyChangeRights
+29184>>>>>                    Function_Return True
+29185>>>>>                End
+29185>>>>>>
+29185>>>>>                Else Begin
+29186>>>>>                    //  We should rely directly on this buffer elsewhere but just be sure
+29186>>>>>                    Send Clear of hoUserDD
+29187>>>>>                End
+29187>>>>>>
+29187>>>>>            End
+29187>>>>>>
+29187>>>>>        End
+29187>>>>>>
+29187>>>>>          
+29187>>>>>        Function_Return False
+29188>>>>>    End_Function
+29189>>>>>    
+29189>>>>>    Function IsLoggedIn Returns Boolean
+29191>>>>>        String sLoginName
+29191>>>>>        Boolean bLogWebSession bLoggedIn
+29191>>>>>        
+29191>>>>>        Get pbLogWebSession to bLogWebSession
+29192>>>>>        If not bLogWebSession Begin
+29194>>>>>            Forward Get IsLoggedIn to bLoggedIn
+29196>>>>>            Function_Return bLoggedIn
+29197>>>>>        End
+29197>>>>>>
+29197>>>>>        
+29197>>>>>        Get psLoginName to sLoginName
+29198>>>>>        
+29198>>>>>        Function_Return (sLoginName <> "")
+29199>>>>>    End_Function
+29200>>>>>    
+29200>>>>>    
+29200>>>>>    //
+29200>>>>>    // This procedure is called when validating a session and after logging in. Its purpose is to 
+29200>>>>>    // update properties based on the session and user data. Augment this function to update 
+29200>>>>>    // properties based on the session / user table. Note that WebAppUser and WebAppSession contain
+29200>>>>>    // the right records when this procedure is called.
+29200>>>>>    //
+29200>>>>>    // Params:
+29200>>>>>    //      bClear   True if the procedure is called before session validation to clear properties.
+29200>>>>>    //
+29200>>>>>    Procedure UpdateSessionProperties Boolean bClear
+29202>>>>>        Handle hoUserDD
+29202>>>>>        
+29202>>>>>        Get phoUserDD to hoUserDD
+29203>>>>>        
+29203>>>>>        //  Update user properties
+29203>>>>>        If (not(bClear) and HasRecord(hoUserDD)) Begin
+29205>>>>>            Set psUsername to (Trim(WebAppUser.FullName))
+29206>>>>>            Set psLoginName to (Trim(WebAppUser.LoginName))
+29207>>>>>            Set piUserRights to WebAppUser.Rights
+29208>>>>>            
+29208>>>>>            Send OnSessionPropertiesSet 
+29209>>>>>        End
+29209>>>>>>
+29209>>>>>        Else Begin
+29210>>>>>            Set psUsername to ""
+29211>>>>>            Set psLoginName to ""
+29212>>>>>            Set piUserRights to 0
+29213>>>>>            
+29213>>>>>            Send OnSessionPropertiesClear
+29214>>>>>        End
+29214>>>>>>
+29214>>>>>    End_Procedure
+29215>>>>>    
+29215>>>>>    //
+29215>>>>>    // This function is called to perform the password comparison. It gets the entered password and
+29215>>>>>    // the password value of the user table as parameters. The WebAppUser buffer will contain the
+29215>>>>>    // right record. This function can be augmented to implement security features like storing the
+29215>>>>>    // password as a hashed value.
+29215>>>>>    //
+29215>>>>>    // Params:
+29215>>>>>    //      sUserPassword       Value of the WebAppUser.Password field.
+29215>>>>>    //      sEnteredPassword    Value entered on the login screen during login.
+29215>>>>>    //
+29215>>>>>    Function ComparePasswords String sUserPassword String sEnteredPassword Returns Boolean
+29217>>>>>        Function_Return (sUserPassword = sEnteredPassword)
+29218>>>>>    End_Function
+29219>>>>>    
+29219>>>>>    Procedure OnSessionPropertiesSet
+29221>>>>>        //  Empty event stub
+29221>>>>>    End_Procedure
+29222>>>>>    
+29222>>>>>    Procedure OnSessionPropertiesClear
+29224>>>>>        //  Empty event stub
+29224>>>>>    End_Procedure
+29225>>>>>    
+29225>>>>>    Procedure EndSession
+29227>>>>>        Integer iErr
+29227>>>>>        Boolean bLogWebSession
+29227>>>>>        Handle hoSessionDD       
+29227>>>>>        
+29227>>>>>        Get phoSessionDD to hoSessionDD
+29228>>>>>        Get pbLogWebSession to bLogWebSession
+29229>>>>>        If not bLogWebSession Begin
+29231>>>>>            Forward Send EndSession
+29233>>>>>            Procedure_Return
+29234>>>>>        End
+29234>>>>>>
+29234>>>>>            
+29234>>>>>        //  Check if session exists
+29234>>>>>        Send Clear of hoSessionDD
+29235>>>>>        Get psSessionKey to WebAppSession.SessionKey
+29236>>>>>        
+29236>>>>>        Send Find of hoSessionDD EQ Index.1
+29237>>>>>        If (Found) Begin
+29239>>>>>            Set Field_Changed_Value of hoSessionDD Field WebAppSession.Active to "N"
+29240>>>>>            Get Request_Validate of hoSessionDD to iErr
+29241>>>>>            If (iErr) Begin
+29243>>>>>                // this should not happen. If it does its a programming error
+29243>>>>>                Error DFERR_PROGRAM C_$WebAppSesionValidateFailed
+29244>>>>>>
+29244>>>>>                Procedure_Return
+29245>>>>>            End
+29245>>>>>>
+29245>>>>>            Send Request_Save of hoSessionDD
+29246>>>>>        End
+29246>>>>>>
+29246>>>>>    End_Procedure
+29247>>>>>
+29247>>>>>End_Class
+29248>>>>>
+29248>>>
+29248>>>Object oSessionManager is a cWebSessionManagerStandard
+29250>>>End_Object
+29251>>>
+29251>    Use LoginDialog.wo
+Including file: LoginDialog.wo    (C:\DojoManager\AppSrc\LoginDialog.wo)
+29251>>>Use cWebModalDialog.pkg
+29251>>>Use cWebForm.pkg
+29251>>>Use cWebButton.pkg
+29251>>>Use cWebPanel.pkg
+29251>>>Use cWebLabel.pkg
+29251>>>
+29251>>>Object oLoginDialog is a cWebModalDialog
+29253>>>    Set piMinWidth to 370
+29254>>>    Set piMinHeight to 220
+29255>>>    Set psCaption to "Login"
+29256>>>    Set pbShowClose to (peLoginMode(oWebApp) <> lmLoginRequired)
+29257>>>    Set pbLoginModeEnforced to False
+29258>>>    
+29258>>>    Delegate Set phoLoginView to Self
+29260>>>    
+29260>>>    Object oTopPanel is a cWebPanel
+29262>>>        Set peRegion to prTop
+29263>>>        Set piHeight to 55       
+29264>>>        
+29264>>>        Object oDescription is a cWebLabel
+29266>>>            Set psCaption to "Please enter your username and password to login."
+29267>>>            Set peAlign to alignCenter
+29268>>>        End_Object
+29269>>>    End_Object
+29270>>>    
+29270>>>    Object oRightPanel is a cWebPanel
+29272>>>        Set peRegion to prRight
+29273>>>        Set piWidth to 20       
+29274>>>    End_Object
+29275>>>    
+29275>>>    Object oMainPanel is a cWebPanel
+29277>>>        Set peRegion to prCenter
+29278>>>        
+29278>>>        Object oLoginName is a cWebForm
+29280>>>            Set psLabel to "Login Name:"
+29281>>>            Set peLabelPosition to C_WebDefault
+29282>>>            Set peLabelAlign to alignRight
+29283>>>            Set piMaxLength to 20
+29284>>>        End_Object
+29285>>>        
+29285>>>        Object oPassword is a cWebForm
+29287>>>            Set psLabel to "Password:"
+29288>>>            Set pbPassword to True
+29289>>>            Set peLabelAlign to alignRight
+29290>>>            Set piMaxLength to 20
+29291>>>        End_Object   
+29292>>>        
+29292>>>        Object oWarning is a cWebLabel
+29294>>>            Set pbVisible to False
+29295>>>            Set psCaption to "Invalid loginname or password."
+29296>>>            Set psCSSClass to "Warning"
+29297>>>            Set peAlign to alignCenter
+29298>>>        End_Object
+29299>>>    End_Object
+29300>>>    
+29300>>>    Object oButtonPanel is a cWebPanel
+29302>>>        Set peRegion to prBottom
+29303>>>        Set piColumnCount to 3
+29304>>>        Set piMinHeight to 40
+29305>>>
+29305>>>        Object oLoginButton is a cWebButton
+29307>>>            Set pbShowLabel to False
+29308>>>            Set piColumnIndex to 2
+29309>>>            Set psCaption to "Login"
+29310>>>            Set pbServerOnClick to True
+29311>>>                        
+29311>>>            Procedure OnClick
+29314>>>                Send DoLogin
+29315>>>            End_Procedure
+29316>>>            
+29316>>>        End_Object
+29317>>>        
+29317>>>    End_Object
+29318>>>    
+29318>>>    Procedure DoLogin
+29321>>>        String sLoginName sPassword
+29321>>>        Boolean bResult
+29321>>>        Handle hoDefaultView
+29321>>>        
+29321>>>        WebGet psValue of oLoginName to sLoginName
+29322>>>        WebGet psValue of oPassword to sPassword
+29323>>>        
+29323>>>        Get UserLogin of ghoWebSessionManager sLoginName sPassword to bResult
+29324>>>        
+29324>>>        If (bResult) Begin
+29326>>>            Send Hide of oLoginDialog
+29327>>>            Get GetDefaultView to hoDefaultView
+29328>>>            If (hoDefaultView > 0) Begin
+29330>>>                Send Show of hoDefaultView
+29331>>>            End
+29331>>>>
+29331>>>            
+29331>>>            // clear the login values. we don't want to return the login id & password as synchronized properties....
+29331>>>            WebSet psValue of oLoginName to ""
+29332>>>            WebSet psValue of oPassword  to ""
+29333>>>            WebSet pbVisible of oWarning to False
+29334>>>        End
+29334>>>>
+29334>>>        Else Begin
+29335>>>            WebSet pbVisible of oWarning to True
+29336>>>        End
+29336>>>>
+29336>>>    End_Procedure
+29337>>>    
+29337>>>    
+29337>>>    Set pbServerOnSubmit to True
+29338>>>    Procedure OnSubmit
+29341>>>         Send DoLogin
+29342>>>    End_Procedure
+29343>>>End_Object
+29344>    Use WebResourceManager.wo
+Including file: WebResourceManager.wo    (C:\DojoManager\AppSrc\WebResourceManager.wo)
+29344>>>Use cWebResourceManager.pkg
+29344>>>
+29344>>>Object oWebResourceManager is a cWebResourceManager
+29346>>>End_Object
+29347>    Use DojoEntry.wo
+Including file: DojoEntry.wo    (C:\DojoManager\AppSrc\DojoEntry.wo)
+29347>>>// C:\DojoManager\AppSrc\DojoEntry.wo
+29347>>>// Dojo Entry
+29347>>>//
+29347>>>
+29347>>>Use cWebView.pkg
+29347>>>Use cWebPanel.pkg
+29347>>>Use cWebForm.pkg
+29347>>>Use cWebEdit.pkg
+29347>>>Use cWebGrid.pkg
+29347>>>Use cWebColumn.pkg
+29347>>>
+29347>>>Use cDojoDataDictionary.dd
+Including file: cDojoDataDictionary.dd    (C:\DojoManager\DDSrc\cDojoDataDictionary.dd)
+29347>>>>>Use DataDict.pkg
+29347>>>>>
+29347>>>>>Open Dojo
+Including file: Dojo.fd    (C:\DojoManager\DDSrc\Dojo.fd)
+29349>>>>>Open Members
+Including file: Members.fd    (C:\DojoManager\DDSrc\Members.fd)
+29351>>>>>Open Settings
+Including file: Settings.fd    (C:\DojoManager\DDSrc\Settings.fd)
+29353>>>>>Open Seminars
+Including file: Seminars.fd    (C:\DojoManager\DDSrc\Seminars.fd)
+29355>>>>>
+29355>>>>>Register_Object oDojoWebLookup
+29355>>>>>Register_Object oTeachersWebLookup
+29355>>>>>
+29355>>>>>Class cDojoDataDictionary is a DataDictionary
+29356>>>>>    
+29356>>>>>    Procedure Construct_Object
+29358>>>>>        Forward Send Construct_Object
+29360>>>>>        Set Main_File to Dojo.File_Number
+29361>>>>>
+29361>>>>>        Set Add_System_File to Settings.File_Number DD_Lock_On_All
+29362>>>>>
+29362>>>>>        Set Add_Client_File to Members.File_Number
+29363>>>>>        Set Add_Client_File to Seminars.File_Number
+29364>>>>>
+29364>>>>>        Set Foreign_Field_Option DD_KEYFIELD DD_NOPUT to True
+29365>>>>>        Set Foreign_Field_Option DD_KEYFIELD DD_FINDREQ to True
+29366>>>>>        Set Foreign_Field_Option DD_INDEXFIELD DD_NOPUT to True
+29367>>>>>        Set Foreign_Field_Option DD_DEFAULT DD_DISPLAYONLY to True
+29368>>>>>
+29368>>>>>        Set Field_Auto_Increment Field Dojo.Dojo to File_Field Settings.DojoID
+29369>>>>>        Set Field_WebPrompt_Object Field Dojo.Dojo to oDojoWebLookup
+29370>>>>>
+29370>>>>>        Set Field_WebPrompt_Object Field Dojo.Name to oDojoWebLookup
+29371>>>>>
+29371>>>>>        Set Field_WebPrompt_Object Field Dojo.DojoCho to oTeachersWebLookup
+29372>>>>>
+29372>>>>>    End_Procedure
+29373>>>>>
+29373>>>>>    Procedure Update
+29375>>>>>        Forward Send Update
+29377>>>>>        If (Dojo.Main) Begin //main dojo
+29379>>>>>            Reread Settings
+29383>>>>>            Move Dojo.Dojo to Settings.MainDojo
+29384>>>>>            SaveRecord Settings
+29385>>>>>            Unlock
+29386>>>>>>
+29386>>>>>        End
+29386>>>>>>
+29386>>>>>    End_Procedure
+29387>>>>>
+29387>>>>>    Procedure Backout
+29389>>>>>        Forward Send Backout
+29391>>>>>        Reread Settings
+29395>>>>>        Move 0 to Settings.MainDojo 
+29396>>>>>        Saverecord Settings
+29397>>>>>        Unlock
+29398>>>>>>
+29398>>>>>    End_Procedure
+29399>>>>>
+29399>>>>>End_Class
+29400>>>>>
+29400>>>>>Use TeachersWebLookup.wo
+Including file: TeachersWebLookup.wo    (C:\DojoManager\AppSrc\TeachersWebLookup.wo)
+29400>>>>>>>// C:\DojoManager\AppSrc\TeachersWebLookup.wo
+29400>>>>>>>// Teachers Lookup List
+29400>>>>>>>//
+29400>>>>>>>
+29400>>>>>>>Use cWebModalDialog
+29400>>>>>>>Use cWebPanel.pkg
+29400>>>>>>>Use cWebButton.pkg
+29400>>>>>>>Use cWebPromptList.pkg
+29400>>>>>>>Use cWebColumn.pkg
+29400>>>>>>>
+29400>>>>>>>Use cTeachersDataDictionary.dd
+Including file: cTeachersDataDictionary.dd    (C:\DojoManager\DDSrc\cTeachersDataDictionary.dd)
+29400>>>>>>>>>Use DataDict.pkg
+29400>>>>>>>>>
+29400>>>>>>>>>Open Teachers
+Including file: Teachers.fd    (C:\DojoManager\DDSrc\Teachers.fd)
+29402>>>>>>>>>Open MemberRanks
+Including file: MemberRanks.fd    (C:\DojoManager\DDSrc\MemberRanks.fd)
+29404>>>>>>>>>Open Settings
+29406>>>>>>>>>Open SeminarAttendees
+Including file: SeminarAttendees.fd    (C:\DojoManager\DDSrc\SeminarAttendees.fd)
+29408>>>>>>>>>
+29408>>>>>>>>>Object InstructorTypes is a CodeValidationTable
+29410>>>>>>>>>    Set Type_Value to "INSTRTYPES"
+29411>>>>>>>>>End_Object
+29412>>>>>>>>>
+29412>>>>>>>>>Register_Object oTeachersWebLookup
+29412>>>>>>>>>
+29412>>>>>>>>>Class cTeachersDataDictionary is a DataDictionary
+29413>>>>>>>>>    
+29413>>>>>>>>>    Procedure Construct_Object
+29415>>>>>>>>>        Forward Send Construct_Object
+29417>>>>>>>>>        Set Main_File to Teachers.File_Number
+29418>>>>>>>>>
+29418>>>>>>>>>        Set Add_System_File to Settings.File_Number DD_Lock_On_All
+29419>>>>>>>>>
+29419>>>>>>>>>        Set Add_Client_File to MemberRanks.File_Number
+29420>>>>>>>>>
+29420>>>>>>>>>        Set Foreign_Field_Option DD_KEYFIELD DD_NOPUT to True
+29421>>>>>>>>>        Set Foreign_Field_Option DD_KEYFIELD DD_FINDREQ to True
+29422>>>>>>>>>        Set Foreign_Field_Option DD_INDEXFIELD DD_NOPUT to True
+29423>>>>>>>>>        Set Foreign_Field_Option DD_DEFAULT DD_DISPLAYONLY to True
+29424>>>>>>>>>
+29424>>>>>>>>>        Set Field_WebPrompt_Object Field Teachers.Instructor to oTeachersWebLookup
+29425>>>>>>>>>        Set Field_Auto_Increment Field Teachers.Instructor to File_Field Settings.InstructorsID
+29426>>>>>>>>>
+29426>>>>>>>>>        Set Field_WebPrompt_Object Field Teachers.Name to oTeachersWebLookup
+29427>>>>>>>>>
+29427>>>>>>>>>        Set Field_Value_Table Field Teachers.Type to InstructorTypes
+29428>>>>>>>>>
+29428>>>>>>>>>    End_Procedure
+29429>>>>>>>>>
+29429>>>>>>>>>End_Class
+29430>>>>>>>>>
+29430>>>>>>>>>Use TeachersWebLookup.wo
+29430>>>>>>>
+29430>>>>>>>Object oTeachersWebLookup is a cWebModalDialog
+29432>>>>>>>    Set piColumnCount to 12
+29433>>>>>>>    Set psCaption to "Teachers Lookup List"
+29434>>>>>>>    Set piWidth to 700
+29435>>>>>>>    Set piHeight to 400
+29436>>>>>>>
+29436>>>>>>>    Object oTeachers_DD is a cTeachersDataDictionary
+29438>>>>>>>    End_Object 
+29439>>>>>>>
+29439>>>>>>>    Set Main_DD To oTeachers_DD
+29440>>>>>>>    Set Server  To oTeachers_DD
+29441>>>>>>>
+29441>>>>>>>
+29441>>>>>>>    Object oWebMainPanel is a cWebPanel
+29443>>>>>>>        Set piColumnCount to 12
+29444>>>>>>>
+29444>>>>>>>        Object oPromptList is a cWebPromptList
+29446>>>>>>>            Set pbFillHeight to True
+29447>>>>>>>            Set piColumnSpan to 12
+29448>>>>>>>
+29448>>>>>>>            Object oTeachersName is a cWebColumn
+29450>>>>>>>                Entry_Item Teachers.Name
+29451>>>>>>>                Set psCaption to "Name"
+29452>>>>>>>                Set piWidth to 600
+29453>>>>>>>            End_Object 
+29454>>>>>>>
+29454>>>>>>>            Object oTeachersType is a cWebColumn
+29456>>>>>>>                Entry_Item Teachers.Type
+29457>>>>>>>                Set psCaption to "Type"
+29458>>>>>>>                Set piWidth to 50
+29459>>>>>>>            End_Object 
+29460>>>>>>>        End_Object 
+29461>>>>>>>
+29461>>>>>>>        Object oOkButton is a cWebButton
+29463>>>>>>>            Set psCaption to "OK"
+29464>>>>>>>            Set piColumnSpan to 2
+29465>>>>>>>            Set piColumnIndex to 6
+29466>>>>>>>
+29466>>>>>>>            Procedure OnClick
+29469>>>>>>>                Send Ok of oPromptList
+29470>>>>>>>            End_Procedure
+29471>>>>>>>
+29471>>>>>>>        End_Object 
+29472>>>>>>>
+29472>>>>>>>        Object oCancelButton is a cWebButton
+29474>>>>>>>            Set psCaption to "Cancel"
+29475>>>>>>>            Set piColumnSpan to 2
+29476>>>>>>>            Set piColumnIndex to 8
+29477>>>>>>>            Procedure OnClick
+29480>>>>>>>                Send Cancel of oPromptList
+29481>>>>>>>            End_Procedure
+29482>>>>>>>
+29482>>>>>>>        End_Object 
+29483>>>>>>>
+29483>>>>>>>        Object oSearchButton is a cWebButton
+29485>>>>>>>            Set psCaption to "Search..."
+29486>>>>>>>            Set piColumnSpan to 2
+29487>>>>>>>            Set piColumnIndex to 10
+29488>>>>>>>
+29488>>>>>>>            Procedure OnClick
+29491>>>>>>>                Send Search of oPromptList
+29492>>>>>>>            End_Procedure
+29493>>>>>>>
+29493>>>>>>>        End_Object 
+29494>>>>>>>    End_Object 
+29495>>>>>>>
+29495>>>>>>>    Set pbServerOnShow to True
+29496>>>>>>>    Procedure OnShow 
+29499>>>>>>>        Send InitializePromptList of oPromptList
+29500>>>>>>>    End_Procedure 
+29501>>>>>>>
+29501>>>>>>>    Set pbServerOnSubmit to True
+29502>>>>>>>    Procedure OnSubmit 
+29505>>>>>>>        Send Ok of oPromptList
+29506>>>>>>>    End_Procedure 
+29507>>>>>>>
+29507>>>>>>>End_Object 
+29508>>>>>Use DojoWebLookup.wo
+Including file: DojoWebLookup.wo    (C:\DojoManager\AppSrc\DojoWebLookup.wo)
+29508>>>>>>>// C:\DojoManager\AppSrc\DojoWebLookup.wo
+29508>>>>>>>// Dojo Lookup List
+29508>>>>>>>//
+29508>>>>>>>
+29508>>>>>>>Use cWebModalDialog
+29508>>>>>>>Use cWebPanel.pkg
+29508>>>>>>>Use cWebButton.pkg
+29508>>>>>>>Use cWebPromptList.pkg
+29508>>>>>>>Use cWebColumn.pkg
+29508>>>>>>>
+29508>>>>>>>Use cDojoDataDictionary.dd
+29508>>>>>>>
+29508>>>>>>>Object oDojoWebLookup is a cWebModalDialog
+29510>>>>>>>    Set piColumnCount to 12
+29511>>>>>>>    Set psCaption to "Dojo Lookup List"
+29512>>>>>>>    Set piWidth to 700
+29513>>>>>>>    Set piHeight to 400
+29514>>>>>>>
+29514>>>>>>>    Object oDojo_DD is a cDojoDataDictionary
+29516>>>>>>>    End_Object 
+29517>>>>>>>
+29517>>>>>>>    Set Main_DD To oDojo_DD
+29518>>>>>>>    Set Server  To oDojo_DD
+29519>>>>>>>
+29519>>>>>>>
+29519>>>>>>>    Object oWebMainPanel is a cWebPanel
+29521>>>>>>>        Set piColumnCount to 12
+29522>>>>>>>
+29522>>>>>>>        Object oPromptList is a cWebPromptList
+29524>>>>>>>            Set pbFillHeight to True
+29525>>>>>>>            Set piColumnSpan to 12
+29526>>>>>>>
+29526>>>>>>>            Object oDojoName is a cWebColumn
+29528>>>>>>>                Entry_Item Dojo.Name
+29529>>>>>>>                Set psCaption to "Name"
+29530>>>>>>>                Set piWidth to 600
+29531>>>>>>>            End_Object 
+29532>>>>>>>
+29532>>>>>>>            Object oDojoDojoCho is a cWebColumn
+29534>>>>>>>                Entry_Item Dojo.DojoCho
+29535>>>>>>>                Set psCaption to "DojoCho"
+29536>>>>>>>                Set piWidth to 78
+29537>>>>>>>            End_Object 
+29538>>>>>>>        End_Object 
+29539>>>>>>>
+29539>>>>>>>        Object oOkButton is a cWebButton
+29541>>>>>>>            Set psCaption to "OK"
+29542>>>>>>>            Set piColumnSpan to 2
+29543>>>>>>>            Set piColumnIndex to 6
+29544>>>>>>>
+29544>>>>>>>            Procedure OnClick
+29547>>>>>>>                Send Ok of oPromptList
+29548>>>>>>>            End_Procedure
+29549>>>>>>>
+29549>>>>>>>        End_Object 
+29550>>>>>>>
+29550>>>>>>>        Object oCancelButton is a cWebButton
+29552>>>>>>>            Set psCaption to "Cancel"
+29553>>>>>>>            Set piColumnSpan to 2
+29554>>>>>>>            Set piColumnIndex to 8
+29555>>>>>>>            Procedure OnClick
+29558>>>>>>>                Send Cancel of oPromptList
+29559>>>>>>>            End_Procedure
+29560>>>>>>>
+29560>>>>>>>        End_Object 
+29561>>>>>>>
+29561>>>>>>>        Object oSearchButton is a cWebButton
+29563>>>>>>>            Set psCaption to "Search..."
+29564>>>>>>>            Set piColumnSpan to 2
+29565>>>>>>>            Set piColumnIndex to 10
+29566>>>>>>>
+29566>>>>>>>            Procedure OnClick
+29569>>>>>>>                Send Search of oPromptList
+29570>>>>>>>            End_Procedure
+29571>>>>>>>
+29571>>>>>>>        End_Object 
+29572>>>>>>>    End_Object 
+29573>>>>>>>
+29573>>>>>>>    Set pbServerOnShow to True
+29574>>>>>>>    Procedure OnShow 
+29577>>>>>>>        Send InitializePromptList of oPromptList
+29578>>>>>>>    End_Procedure 
+29579>>>>>>>
+29579>>>>>>>    Set pbServerOnSubmit to True
+29580>>>>>>>    Procedure OnSubmit 
+29583>>>>>>>        Send Ok of oPromptList
+29584>>>>>>>    End_Procedure 
+29585>>>>>>>
+29585>>>>>>>End_Object 
+29586>>>Use cMembersDataDictionary.dd
+Including file: cMembersDataDictionary.dd    (C:\DojoManager\DDSrc\cMembersDataDictionary.dd)
+29586>>>>>Use DataDict.pkg
+29586>>>>>
+29586>>>>>Open Members
+29588>>>>>Open Dojo
+29590>>>>>Open MemberRanks
+29592>>>>>Open Settings
+29594>>>>>Open Teachers
+29596>>>>>Open SeminarAttendees
+29598>>>>>Open Payments
+Including file: Payments.fd    (C:\DojoManager\DDSrc\Payments.fd)
+29600>>>>>
+29600>>>>>Object MemberTypes is a CodeValidationTable
+29602>>>>>    Set Type_Value to "MEMBTYPES"
+29603>>>>>End_Object
+29604>>>>>
+29604>>>>>Object JinenkanMemberTypes is a CodeValidationTable
+29606>>>>>    Set Type_Value to "JMEMBTYPES"
+29607>>>>>End_Object
+29608>>>>>
+29608>>>>>Object PaymentMonth is a DescriptionValidationTable
+29610>>>>>    Procedure Fill_List
+29613>>>>>        Forward Send Fill_List
+29615>>>>>        Send Add_Table_Value "0" "Guest"
+29616>>>>>        Send Add_Table_Value "1" "January"
+29617>>>>>        Send Add_Table_Value "2" "February"
+29618>>>>>        Send Add_Table_Value "3" "March"
+29619>>>>>        Send Add_Table_Value "4" "April"
+29620>>>>>        Send Add_Table_Value "5" "May"
+29621>>>>>        Send Add_Table_Value "6" "June"
+29622>>>>>        Send Add_Table_Value "7" "July"
+29623>>>>>        Send Add_Table_Value "8" "August"
+29624>>>>>        Send Add_Table_Value "9" "September"
+29625>>>>>        Send Add_Table_Value "10" "October"
+29626>>>>>        Send Add_Table_Value "11" "November"
+29627>>>>>        Send Add_Table_Value "12" "December"
+29628>>>>>    End_Procedure
+29629>>>>>End_Object
+29630>>>>>
+29630>>>>>Object BikenRanks is a DescriptionValidationTable
+29632>>>>>    Procedure Fill_List
+29635>>>>>        Forward Send Fill_List
+29637>>>>>        Send Add_Table_Value "0" "No rank"
+29638>>>>>        Send Add_Table_Value "1" "Chi no maki"
+29639>>>>>        Send Add_Table_Value "2" "Mizu no maki"
+29640>>>>>        Send Add_Table_Value "3" "Hi no maki"
+29641>>>>>        Send Add_Table_Value "4" "Fu no maki"
+29642>>>>>        Send Add_Table_Value "5" "Ku no maki"
+29643>>>>>        Send Add_Table_Value "6" "Menkyo Kaiden"
+29644>>>>>    End_Procedure
+29645>>>>>End_Object
+29646>>>>>
+29646>>>>>Object NitoRanks is a DescriptionValidationTable
+29648>>>>>    Procedure Fill_List
+29651>>>>>        Forward Send Fill_List
+29653>>>>>        Send Add_Table_Value "0" "No rank"
+29654>>>>>        Send Add_Table_Value "1" "Kiso no maki"
+29655>>>>>        Send Add_Table_Value "2" "Ten no maki"
+29656>>>>>        Send Add_Table_Value "3" "Chi no maki"
+29657>>>>>        Send Add_Table_Value "4" "Menkyo Kaiden"
+29658>>>>>    End_Procedure
+29659>>>>>End_Object
+29660>>>>>
+29660>>>>>Object TantoRanks is a DescriptionValidationTable
+29662>>>>>    Procedure Fill_List
+29665>>>>>        Forward Send Fill_List
+29667>>>>>        Send Add_Table_Value "0" "No rank"
+29668>>>>>        Send Add_Table_Value "1" "Kiso no maki"
+29669>>>>>        Send Add_Table_Value "2" "Kihon gata"
+29670>>>>>        Send Add_Table_Value "3" "Sabaki gata"
+29671>>>>>        Send Add_Table_Value "4" "Menkyo Kaiden"
+29672>>>>>    End_Procedure
+29673>>>>>End_Object
+29674>>>>>
+29674>>>>>Object JutteRanks is a DescriptionValidationTable
+29676>>>>>    Procedure Fill_List
+29679>>>>>        Forward Send Fill_List
+29681>>>>>        Send Add_Table_Value "0" "No rank"
+29682>>>>>        Send Add_Table_Value "1" "Kiso no maki"
+29683>>>>>        Send Add_Table_Value "2" "Kihon gata"
+29684>>>>>        Send Add_Table_Value "3" "Sabaki gata"
+29685>>>>>        Send Add_Table_Value "4" "Menkyo Kaiden"
+29686>>>>>    End_Procedure
+29687>>>>>End_Object
+29688>>>>>
+29688>>>>>Object KusariRanks is a DescriptionValidationTable
+29690>>>>>    Procedure Fill_List
+29693>>>>>        Forward Send Fill_List
+29695>>>>>        Send Add_Table_Value "0" "No rank"
+29696>>>>>        Send Add_Table_Value "1" "Kiso no maki"
+29697>>>>>        Send Add_Table_Value "2" "Sabaki gata"
+29698>>>>>        Send Add_Table_Value "3" "Menkyo Kaiden"
+29699>>>>>    End_Procedure
+29700>>>>>End_Object
+29701>>>>>
+29701>>>>>Object KobudoRanks is a DescriptionValidationTable
+29703>>>>>    Procedure Fill_List
+29706>>>>>        Forward Send Fill_List
+29708>>>>>        Send Add_Table_Value "0" "Mukyu"
+29709>>>>>        Send Add_Table_Value "1" "Rokukyu"
+29710>>>>>        Send Add_Table_Value "2" "Gokyu"
+29711>>>>>        Send Add_Table_Value "3" "Yonkyu"
+29712>>>>>        Send Add_Table_Value "4" "Sankyu"
+29713>>>>>        Send Add_Table_Value "5" "Nikyu"
+29714>>>>>        Send Add_Table_Value "6" "Ikkyu"
+29715>>>>>        Send Add_Table_Value "7" "Shodan"
+29716>>>>>        Send Add_Table_Value "8" "Nidan"
+29717>>>>>        Send Add_Table_Value "9" "Sandan"
+29718>>>>>        Send Add_Table_Value "10" "Yondan"
+29719>>>>>        Send Add_Table_Value "11" "Godan"
+29720>>>>>        Send Add_Table_Value "12" "Rokudan"
+29721>>>>>        Send Add_Table_Value "13" "Shichidan"
+29722>>>>>        Send Add_Table_Value "14" "Hachidan"
+29723>>>>>        Send Add_Table_Value "15" "Kudan"
+29724>>>>>    End_Procedure
+29725>>>>>End_Object
+29726>>>>>
+29726>>>>>Register_Object oMembersWebLookup
+29726>>>>>
+29726>>>>>Register_Function ValidateMembersEmail Integer iColumn String sValue Returns Boolean
+29726>>>>>
+29726>>>>>Register_Object oRanksWebLookup
+29726>>>>>
+29726>>>>>Class cMembersDataDictionary is a DataDictionary
+29727>>>>>    
+29727>>>>>    Procedure Construct_Object
+29729>>>>>        Forward Send Construct_Object
+29731>>>>>        Set Main_File to Members.File_Number
+29732>>>>>
+29732>>>>>        Set Add_System_File to Settings.File_Number DD_Lock_On_All
+29733>>>>>
+29733>>>>>        Set Add_Client_File to MemberRanks.File_Number
+29734>>>>>
+29734>>>>>        Set Add_Server_File to Dojo.File_Number
+29735>>>>>
+29735>>>>>        Set Foreign_Field_Option DD_KEYFIELD DD_NOPUT to True
+29736>>>>>        Set Foreign_Field_Option DD_KEYFIELD DD_FINDREQ to True
+29737>>>>>        Set Foreign_Field_Option DD_INDEXFIELD DD_NOPUT to True
+29738>>>>>        Set Foreign_Field_Option DD_DEFAULT DD_DISPLAYONLY to True
+29739>>>>>        Set Field_WebPrompt_Object Field Members.Member to oMembersWebLookup
+29740>>>>>
+29740>>>>>        Set Field_WebPrompt_Object Field Members.Dojo to oMembersWebLookup
+29741>>>>>        Set Field_Option Field Members.Dojo DD_REQUIRED to True
+29742>>>>>
+29742>>>>>        Set Field_WebPrompt_Object Field Members.Name to oMembersWebLookup
+29743>>>>>        Set Field_Option Field Members.Name DD_REQUIRED to True
+29744>>>>>
+29744>>>>>        Set Field_Value_Table Field Members.MemberType to JinenkanMemberTypes
+29745>>>>>        Set Field_Value_Table Field Members.PaymentDue to PaymentMonth
+29746>>>>>
+29746>>>>>        Set Field_Value_Table Field Members.Type to MemberTypes
+29747>>>>>        Set Field_Option Field Members.Type DD_REQUIRED to True
+29748>>>>>
+29748>>>>>        Set Field_WebPrompt_Object Field Members.Rank to oRanksWebLookup
+29749>>>>>        Set Field_Value_Table Field Members.Rank to KobudoRanks
+29750>>>>>
+29750>>>>>        Set Field_Value_Table Field Members.BikenRank to BikenRanks
+29751>>>>>
+29751>>>>>        Set Field_WebPrompt_Object Field Members.NitoRank to oRanksWebLookup
+29752>>>>>        Set Field_Value_Table Field Members.NitoRank to NitoRanks
+29753>>>>>
+29753>>>>>        Set Field_WebPrompt_Object Field Members.TantoRank to oRanksWebLookup
+29754>>>>>        Set Field_Value_Table Field Members.TantoRank to TantoRanks
+29755>>>>>
+29755>>>>>        Set Field_WebPrompt_Object Field Members.JutteRank to oRanksWebLookup
+29756>>>>>        Set Field_Value_Table Field Members.JutteRank to JutteRanks
+29757>>>>>
+29757>>>>>        Set Field_WebPrompt_Object Field Members.KusariRank to oRanksWebLookup
+29758>>>>>        Set Field_Value_Table Field Members.KusariRank to KusariRanks
+29759>>>>>
+29759>>>>>        Set Field_Option Field Members.Email DD_REQUIRED to True
+29760>>>>>        Set Field_Validate_msg Field Members.Email to get_ValidateMembersEmail
+29761>>>>>
+29761>>>>>    End_Procedure
+29762>>>>>
+29762>>>>>    Function ValidateMembersEmail Integer iColumn String sValue Returns Boolean
+29764>>>>>        If (not(sValue contains ".") or (not(sValue contains "@"))) Begin 
+29766>>>>>            Send UserError  "This is not a valid e-mail address!"
+29767>>>>>            Function_Return True
+29768>>>>>        End
+29768>>>>>>
+29768>>>>>    End_Function
+29769>>>>>
+29769>>>>>    Procedure Update
+29771>>>>>        Forward Send Update
+29773>>>>>        If (Members.Member = 0) Begin //no member no set
+29775>>>>>            If (Members.Type = 0) Begin //guest member
+29777>>>>>                Move (Settings.GuestMembersID + 1) to Members.Member
+29778>>>>>                Reread Settings
+29782>>>>>                Move Members.Member to Settings.GuestMembersID
+29783>>>>>                Saverecord Settings
+29784>>>>>                Unlock
+29785>>>>>>
+29785>>>>>            End
+29785>>>>>>
+29785>>>>>        End
+29785>>>>>>
+29785>>>>>    End_Procedure
+29786>>>>>
+29786>>>>>End_Class
+29787>>>>>
+29787>>>>>Use MembersWebLookup.wo
+Including file: MembersWebLookup.wo    (C:\DojoManager\AppSrc\MembersWebLookup.wo)
+29787>>>>>>>// C:\DojoManager\AppSrc\MembersWebLookup.wo
+29787>>>>>>>// Members Lookup List
+29787>>>>>>>//
+29787>>>>>>>
+29787>>>>>>>Use cWebModalDialog
+29787>>>>>>>Use cWebPanel.pkg
+29787>>>>>>>Use cWebButton.pkg
+29787>>>>>>>Use cWebPromptList.pkg
+29787>>>>>>>Use cWebColumn.pkg
+29787>>>>>>>
+29787>>>>>>>Use cDojoDataDictionary.dd
+29787>>>>>>>Use cMembersDataDictionary.dd
+29787>>>>>>>
+29787>>>>>>>Object oMembersWebLookup is a cWebModalDialog
+29789>>>>>>>    Set piColumnCount to 12
+29790>>>>>>>    Set psCaption to "Members Lookup List"
+29791>>>>>>>    Set piWidth to 700
+29792>>>>>>>    Set piHeight to 400
+29793>>>>>>>
+29793>>>>>>>    Object oDojo_DD is a cDojoDataDictionary
+29795>>>>>>>    End_Object 
+29796>>>>>>>
+29796>>>>>>>    Object oMembers_DD is a cMembersDataDictionary
+29798>>>>>>>        Set DDO_Server To oDojo_DD
+29799>>>>>>>    End_Object 
+29800>>>>>>>
+29800>>>>>>>    Set Main_DD To oMembers_DD
+29801>>>>>>>    Set Server  To oMembers_DD
+29802>>>>>>>
+29802>>>>>>>
+29802>>>>>>>    Object oWebMainPanel is a cWebPanel
+29804>>>>>>>        Set piColumnCount to 12
+29805>>>>>>>
+29805>>>>>>>        Object oPromptList is a cWebPromptList
+29807>>>>>>>            Set pbFillHeight to True
+29808>>>>>>>            Set piColumnSpan to 12
+29809>>>>>>>
+29809>>>>>>>            Object oMembersName is a cWebColumn
+29811>>>>>>>                Entry_Item Members.Name
+29812>>>>>>>                Set psCaption to "Name"
+29813>>>>>>>                Set piWidth to 600
+29814>>>>>>>            End_Object 
+29815>>>>>>>
+29815>>>>>>>            Object oDojoDojo is a cWebColumn
+29817>>>>>>>                Entry_Item Dojo.Dojo
+29818>>>>>>>                Set psCaption to "Dojo"
+29819>>>>>>>                Set piWidth to 144
+29820>>>>>>>            End_Object 
+29821>>>>>>>        End_Object 
+29822>>>>>>>
+29822>>>>>>>        Object oOkButton is a cWebButton
+29824>>>>>>>            Set psCaption to "OK"
+29825>>>>>>>            Set piColumnSpan to 2
+29826>>>>>>>            Set piColumnIndex to 6
+29827>>>>>>>
+29827>>>>>>>            Procedure OnClick
+29830>>>>>>>                Send Ok of oPromptList
+29831>>>>>>>            End_Procedure
+29832>>>>>>>
+29832>>>>>>>        End_Object 
+29833>>>>>>>
+29833>>>>>>>        Object oCancelButton is a cWebButton
+29835>>>>>>>            Set psCaption to "Cancel"
+29836>>>>>>>            Set piColumnSpan to 2
+29837>>>>>>>            Set piColumnIndex to 8
+29838>>>>>>>            Procedure OnClick
+29841>>>>>>>                Send Cancel of oPromptList
+29842>>>>>>>            End_Procedure
+29843>>>>>>>
+29843>>>>>>>        End_Object 
+29844>>>>>>>
+29844>>>>>>>        Object oSearchButton is a cWebButton
+29846>>>>>>>            Set psCaption to "Search..."
+29847>>>>>>>            Set piColumnSpan to 2
+29848>>>>>>>            Set piColumnIndex to 10
+29849>>>>>>>
+29849>>>>>>>            Procedure OnClick
+29852>>>>>>>                Send Search of oPromptList
+29853>>>>>>>            End_Procedure
+29854>>>>>>>
+29854>>>>>>>        End_Object 
+29855>>>>>>>    End_Object 
+29856>>>>>>>
+29856>>>>>>>    Set pbServerOnShow to True
+29857>>>>>>>    Procedure OnShow 
+29860>>>>>>>        Send InitializePromptList of oPromptList
+29861>>>>>>>    End_Procedure 
+29862>>>>>>>
+29862>>>>>>>    Set pbServerOnSubmit to True
+29863>>>>>>>    Procedure OnSubmit 
+29866>>>>>>>        Send Ok of oPromptList
+29867>>>>>>>    End_Procedure 
+29868>>>>>>>
+29868>>>>>>>End_Object 
+29869>>>Use cTeachersDataDictionary.dd
+29869>>>Use cSeminarsDataDictionary.dd
+Including file: cSeminarsDataDictionary.dd    (C:\DojoManager\DDSrc\cSeminarsDataDictionary.dd)
+29869>>>>>Use DataDict.pkg
+29869>>>>>
+29869>>>>>Open Seminars
+29871>>>>>Open Dojo
+29873>>>>>Open Settings
+29875>>>>>Open SeminarAttendees
+29877>>>>>
+29877>>>>>Class cSeminarsDataDictionary is a DataDictionary
+29878>>>>>    
+29878>>>>>    Procedure Construct_Object
+29880>>>>>        Forward Send Construct_Object
+29882>>>>>        Set Main_File to Seminars.File_Number
+29883>>>>>
+29883>>>>>        Set Add_Client_File to SeminarAttendees.File_Number
+29884>>>>>
+29884>>>>>        Set Add_System_File to Settings.File_Number DD_Lock_On_All
+29885>>>>>
+29885>>>>>        Set Add_Server_File to Dojo.File_Number
+29886>>>>>
+29886>>>>>        Set Foreign_Field_Option DD_KEYFIELD DD_NOPUT to True
+29887>>>>>        Set Foreign_Field_Option DD_KEYFIELD DD_FINDREQ to True
+29888>>>>>        Set Foreign_Field_Option DD_INDEXFIELD DD_NOPUT to True
+29889>>>>>        Set Foreign_Field_Option DD_DEFAULT DD_DISPLAYONLY to True
+29890>>>>>
+29890>>>>>        Set Field_Auto_Increment Field Seminars.Seminar to File_Field Dojo.SeminarID
+29891>>>>>
+29891>>>>>    End_Procedure
+29892>>>>>
+29892>>>>>End_Class
+29893>>>Use cMemberRanksDataDictionary.dd
+Including file: cMemberRanksDataDictionary.dd    (C:\DojoManager\DDSrc\cMemberRanksDataDictionary.dd)
+29893>>>>>Use DataDict.pkg
+29893>>>>>
+29893>>>>>Open MemberRanks
+29895>>>>>Open Members
+29897>>>>>Open Teachers
+29899>>>>>
+29899>>>>>Object RankType is a DescriptionValidationTable
+29901>>>>>    Procedure Fill_List
+29904>>>>>        Forward Send Fill_List
+29906>>>>>        Send Add_Table_Value "1" "Jissen Kobudo"
+29907>>>>>        Send Add_Table_Value "2" "Jinen Ryu Bikenjutsu"
+29908>>>>>        Send Add_Table_Value "3" "Jinen Ryu Nitojutusu"
+29909>>>>>        Send Add_Table_Value "4" "Jinen Ryu Tantojutsu"
+29910>>>>>        Send Add_Table_Value "5" "Jinen Ryu Juttejutsu"
+29911>>>>>        Send Add_Table_Value "6" "Jinen Ryu Kusarifundojutsu"
+29912>>>>>    End_Procedure
+29913>>>>>End_Object
+29914>>>>>
+29914>>>>>Object BikenRanks is a DescriptionValidationTable
+29916>>>>>    Procedure Fill_List
+29919>>>>>        Forward Send Fill_List
+29921>>>>>        Send Add_Table_Value "1" "Chi no maki"
+29922>>>>>        Send Add_Table_Value "2" "Mizu no maki"
+29923>>>>>        Send Add_Table_Value "3" "Hi no maki"
+29924>>>>>        Send Add_Table_Value "4" "Fu no maki"
+29925>>>>>        Send Add_Table_Value "5" "Ku no maki"
+29926>>>>>        Send Add_Table_Value "6" "Menkyo Kaiden"
+29927>>>>>    End_Procedure
+29928>>>>>End_Object
+29929>>>>>
+29929>>>>>Object NitoRanks is a DescriptionValidationTable
+29931>>>>>    Procedure Fill_List
+29934>>>>>        Forward Send Fill_List
+29936>>>>>        Send Add_Table_Value "1" "Kiso no maki"
+29937>>>>>        Send Add_Table_Value "2" "Ten no maki"
+29938>>>>>        Send Add_Table_Value "3" "Chi no maki"
+29939>>>>>        Send Add_Table_Value "4" "Menkyo Kaiden"
+29940>>>>>    End_Procedure
+29941>>>>>End_Object
+29942>>>>>
+29942>>>>>Object TantoRanks is a DescriptionValidationTable
+29944>>>>>    Procedure Fill_List
+29947>>>>>        Forward Send Fill_List
+29949>>>>>        Send Add_Table_Value "1" "Kiso no maki"
+29950>>>>>        Send Add_Table_Value "2" "Kihon gata"
+29951>>>>>        Send Add_Table_Value "3" "Sabaki gata"
+29952>>>>>        Send Add_Table_Value "4" "Menkyo Kaiden"
+29953>>>>>    End_Procedure
+29954>>>>>End_Object
+29955>>>>>
+29955>>>>>Object JutteRanks is a DescriptionValidationTable
+29957>>>>>    Procedure Fill_List
+29960>>>>>        Forward Send Fill_List
+29962>>>>>        Send Add_Table_Value "1" "Kiso no maki"
+29963>>>>>        Send Add_Table_Value "2" "Kihon gata"
+29964>>>>>        Send Add_Table_Value "3" "Sabaki gata"
+29965>>>>>        Send Add_Table_Value "4" "Menkyo Kaiden"
+29966>>>>>    End_Procedure
+29967>>>>>End_Object
+29968>>>>>
+29968>>>>>Object KusariRanks is a DescriptionValidationTable
+29970>>>>>    Procedure Fill_List
+29973>>>>>        Forward Send Fill_List
+29975>>>>>        Send Add_Table_Value "1" "Kiso no maki"
+29976>>>>>        Send Add_Table_Value "2" "Sabaki gata"
+29977>>>>>        Send Add_Table_Value "3" "Menkyo Kaiden"
+29978>>>>>    End_Procedure
+29979>>>>>End_Object
+29980>>>>>
+29980>>>>>Object KobudoRanks is a DescriptionValidationTable
+29982>>>>>    Procedure Fill_List
+29985>>>>>        Forward Send Fill_List
+29987>>>>>        Send Add_Table_Value "1" "Rokukyu"
+29988>>>>>        Send Add_Table_Value "2" "Gokyu"
+29989>>>>>        Send Add_Table_Value "3" "Yonkyu"
+29990>>>>>        Send Add_Table_Value "4" "Sankyu"
+29991>>>>>        Send Add_Table_Value "5" "Nikyu"
+29992>>>>>        Send Add_Table_Value "6" "Ikkyu"
+29993>>>>>        Send Add_Table_Value "7" "Shodan"
+29994>>>>>        Send Add_Table_Value "8" "Nidan"
+29995>>>>>        Send Add_Table_Value "9" "Sandan"
+29996>>>>>        Send Add_Table_Value "10" "Yondan"
+29997>>>>>        Send Add_Table_Value "11" "Godan"
+29998>>>>>        Send Add_Table_Value "12" "Rokudan"
+29999>>>>>        Send Add_Table_Value "13" "Shichidan"
+30000>>>>>        Send Add_Table_Value "14" "Hachidan"
+30001>>>>>        Send Add_Table_Value "15" "Kudan"
+30002>>>>>    End_Procedure
+30003>>>>>End_Object
+30004>>>>>Object BikenRanks is a DescriptionValidationTable
+30006>>>>>    Procedure Fill_List
+30009>>>>>        Forward Send Fill_List
+30011>>>>>        Send Add_Table_Value "1" "Chi no maki"
+30012>>>>>        Send Add_Table_Value "2" "Mizu no maki"
+30013>>>>>        Send Add_Table_Value "3" "Hi no maki"
+30014>>>>>        Send Add_Table_Value "4" "Fu no maki"
+30015>>>>>        Send Add_Table_Value "5" "Ku no maki"
+30016>>>>>        Send Add_Table_Value "6" "Menkyo Kaiden"
+30017>>>>>    End_Procedure
+30018>>>>>End_Object
+30019>>>>>
+30019>>>>>Object NitoRanks is a DescriptionValidationTable
+30021>>>>>    Procedure Fill_List
+30024>>>>>        Forward Send Fill_List
+30026>>>>>        Send Add_Table_Value "1" "Kiso no maki"
+30027>>>>>        Send Add_Table_Value "2" "Ten no maki"
+30028>>>>>        Send Add_Table_Value "3" "Chi no maki"
+30029>>>>>        Send Add_Table_Value "4" "Menkyo Kaiden"
+30030>>>>>    End_Procedure
+30031>>>>>End_Object
+30032>>>>>
+30032>>>>>Object TantoRanks is a DescriptionValidationTable
+30034>>>>>    Procedure Fill_List
+30037>>>>>        Forward Send Fill_List
+30039>>>>>        Send Add_Table_Value "1" "Kiso no maki"
+30040>>>>>        Send Add_Table_Value "2" "Kihon gata"
+30041>>>>>        Send Add_Table_Value "3" "Sabaki gata"
+30042>>>>>        Send Add_Table_Value "4" "Menkyo Kaiden"
+30043>>>>>    End_Procedure
+30044>>>>>End_Object
+30045>>>>>
+30045>>>>>Object JutteRanks is a DescriptionValidationTable
+30047>>>>>    Procedure Fill_List
+30050>>>>>        Forward Send Fill_List
+30052>>>>>        Send Add_Table_Value "1" "Kiso no maki"
+30053>>>>>        Send Add_Table_Value "2" "Kihon gata"
+30054>>>>>        Send Add_Table_Value "3" "Sabaki gata"
+30055>>>>>        Send Add_Table_Value "4" "Menkyo Kaiden"
+30056>>>>>    End_Procedure
+30057>>>>>End_Object
+30058>>>>>
+30058>>>>>Object KusariRanks is a DescriptionValidationTable
+30060>>>>>    Procedure Fill_List
+30063>>>>>        Forward Send Fill_List
+30065>>>>>        Send Add_Table_Value "1" "Kiso no maki"
+30066>>>>>        Send Add_Table_Value "2" "Sabaki gata"
+30067>>>>>        Send Add_Table_Value "3" "Menkyo Kaiden"
+30068>>>>>    End_Procedure
+30069>>>>>End_Object
+30070>>>>>
+30070>>>>>Object KobudoRanks is a DescriptionValidationTable
+30072>>>>>    Procedure Fill_List
+30075>>>>>        Forward Send Fill_List
+30077>>>>>        Send Add_Table_Value "1" "Rokukyu"
+30078>>>>>        Send Add_Table_Value "2" "Gokyu"
+30079>>>>>        Send Add_Table_Value "3" "Yonkyu"
+30080>>>>>        Send Add_Table_Value "4" "Sankyu"
+30081>>>>>        Send Add_Table_Value "5" "Nikyu"
+30082>>>>>        Send Add_Table_Value "6" "Ikkyu"
+30083>>>>>        Send Add_Table_Value "7" "Shodan"
+30084>>>>>        Send Add_Table_Value "8" "Nidan"
+30085>>>>>        Send Add_Table_Value "9" "Sandan"
+30086>>>>>        Send Add_Table_Value "10" "Yondan"
+30087>>>>>        Send Add_Table_Value "11" "Godan"
+30088>>>>>        Send Add_Table_Value "12" "Rokudan"
+30089>>>>>        Send Add_Table_Value "13" "Shichidan"
+30090>>>>>        Send Add_Table_Value "14" "Hachidan"
+30091>>>>>        Send Add_Table_Value "15" "Kudan"
+30092>>>>>    End_Procedure
+30093>>>>>End_Object
+30094>>>>>
+30094>>>>>Class cMemberRanksDataDictionary is a DataDictionary
+30095>>>>>    
+30095>>>>>    Procedure Construct_Object
+30097>>>>>        Forward Send Construct_Object
+30099>>>>>        Set Main_File to MemberRanks.File_Number
+30100>>>>>        Set Add_Server_File to Teachers.File_Number
+30101>>>>>        Set Add_Server_File to Members.File_Number
+30102>>>>>
+30102>>>>>        Set Foreign_Field_Option DD_KEYFIELD DD_NOPUT to True
+30103>>>>>        Set Foreign_Field_Option DD_KEYFIELD DD_FINDREQ to True
+30104>>>>>        Set Foreign_Field_Option DD_KEYFIELD DD_AUTOFIND to True
+30105>>>>>        Set Foreign_Field_Option DD_INDEXFIELD DD_NOPUT to True
+30106>>>>>        Set Foreign_Field_Option DD_INDEXFIELD DD_AUTOFIND_GE to True
+30107>>>>>        Set Foreign_Field_Option DD_INDEXFIELD DD_AUTOFIND to True
+30108>>>>>        Set Foreign_Field_Option DD_INDEXFIELD DD_FINDREQ to True
+30109>>>>>        Set Foreign_Field_Option DD_DEFAULT DD_DISPLAYONLY to True
+30110>>>>>
+30110>>>>>        Set Field_Value_Table Field MemberRanks.Type to RankType
+30111>>>>>
+30111>>>>>        Set Field_Entry_msg Field MemberRanks.Rank to EnterMemberRanksRank
+30112>>>>>
+30112>>>>>    End_Procedure
+30113>>>>>
+30113>>>>>    Procedure Update
+30115>>>>>        Forward Send Update
+30117>>>>>    End_Procedure
+30118>>>>>
+30118>>>>>    Procedure EnterMemberRanksRank Integer iColumn Integer iValue
+30120>>>>>        Integer iType
+30120>>>>>        Get Field_Current_Value Field MemberRanks.Type to iType
+30121>>>>>        If (iType = 1) Begin 
+30123>>>>>            Set Field_Value_Table Field MemberRanks.Rank to KobudoRanks
+30124>>>>>        End
+30124>>>>>>
+30124>>>>>       Else  If (iType = 2) Begin 
+30127>>>>>            Set Field_Value_Table Field MemberRanks.Rank to BikenRanks
+30128>>>>>        End
+30128>>>>>>
+30128>>>>>       Else  If (iType = 3) Begin 
+30131>>>>>            Set Field_Value_Table Field MemberRanks.Rank to NitoRanks
+30132>>>>>        End
+30132>>>>>>
+30132>>>>>       Else  If (iType = 4) Begin 
+30135>>>>>            Set Field_Value_Table Field MemberRanks.Rank to TantoRanks
+30136>>>>>        End
+30136>>>>>>
+30136>>>>>       Else  If (iType = 5) Begin 
+30139>>>>>            Set Field_Value_Table Field MemberRanks.Rank to JutteRanks
+30140>>>>>        End
+30140>>>>>>
+30140>>>>>       Else  If (iType = 6) Begin 
+30143>>>>>            Set Field_Value_Table Field MemberRanks.Rank to KusariRanks
+30144>>>>>        End
+30144>>>>>>
+30144>>>>>    End_Procedure
+30145>>>>>
+30145>>>>>End_Class
+30146>>>Use cWebTabContainer.pkg
+30146>>>Use cWebTabPage.pkg
+30146>>>Use cWebButton.pkg
+30146>>>Use cWebColumnImage.pkg
+Including file: cWebColumnImage.pkg    (C:\Program Files (x86)\DataFlex 18.2\Pkg\cWebColumnImage.pkg)
+30146>>>>>Use cWebColumn_mixin.pkg
+30146>>>>>Use cWebBaseDEO.pkg
+30146>>>>>
+30146>>>>>// Used to represent each column of a cWebGrid or cWebLookup control.
+30146>>>>>Class cWebColumnImage is a cWebBaseDEO
+30147>>>>>    Import_Class_Protocol cWebColumn_mixin
+30148>>>>>    
+30148>>>>>    Procedure Construct_Object
+30150>>>>>        Forward Send Construct_Object
+30152>>>>>        
+30152>>>>>        Send Define_cWebColumn_Mixin
+30153>>>>>                
+30153>>>>>        Property String psImageUrl "" 
+30156>>>>>        Property String psImageCSSClass ""
+30159>>>>>        
+30159>>>>>        Property Integer pePosition wiStretchHoriz //   Allows dynamic image positioning. Note that piImageWidth and piImageHeight must be set for this to work.
+30162>>>>>        
+30162>>>>>        Property Boolean pbDynamic False
+30165>>>>>        Property Boolean pbImageByCSS False
+30168>>>>>        
+30168>>>>>        Property Integer piImageWidth 0
+30171>>>>>        Property Integer piImageHeight 0
+30174>>>>>        
+30174>>>>>        Property Boolean pbServerOnClick False
+30177>>>>>        Property String psClientOnClick ""
+30180>>>>>        
+30180>>>>>        Property String[] paImgOptions
+30181>>>>>        
+30181>>>>>        //  Sorting on a image column wouldn't make sense
+30181>>>>>        Set pbSortable to False
+30182>>>>>        
+30182>>>>>        Set psJSClass to "df.WebColumnImage"
+30183>>>>>    End_Procedure
+30184>>>>> 
+30184>>>>>    Procedure LoadGridCell tWebCell ByRef tCell
+30186>>>>>        Boolean bMulti
+30186>>>>>        String[] aEmpty
+30187>>>>>        
+30187>>>>>        Set paImgOptions to aEmpty
+30188>>>>>        
+30188>>>>>        Get pbDynamic to bMulti
+30189>>>>>        If (bMulti) Begin
+30191>>>>>            Send OnDefineImages
+30192>>>>>            Get paImgOptions to tCell.aOptions
+30193>>>>>        End
+30193>>>>>>
+30193>>>>>        
+30193>>>>>        // Give a chance to add custom tooltips & CSS Classnames
+30193>>>>>        Send OnDefineTooltip (&tCell.sTooltip)
+30194>>>>>        Send OnDefineCssClass (&tCell.sCssClassName)
+30195>>>>>    End_Procedure
+30196>>>>>    
+30196>>>>>    Procedure OnDefineImages
+30198>>>>>        
+30198>>>>>    End_Procedure
+30199>>>>>    
+30199>>>>>    Procedure OnClick String sImage String sRowId
+30201>>>>>        
+30201>>>>>    End_Procedure
+30202>>>>>    
+30202>>>>>    Procedure AddImage String sUrl
+30204>>>>>        String[] aImages
+30205>>>>>        
+30205>>>>>        Get paImgOptions to aImages
+30206>>>>>        
+30206>>>>>        Move sUrl to aImages[SizeOfArray(aImages)]
+30207>>>>>        
+30207>>>>>        Set paImgOptions to aImages
+30208>>>>>    End_Procedure
+30209>>>>>    
+30209>>>>>    Procedure End_Construct_Object
+30211>>>>>        WebPublishProcedure OnClick
+30212>>>>>        
+30212>>>>>        Forward Send End_Construct_Object
+30214>>>>>    End_Procedure
+30215>>>>>
+30215>>>>>End_Class
+30216>>>Use cWebColumnCombo.pkg
+30216>>>
+30216>>>Object oDojo is a cWebView
+30218>>>    Set piColumnCount to 12
+30219>>>    Set psCaption to "Dojo Entry"
+30220>>>    Set pbClearAfterSave to False
+30221>>>    Set Verify_Save_msg to 0
+30222>>>    Set pbServerOnShow to True
+30223>>>    Delegate Set phoDefaultView to Self
+30225>>>
+30225>>>    Object oTeachers_DD is a cTeachersDataDictionary
+30227>>>    End_Object
+30228>>>
+30228>>>    Object oDojo_DD is a cDojoDataDictionary
+30230>>>        // this lets you save a new parent DD from within child DD
+30230>>>        Set Allow_Foreign_New_Save_State to True
+30231>>>    End_Object 
+30232>>>
+30232>>>    Object oSeminars_DD is a cSeminarsDataDictionary
+30234>>>        Set Constrain_file to Dojo.File_number
+30235>>>        Set DDO_Server to oDojo_DD
+30236>>>    End_Object
+30237>>>
+30237>>>    Object oMembers_DD is a cMembersDataDictionary
+30239>>>        Set DDO_Server To oDojo_DD
+30240>>>        Set Constrain_File To Dojo.File_Number
+30241>>>    End_Object 
+30242>>>
+30242>>>    Object oMemberRanks_DD is a cMemberRanksDataDictionary
+30244>>>        Set DDO_Server to oMembers_DD
+30245>>>        Send Remove_Server_File Teachers.File_Number
+30246>>>        //Send Remove_Server_File Members.File_Number
+30246>>>    End_Object
+30247>>>
+30247>>>    Set Main_DD To oDojo_DD
+30248>>>    Set Server  To oDojo_DD
+30249>>>
+30249>>>    Object oWebMainPanel is a cWebPanel
+30251>>>        Set piColumnCount to 12
+30252>>>
+30252>>>        Object oDojoName is a cWebForm
+30254>>>            Entry_Item Dojo.Name
+30255>>>            Set piColumnSpan to 5
+30256>>>            Set piColumnIndex to 0
+30257>>>            Set psLabel to "Name:"
+30258>>>            Set peLabelAlign to alignLeft
+30259>>>        End_Object 
+30260>>>
+30260>>>        Object oDojo_Shibu is a cWebCheckbox
+30262>>>            Entry_Item Dojo.Main
+30263>>>            Set piColumnSpan to 5
+30264>>>            Set psLabel to "Main Dojo"
+30265>>>            Set psCaption to "This is my MAIN Dojo (all others are considered branch dojo to this one)"
+30266>>>            Set pbServerOnChange to True
+30267>>>            Set piColumnIndex to 5
+30268>>>            Procedure OnChange String sNewValue String sOldValue
+30271>>>                Forward Send OnChange sNewValue sOldValue
+30273>>>                If (sNewValue <> sOldValue) Begin 
+30275>>>                    Send Request_Save of oDojo_DD
+30276>>>                End
+30276>>>>
+30276>>>            End_Procedure
+30277>>>
+30277>>>            Procedure Refresh Integer eMode
+30280>>>                Forward Send Refresh eMode
+30282>>>                If (not(AppSynching(ghoWebApp))) Begin 
+30284>>>                    Reread Settings
+30288>>>                    Unlock
+30289>>>>
+30289>>>                    If (Settings.MainDojo <> 0) Begin 
+30291>>>                        If (Settings.MainDojo = Dojo.Dojo) Begin 
+30293>>>                            WebSet pbRender to True
+30294>>>                            WebSet psLabel of oInstructorsName to "Dojo-cho:"
+30295>>>                            WebSet psLabel of oDojoName to "Dojo Name:"
+30296>>>                        End
+30296>>>>
+30296>>>                        Else Begin 
+30297>>>                            WebSet pbRender to False
+30298>>>                            WebSet psLabel of oInstructorsName to "Shibu-cho:"
+30299>>>                            WebSet psLabel of oDojoName to "Shibu-dojo Name:"
+30300>>>                        End
+30300>>>>
+30300>>>                    End
+30300>>>>
+30300>>>                End
+30300>>>>
+30300>>>            End_Procedure
+30301>>>        End_Object
+30302>>>
+30302>>>        Object oInstructorsName is a cWebForm
+30304>>>            Entry_Item Dojo.DojoCho
+30305>>>            Set piColumnSpan to 5
+30306>>>            Set psLabel to "Dojo-cho:"
+30307>>>            Procedure Prompt_Callback Handle hoPrompt
+30310>>>                Forward Send Prompt_Callback hoPrompt
+30312>>>                WebSet peUpdateMode of hoPrompt to umPromptValue
+30313>>>            End_Procedure
+30314>>>        End_Object 
+30315>>>
+30315>>>        Object oWebTabContainer1 is a cWebTabContainer
+30317>>>            Set pbFillHeight to True
+30318>>>
+30318>>>            Object oWebTabPage2 is a cWebTabPage
+30320>>>                Set psCaption to "Dojo Members"
+30321>>>                Set piColumnCount to 12    
+30322>>>
+30322>>>                Object oWebButton1 is a cWebButton
+30324>>>                    Set piColumnSpan to 2
+30325>>>                    Set psCaption to "Add Member"
+30326>>>                    Set piColumnIndex to 10
+30327>>>                
+30327>>>                    Procedure OnClick
+30330>>>                        Register_Object oMembers
+30330>>>                        Register_Object oDetailGrid
+30330>>>//                        Send Show_oMembers_FromXX of oMembers "" Dojo.Dojo
+30330>>>                        WebSet psRowId of oMembers to ""
+30332>>>                        WebSet piDojo of oMembers to Dojo.Dojo
+30334>>>                        Send Popup of oMembers oDetailGrid                        
+30335>>>                    End_Procedure
+30336>>>                End_Object
+30337>>>                
+30337>>>                Object oDetailGrid is a cWebList
+30339>>>                    Set Server to oMembers_DD
+30340>>>                    Set piOrdering to 3
+30341>>>                    Set pbFillHeight to True
+30342>>>                    Set piColumnSpan to 12
+30343>>>                    Set pbColumnSortable to True
+30344>>>
+30344>>>                    Object oMembers_Member is a cWebColumnLink
+30346>>>                        Entry_Item Members.Member
+30347>>>                        Set psCaption to "Member"
+30348>>>                        Set piWidth to 65
+30349>>>                        Set pbFixedWidth to True
+30350>>>                        Set pbResizable to False
+30351>>>                        Set pbServerOnClick to True
+30352>>>
+30352>>>                        Procedure OnClick String sRowID String sCellValue
+30355>>>                            Forward Send OnClick sRowID sCellValue
+30357>>>                            WebSet psRowId of oMembers to (SerializeRowID(GetRowID(Members.File_Number)))
+30359>>>                            WebSet piDojo of oMembers to Dojo.Dojo
+30361>>>                            Send Popup of oMembers oDetailGrid                        
+30362>>>                        End_Procedure
+30363>>>                    End_Object
+30364>>>
+30364>>>                    Object oMembersName is a cWebColumn
+30366>>>                        Entry_Item Members.Name
+30367>>>                        Set psCaption to "Name"
+30368>>>                        Set piWidth to 194
+30369>>>                    End_Object 
+30370>>>        
+30370>>>                    Object oMembersRankl is a cWebColumnCombo
+30372>>>                        Entry_Item Members.Rank
+30373>>>                        Set psCaption to "Rank"
+30374>>>                        Set piWidth to 162
+30375>>>                    End_Object 
+30376>>>
+30376>>>                    Object oMembersEmail is a cWebColumn
+30378>>>                        Entry_Item Members.Email
+30379>>>                        Set psCaption to "E-mail"
+30380>>>                        Set piWidth to 151
+30381>>>                    End_Object 
+30382>>>
+30382>>>                    Object oMembers_MemberType is a cWebColumnCombo
+30384>>>                        Entry_Item Members.MemberType
+30385>>>                        Set psCaption to "MemberType"
+30386>>>                        Set piWidth to 166
+30387>>>                    End_Object
+30388>>>        
+30388>>>                    Object oMembers_PaymentDue is a cWebColumnCombo
+30390>>>                        Entry_Item Members.PaymentDue
+30391>>>                        Set psCaption to "PaymentDue"
+30392>>>                        Set piWidth to 166
+30393>>>                    End_Object
+30394>>>
+30394>>>                    Object oMembersType is a cWebColumnCombo
+30396>>>                        Entry_Item Members.Type
+30397>>>                        Set psCaption to "Type"
+30398>>>                        Set piWidth to 148
+30399>>>                    End_Object 
+30400>>>
+30400>>>                    Object oRemoveMember is a cWebColumnImage
+30402>>>                        Set piWidth to 57
+30403>>>                        Set pbFixedWidth to True
+30404>>>                        Set pbResizable to False
+30405>>>                        Set psImageUrl to "Images/Delete.png"
+30406>>>                        Set pbServerOnClick to True
+30407>>>                        
+30407>>>                        Procedure ImageCallback Integer eConfirmMode
+30410>>>                            If (eConfirmMode = cmYes) Begin //delete
+30412>>>                                Send Request_Delete of oMembers_DD
+30413>>>                                Send FindDDRecordInBuffer of oDetailGrid
+30414>>>                            End
+30414>>>>
+30414>>>                        End_Procedure
+30415>>>                        WebPublishProcedure ImageCallback
+30416>>>                        
+30416>>>                        Procedure OnClick String sImage String sRowId
+30419>>>                            Forward Send OnClick sImage sRowId
+30421>>>                            Send ShowYesNo Self (RefProc(ImageCallback)) "Detele this member completely (all associated ranks for this member is also removed)?" 
+30422>>>                        End_Procedure
+30423>>>
+30423>>>                        Procedure OnDefineTooltip String  ByRef sTooltip
+30426>>>                            Forward Send OnDefineTooltip (&sTooltip)
+30428>>>                            Move "Delete this member" to sTooltip
+30429>>>                        End_Procedure
+30430>>>                    End_Object
+30431>>>                End_Object 
+30432>>>            End_Object
+30433>>>
+30433>>>            Object oWebTabPage3 is a cWebTabPage
+30435>>>                Set psCaption to "Dojo Seminars"
+30436>>>                Set piColumnCount to 12    
+30437>>>
+30437>>>                Object oWebButton1 is a cWebButton
+30439>>>                    Set piColumnSpan to 2
+30440>>>                    Set psCaption to "Add Seminar"
+30441>>>                    Set piColumnIndex to 10
+30442>>>                
+30442>>>                    Procedure OnClick
+30445>>>                        Register_Object oMembers
+30445>>>//                        Send Show_oMembers_FromXX of oMembers ""
+30445>>>                    End_Procedure
+30446>>>                End_Object
+30447>>>
+30447>>>                Object oWebGrid1 is a cWebList
+30449>>>                    Set pbFillHeight to True
+30450>>>                    Set Server to oSeminars_DD
+30451>>>                    Set piOrdering to 3
+30452>>>
+30452>>>                    Object oSeminars_StartDate is a cWebColumnLink
+30454>>>                        Entry_Item Seminars.StartDate
+30455>>>                        Set psCaption to "StartDate"
+30456>>>                        Set piWidth to 50
+30457>>>                        Set pbServerOnClick to True
+30458>>>                        Procedure OnClick String sRowID String sCellValue
+30461>>>                            Register_Object oSeminars
+30461>>>                            Send Show_oSeminars_FromXX of oSeminars sRowID
+30462>>>                        End_Procedure
+30463>>>                    End_Object
+30464>>>
+30464>>>                    Object oSeminars_Topic is a cWebColumn
+30466>>>                        Entry_Item Seminars.Topic
+30467>>>                        Set psCaption to "Topic"
+30468>>>                        Set piWidth to 50
+30469>>>                    End_Object
+30470>>>
+30470>>>                    Object oSeminars_Teachers is a cWebColumn
+30472>>>                        Entry_Item Seminars.Teachers
+30473>>>                        Set psCaption to "Teachers"
+30474>>>                        Set piWidth to 50
+30475>>>                    End_Object
+30476>>>                End_Object
+30477>>>            End_Object
+30478>>>            Object oWebTabPage1 is a cWebTabPage
+30480>>>                Set psCaption to "Dojo Info"
+30481>>>                Set piColumnCount to 12    
+30482>>>
+30482>>>                Object oDojoAddress is a cWebForm
+30484>>>                    Entry_Item Dojo.Address
+30485>>>                    Set piColumnSpan to 5
+30486>>>                    Set piColumnIndex to 0
+30487>>>                    Set psLabel to "Address:"
+30488>>>                    Set peLabelAlign to alignLeft
+30489>>>                End_Object 
+30490>>>
+30490>>>                Object oDojoPAddress is a cWebForm
+30492>>>                    Entry_Item Dojo.PAddress
+30493>>>                    Set piColumnSpan to 5
+30494>>>                    Set piColumnIndex to 0
+30495>>>                    Set psLabel to "PAddress:"
+30496>>>                    Set peLabelAlign to alignLeft
+30497>>>                End_Object 
+30498>>>
+30498>>>                Object oDojoCity is a cWebForm
+30500>>>                    Entry_Item Dojo.City
+30501>>>                    Set piColumnSpan to 5
+30502>>>                    Set piColumnIndex to 0
+30503>>>                    Set psLabel to "City:"
+30504>>>                    Set peLabelAlign to alignLeft
+30505>>>                End_Object 
+30506>>>
+30506>>>                Object oDojoPhone is a cWebForm
+30508>>>                    Entry_Item Dojo.Phone
+30509>>>                    Set piColumnSpan to 5
+30510>>>                    Set piColumnIndex to 0
+30511>>>                    Set psLabel to "Phone:"
+30512>>>                    Set peLabelAlign to alignLeft
+30513>>>                End_Object 
+30514>>>
+30514>>>                Object oDojoMobile is a cWebForm
+30516>>>                    Entry_Item Dojo.Mobile
+30517>>>                    Set piColumnSpan to 5
+30518>>>                    Set piColumnIndex to 0
+30519>>>                    Set psLabel to "Mobile:"
+30520>>>                    Set peLabelAlign to alignLeft
+30521>>>                End_Object 
+30522>>>
+30522>>>                Object oDojoDescription is a cWebEdit
+30524>>>                    Entry_Item Dojo.Description
+30525>>>                    Set piColumnSpan to 5
+30526>>>                    Set piColumnIndex to 0
+30527>>>                    Set psLabel to "Description:"
+30528>>>                    Set peLabelAlign to alignLeft
+30529>>>                    Set piMinHeight to 100
+30530>>>                    Set piHeight to 200
+30531>>>                End_Object 
+30532>>>            End_Object
+30533>>>        End_Object
+30534>>>
+30534>>>    End_Object 
+30535>>>
+30535>>>    Procedure OnShow
+30538>>>        Forward Send OnShow
+30540>>>        Reread Settings
+30544>>>        Unlock
+30545>>>>
+30545>>>        Send Clear of oDojo_DD
+30546>>>        Move Settings.MainDojo to Dojo.Dojo
+30547>>>        Send Find of oDojo_DD EQ 1
+30548>>>    End_Procedure
+30549>>>
+30549>>>End_Object 
+30550>    Use Members.wo
+Including file: Members.wo    (C:\DojoManager\AppSrc\Members.wo)
+30550>>>// C:\DojoManager\AppSrc\Members.wo
+30550>>>// Members
+30550>>>//
+30550>>>
+30550>>>Use cWebView.pkg
+30550>>>Use cWebPanel.pkg
+30550>>>Use cWebForm.pkg
+30550>>>
+30550>>>Use cDojoDataDictionary.dd
+30550>>>Use cMembersDataDictionary.dd
+30550>>>Use cTeachersDataDictionary.dd
+30550>>>Use cMemberRanksDataDictionary.dd
+30550>>>Use cPaymentsDataDictionary.dd
+Including file: cPaymentsDataDictionary.dd    (C:\DojoManager\DDSrc\cPaymentsDataDictionary.dd)
+30550>>>>>Use DataDict.pkg
+30550>>>>>
+30550>>>>>Open Payments
+30552>>>>>Open Members
+30554>>>>>Open Settings
+30556>>>>>
+30556>>>>>Object PaymentTypes is a DescriptionValidationTable
+30558>>>>>    Procedure Fill_List
+30561>>>>>        Forward Send Fill_List
+30563>>>>>        Send Add_Table_Value "1" "Membership"
+30564>>>>>        Send Add_Table_Value "2" "Rank"
+30565>>>>>        Send Add_Table_Value "3" "Seminar"
+30566>>>>>    End_Procedure
+30567>>>>>End_Object
+30568>>>>>
+30568>>>>>Class cPaymentsDataDictionary is a DataDictionary
+30569>>>>>    
+30569>>>>>    Procedure Construct_Object
+30571>>>>>        Forward Send Construct_Object
+30573>>>>>        Set Main_File to Payments.File_Number
+30574>>>>>
+30574>>>>>        Set Add_System_File to Settings.File_Number DD_Lock_On_All
+30575>>>>>
+30575>>>>>        Set Foreign_Field_Option DD_KEYFIELD DD_NOPUT to True
+30576>>>>>        Set Foreign_Field_Option DD_KEYFIELD DD_FINDREQ to True
+30577>>>>>        Set Foreign_Field_Option DD_INDEXFIELD DD_NOPUT to True
+30578>>>>>        Set Foreign_Field_Option DD_DEFAULT DD_DISPLAYONLY to True
+30579>>>>>
+30579>>>>>        Set Field_Auto_Increment Field Payments.PaymentID to File_Field Settings.PaymentID
+30580>>>>>
+30580>>>>>        Set Field_Value_Table Field Payments.PaymentType to PaymentTypes
+30581>>>>>
+30581>>>>>    End_Procedure
+30582>>>>>
+30582>>>>>End_Class
+30583>>>Use cWebTabContainer.pkg
+30583>>>Use cWebTabPage.pkg
+30583>>>Use cWebGrid.pkg
+30583>>>Use cWebColumn.pkg
+30583>>>Use cWebButton.pkg
+30583>>>Use cWebGroup.pkg
+30583>>>Use cWebHorizontalLine.pkg
+30583>>>Use cWebLabel.pkg
+30583>>>Use cWebSpacer.pkg
+30583>>>Use cWebColumnCombo.pkg
+30583>>>Use cWebImage.pkg
+30583>>>
+30583>>>Object oMembers is a cWebModalDialog
+30585>>>    Set piColumnCount to 12
+30586>>>    Set psCaption to "Members"
+30587>>>    Set piWidth to 700
+30588>>>    Set pbServerOnShow to True
+30589>>>
+30589>>>    Property String psRowId
+30593>>>    Property Integer piDojo    
+30597>>>    Property Handle phoCallbackObj
+30601>>>    
+30601>>>    Object oTeachers_DD is a cTeachersDataDictionary
+30603>>>    End_Object
+30604>>>
+30604>>>    Object oDojo_DD is a cDojoDataDictionary
+30606>>>    End_Object 
+30607>>>
+30607>>>    Object oMembers_DD is a cMembersDataDictionary
+30609>>>        Set DDO_Server To oDojo_DD
+30610>>>        Set No_Delete_State to True
+30611>>>
+30611>>>        Procedure OnPreFind Integer eMessage
+30614>>>            Forward Send OnPreFind eMessage
+30616>>>        End_Procedure
+30617>>>    End_Object 
+30618>>>
+30618>>>    Object oPayments_DD is a cPaymentsDataDictionary
+30620>>>        Set pbUseDDRelates to True
+30621>>>        Set Field_Related_FileField Payments.Member to File_Field Members.Member
+30622>>>        Set Server to oMembers_DD
+30623>>>        Set Constrain_File to Members.File_Number
+30624>>>    End_Object
+30625>>>
+30625>>>    Object oMemberRanks_DD is a cMemberRanksDataDictionary
+30627>>>        Set Constrain_file to Members.File_number
+30628>>>        Set DDO_Server to oMembers_DD
+30629>>>        Set DDO_Server to oTeachers_DD
+30630>>>    End_Object
+30631>>>
+30631>>>    Set Main_DD To oMembers_DD
+30632>>>    Set Server  To oMembers_DD
+30633>>>    Set pbServerOnHide to True
+30634>>>    Set pbClearKeys to False
+30635>>>    Set pbFindKeys to False
+30636>>>
+30636>>>
+30636>>>    Object oWebMainPanel is a cWebPanel
+30638>>>        Set piColumnCount to 12
+30639>>>
+30639>>>        Object oWebGroup1 is a cWebGroup
+30641>>>            Set psCaption to "Member"
+30642>>>            Set piColumnCount to 12   
+30643>>>
+30643>>>            Object oMembersName is a cWebForm
+30645>>>                Entry_Item Members.Name
+30646>>>                Set piColumnSpan to 8
+30647>>>                Set psLabel to "Name:"
+30648>>>                Set peLabelAlign to alignLeft
+30649>>>                Set pbPromptButton to False
+30650>>>            End_Object 
+30651>>>
+30651>>>            Object oWebImage1 is a cWebImage
+30653>>>                Set psUrl to "Images/delete.png"
+30654>>>                Set piHeight to 35
+30655>>>                Set piColumnIndex to 8
+30656>>>                Set pePosition to wiCenter
+30657>>>                Set pbServerOnClick to True
+30658>>>                Set psToolTip to "Delete this member completely"
+30659>>>
+30659>>>                Procedure DeleteMember Integer eResponse
+30662>>>                    If (eResponse = cmYes) Begin 
+30664>>>                        Send Request_Delete of oMembers_DD
+30665>>>                        Send Cancel
+30666>>>                    End
+30666>>>>
+30666>>>                End_Procedure
+30667>>>                WebPublishProcedure DeleteMember
+30668>>>                
+30668>>>                Procedure OnClick
+30671>>>                    Forward Send OnClick
+30673>>>                    Send ShowYesNo Self (RefProc(DeleteMember)) "Do you want to delete this member completely?"
+30674>>>                End_Procedure
+30675>>>            End_Object
+30676>>>
+30676>>>            Object oMembersEmail is a cWebForm
+30678>>>                Entry_Item Members.Email
+30679>>>                Set piColumnSpan to 8
+30680>>>                Set psLabel to "Email:"
+30681>>>                Set peLabelAlign to alignLeft
+30682>>>            End_Object 
+30683>>>        End_Object
+30684>>>
+30684>>>        Object oWebTabContainer1 is a cWebTabContainer
+30686>>>            Object oWebTabPage1 is a cWebTabPage
+30688>>>                Set psCaption to "Details"
+30689>>>                Set piColumnCount to 12    
+30690>>>
+30690>>>                Object oWebGroup2 is a cWebGroup
+30692>>>                    Set psCaption to "Dojo Membership Details"
+30693>>>                    Set piColumnCount to 12   
+30694>>>
+30694>>>                    Object oDojoDojo is a cWebForm
+30696>>>                        Set Server to oDojo_DD
+30697>>>                        Entry_Item Dojo.Name
+30698>>>                        Set piColumnSpan to 8
+30699>>>                        Set psLabel to "Dojo:"
+30700>>>                        Set peLabelAlign to alignLeft
+30701>>>                    End_Object 
+30702>>>
+30702>>>                    Object oMembers_DojoJoinDate is a cWebDateForm
+30704>>>                        Entry_Item Members.DojoJoinDate
+30705>>>                        Set piColumnSpan to 8
+30706>>>                        Set psLabel to "Dojo Join Date:"
+30707>>>                    End_Object
+30708>>>
+30708>>>                    Object oMembersType is a cWebCombo
+30710>>>                        Entry_Item Members.Type
+30711>>>                        Set piColumnSpan to 8
+30712>>>                        Set psLabel to "Role:"
+30713>>>                        Set peLabelAlign to alignLeft
+30714>>>                    End_Object 
+30715>>>
+30715>>>                    Object oMembers_Active is a cWebCheckbox
+30717>>>                        Entry_Item Members.Active
+30718>>>                        Set piColumnSpan to 4
+30719>>>                        Set psLabel to "Active:"
+30720>>>                        Set psCaption to "Not Active"
+30721>>>                        Set piColumnIndex to 8
+30722>>>                    End_Object
+30723>>>                End_Object
+30724>>>
+30724>>>                Object oWebGroup3 is a cWebGroup
+30726>>>                    Set psCaption to "Jinenkan Membership Details"
+30727>>>                    Set piColumnCount to 12   
+30728>>>
+30728>>>                    Object oMembers_Member is a cWebForm
+30730>>>                        Entry_Item Members.Member
+30731>>>                        Set piColumnSpan to 4
+30732>>>                        Set psLabel to "Member No:"
+30733>>>                        Set pbPromptButton to False
+30734>>>                    End_Object
+30735>>>
+30735>>>                    Object oMembers_JoinDate is a cWebDateForm
+30737>>>                        Entry_Item Members.MemberSince
+30738>>>                        Set piColumnSpan to 6
+30739>>>                        Set psLabel to "Member Since:"
+30740>>>                        Set piColumnIndex to 6
+30741>>>                    End_Object
+30742>>>
+30742>>>                    Object oMembers_MemberType is a cWebCombo
+30744>>>                        Entry_Item Members.MemberType
+30745>>>                        Set piColumnSpan to 6
+30746>>>                        Set psLabel to "MemberType:"
+30747>>>                    End_Object
+30748>>>
+30748>>>                    Object oMembers_PaymentDue is a cWebCombo
+30750>>>                        Entry_Item Members.PaymentDue
+30751>>>                        Set piColumnSpan to 6
+30752>>>                        Set psLabel to "PaymentDue:"
+30753>>>                        Set piColumnIndex to 6
+30754>>>                    End_Object
+30755>>>                End_Object
+30756>>>            End_Object
+30757>>>
+30757>>>            Object oWebTabPage2 is a cWebTabPage
+30759>>>                Set psCaption to "Current Ranks"
+30760>>>                Set piColumnCount to 12    
+30761>>>                Object oMembers_Rank is a cWebCombo
+30763>>>                    Entry_Item Members.Rank
+30764>>>                    Set piColumnSpan to 8
+30765>>>                    Set psLabel to "Kobudo Rank:"
+30766>>>                End_Object
+30767>>>
+30767>>>                Object oWebSpacer1 is a cWebSpacer
+30769>>>                End_Object
+30770>>>
+30770>>>                Object oMembers_BikenRank is a cWebCombo
+30772>>>                    Entry_Item Members.BikenRank
+30773>>>                    Set piColumnSpan to 8
+30774>>>                    Set psLabel to "Biken Rank:"
+30775>>>                End_Object
+30776>>>
+30776>>>                Object oMembers_NitoRank is a cWebCombo
+30778>>>                    Entry_Item Members.NitoRank
+30779>>>                    Set piColumnSpan to 8
+30780>>>                    Set psLabel to "Nito Rank:"
+30781>>>                End_Object
+30782>>>
+30782>>>                Object oMembers_TantoRank is a cWebCombo
+30784>>>                    Entry_Item Members.TantoRank
+30785>>>                    Set piColumnSpan to 8
+30786>>>                    Set psLabel to "Tanto Rank:"
+30787>>>                End_Object
+30788>>>
+30788>>>                Object oMembers_JutteRank is a cWebCombo
+30790>>>                    Entry_Item Members.JutteRank
+30791>>>                    Set piColumnSpan to 8
+30792>>>                    Set psLabel to "Jutte Rank:"
+30793>>>                End_Object
+30794>>>
+30794>>>                Object oMembers_KusariRank is a cWebCombo
+30796>>>                    Entry_Item Members.KusariRank
+30797>>>                    Set piColumnSpan to 8
+30798>>>                    Set psLabel to "Kusari Rank:"
+30799>>>                End_Object
+30800>>>            End_Object
+30801>>>            
+30801>>>            Object oWebTabPage3 is a cWebTabPage
+30803>>>                Set psCaption to "Contact Details"
+30804>>>                Set piColumnCount to 12    
+30805>>>
+30805>>>                Object oMembersAddress is a cWebForm
+30807>>>                    Entry_Item Members.Address
+30808>>>                    Set piColumnSpan to 12
+30809>>>                    Set piColumnIndex to 0
+30810>>>                    Set psLabel to "Address:"
+30811>>>                    Set peLabelAlign to alignLeft
+30812>>>                End_Object 
+30813>>>
+30813>>>                Object oMembersPAddress is a cWebForm
+30815>>>                    Entry_Item Members.PAddress
+30816>>>                    Set piColumnSpan to 12
+30817>>>                    Set piColumnIndex to 0
+30818>>>                    Set psLabel to "PAddress:"
+30819>>>                    Set peLabelAlign to alignLeft
+30820>>>                End_Object 
+30821>>>
+30821>>>                Object oMembersCity is a cWebForm
+30823>>>                    Entry_Item Members.City
+30824>>>                    Set piColumnSpan to 12
+30825>>>                    Set piColumnIndex to 0
+30826>>>                    Set psLabel to "City:"
+30827>>>                    Set peLabelAlign to alignLeft
+30828>>>                End_Object 
+30829>>>
+30829>>>                Object oMembersCountry is a cWebForm
+30831>>>                    Entry_Item Members.Country
+30832>>>                    Set piColumnSpan to 12
+30833>>>                    Set piColumnIndex to 0
+30834>>>                    Set psLabel to "Country:"
+30835>>>                    Set peLabelAlign to alignLeft
+30836>>>                End_Object 
+30837>>>
+30837>>>                Object oMembersPhone is a cWebForm
+30839>>>                    Entry_Item Members.Phone
+30840>>>                    Set piColumnSpan to 12
+30841>>>                    Set piColumnIndex to 0
+30842>>>                    Set psLabel to "Phone:"
+30843>>>                    Set peLabelAlign to alignLeft
+30844>>>                End_Object 
+30845>>>
+30845>>>                Object oMembersMobile is a cWebForm
+30847>>>                    Entry_Item Members.Mobile
+30848>>>                    Set piColumnSpan to 12
+30849>>>                    Set piColumnIndex to 0
+30850>>>                    Set psLabel to "Mobile:"
+30851>>>                    Set peLabelAlign to alignLeft
+30852>>>                End_Object 
+30853>>>
+30853>>>                Object oMembersWebpage is a cWebForm
+30855>>>                    Entry_Item Members.Webpage
+30856>>>                    Set piColumnSpan to 12
+30857>>>                    Set piColumnIndex to 0
+30858>>>                    Set psLabel to "Webpage:"
+30859>>>                    Set peLabelAlign to alignLeft
+30860>>>                End_Object 
+30861>>>            End_Object
+30862>>>    
+30862>>>            Object oWebTabPage4 is a cWebTabPage
+30864>>>                Set psCaption to "Rank Tests"
+30865>>>                Set piColumnCount to 12    
+30866>>>
+30866>>>                Object oWebGrid1 is a cWebGrid
+30868>>>                    Set pbFillHeight to True
+30869>>>                    Set Server to oMemberRanks_DD
+30870>>>                    Set piOrdering to 1
+30871>>>
+30871>>>                    Object oMemberRanks_Type is a cWebColumnCombo
+30873>>>                        Entry_Item MemberRanks.Type
+30874>>>                        Set psCaption to "Type"
+30875>>>                        Set piWidth to 50
+30876>>>                    End_Object
+30877>>>
+30877>>>                    Object oRanks_Rank is a cWebColumnCombo
+30879>>>//                        Set Server to oRanks_DD
+30879>>>//                        Entry_Item Ranks.Name
+30879>>>//                        Entry_Item MemberRanks.Rank
+30879>>>                        Set psCaption to "Rank"
+30880>>>                        Set piWidth to 50
+30881>>>                        Set pbServerOnFocus to True
+30882>>>                        Set pbServerOnChange to True
+30883>>>
+30883>>>                        Procedure OnFocus
+30886>>>                            Forward Send OnFocus
+30888>>>//                            Send DDFieldEntryMessage 
+30888>>>                            Send OnFill
+30889>>>                        End_Procedure
+30890>>>                        
+30890>>>                        Procedure OnFill
+30893>>>                            Integer iCount i iType
+30893>>>                            Handle hoValidationObject
+30893>>>                            String sDescr
+30893>>>                            Forward Send OnFill
+30895>>>                            Get Field_Current_Value of oMemberRanks_DD Field MemberRanks.Type to iType
+30896>>>                            If (iType = 2) Begin 
+30898>>>                                Move (BikenRanks(oMemberRanks_DD(Self)))  to hoValidationObject
+30899>>>                                Get Item_Count of hoValidationObject to iCount
+30900>>>                                For i from 0 to (iCount - 1)
+30906>>>>
+30906>>>                                    Move (Find_Code_Description(hoValidationObject, i)) to sDescr
+30907>>>                                    If (sDescr <> "") Begin 
+30909>>>                                        Send AddComboItem (String(i)) sDescr
+30910>>>                                    End
+30910>>>>
+30910>>>                                Loop
+30911>>>>
+30911>>>                            End
+30911>>>>
+30911>>>                        End_Procedure
+30912>>>
+30912>>>                        Procedure OnChange String sNewValue String sOldValue
+30915>>>                            Forward Send OnChange sNewValue sOldValue
+30917>>>                            Set Field_Changed_Value of oMemberRanks_DD Field MemberRanks.Rank to sNewValue
+30918>>>                        End_Procedure
+30919>>>                    End_Object
+30920>>>
+30920>>>                    Object oInstructors_Instructor is a cWebColumn
+30922>>>                        Set Server to oTeachers_DD
+30923>>>                        Entry_Item Teachers.Name
+30924>>>                        Set psCaption to "Instructor"
+30925>>>                        Set piWidth to 50
+30926>>>                    End_Object
+30927>>>
+30927>>>                    Object oMemberRanks_Date is a cWebColumnDate
+30929>>>                        Set Server to oMemberRanks_DD
+30930>>>                        Entry_Item MemberRanks.Date
+30931>>>                        Set psCaption to "Date"
+30932>>>                        Set piWidth to 50
+30933>>>                    End_Object
+30934>>>
+30934>>>                    Object oMemberRanks_Notes is a cWebColumn
+30936>>>                        Set Server to oMemberRanks_DD
+30937>>>                        Entry_Item MemberRanks.Notes
+30938>>>                        Set psCaption to "Notes"
+30939>>>                        Set piWidth to 50
+30940>>>                    End_Object
+30941>>>
+30941>>>                    Procedure OnChangeCurrentRow String sFromRowID String sToRowID
+30944>>>                        Forward Send OnChangeCurrentRow sFromRowID sToRowID
+30946>>>                    End_Procedure
+30947>>>                End_Object
+30948>>>            End_Object
+30949>>>
+30949>>>            Object oWebTabPage5 is a cWebTabPage
+30951>>>                Set psCaption to "Payments"
+30952>>>                Set piColumnCount to 12   
+30953>>>
+30953>>>                Object oPaymentList is a cWebList
+30955>>>                    Set Server to oPayments_DD
+30956>>>                    Set pbFillHeight to True
+30957>>>                    Object oWebColumn1 is a cWebColumn
+30959>>>                        Entry_Item Payments.Date
+30960>>>                        Set psCaption to "Date"
+30961>>>                        Set piWidth to 50
+30962>>>                    End_Object
+30963>>>
+30963>>>                    Object oPayments_PaymentType is a cWebColumnCombo
+30965>>>                        Entry_Item Payments.PaymentType
+30966>>>                        Set psCaption to "PaymentType"
+30967>>>                        Set piWidth to 50
+30968>>>                    End_Object
+30969>>>
+30969>>>                    Object oPayments_Payment is a cWebColumn
+30971>>>                        Entry_Item Payments.Payment
+30972>>>                        Set psCaption to "Payment"
+30973>>>                        Set piWidth to 50
+30974>>>                    End_Object
+30975>>>
+30975>>>                    Object oPayments_Comment is a cWebColumn
+30977>>>                        Entry_Item Payments.Comment
+30978>>>                        Set psCaption to "Comment"
+30979>>>                        Set piWidth to 50
+30980>>>                    End_Object
+30981>>>
+30981>>>                    Object oRemovePayment is a cWebColumnImage
+30983>>>                        Set piWidth to 60
+30984>>>                        Set pbFixedWidth to True
+30985>>>                        Set pbResizable to False
+30986>>>                        Set psImageUrl to "Images/Delete.png"
+30987>>>                        Set pbServerOnClick to True
+30988>>>                        
+30988>>>                        Procedure ImageCallback Integer eConfirmMode
+30991>>>                            If (eConfirmMode = cmYes) Begin //delete
+30993>>>                                Send Request_Delete of oPayments_DD
+30994>>>                                Send FindDDRecordInBuffer of oPaymentList
+30995>>>                            End
+30995>>>>
+30995>>>                        End_Procedure
+30996>>>                        WebPublishProcedure ImageCallback
+30997>>>                        
+30997>>>                        Procedure OnClick String sImage String sRowId
+31000>>>                            Forward Send OnClick sImage sRowId
+31002>>>                            Send ShowYesNo Self (RefProc(ImageCallback)) "Detele this payment permanentely?" 
+31003>>>                        End_Procedure
+31004>>>
+31004>>>                        Procedure OnDefineTooltip String  ByRef sTooltip
+31007>>>                            Forward Send OnDefineTooltip (&sTooltip)
+31009>>>                            Move "Delete this payment" to sTooltip
+31010>>>                        End_Procedure
+31011>>>                    End_Object
+31012>>>
+31012>>>                    Procedure OnLoad
+31015>>>                        Forward Send OnLoad
+31017>>>                        Send Find of oPayments_DD FIRST_RECORD 1
+31018>>>                    End_Procedure
+31019>>>
+31019>>>                End_Object
+31020>>>            End_Object 
+31021>>>        End_Object
+31022>>>
+31022>>>        Object oWebButton1 is a cWebButton
+31024>>>            Set piColumnSpan to 3
+31025>>>            Set psCaption to "Save"
+31026>>>            Set piColumnIndex to 6
+31027>>>        
+31027>>>            Procedure OnClick
+31030>>>                Handle hoGrid
+31030>>>                WebGet phoCallbackObj of oMembers to hoGrid
+31031>>>                Send Request_Save of oMembers_DD
+31032>>>                Send FindDDRecordInBuffer of hoGrid
+31033>>>                Send Hide of oMembers
+31034>>>            End_Procedure
+31035>>>        End_Object
+31036>>>
+31036>>>        Object oWebButton2 is a cWebButton
+31038>>>            Set piColumnSpan to 3
+31039>>>            Set psCaption to "Cancel"
+31040>>>            Set piColumnIndex to 9
+31041>>>        
+31041>>>            Procedure OnClick
+31044>>>                Send Cancel
+31045>>>            End_Procedure
+31046>>>        End_Object
+31047>>>    End_Object 
+31048>>>
+31048>>>    Procedure OnShow
+31051>>>        Forward Send OnShow
+31053>>>        String sRowId
+31053>>>        Integer iDojo
+31053>>>        WebGet psRowId of oMembers to sRowId
+31054>>>        WebGet piDojo of oMembers to iDojo
+31055>>>        If (sRowId <> "") Begin 
+31057>>>            Send FindByRowId of oMembers_DD Members.File_Number (DeserializeRowID(sRowId))
+31058>>>            WebSet pbEnabled of oMembers_Member to False
+31059>>>        End
+31059>>>>
+31059>>>        Else Begin 
+31060>>>            Send Clear of oMembers_DD
+31061>>>            Send Clear of oDojo_DD
+31062>>>            Move iDojo to Dojo.Dojo 
+31063>>>            Send Find of oDojo_DD EQ 1
+31064>>>            WebSet pbEnabled of oMembers_Member to True
+31065>>>        End
+31065>>>>
+31065>>>    End_Procedure
+31066>>>
+31066>>>    Procedure Popup Handle hoReturnObject
+31069>>>        WebSet phoCallbackObj of oMembers to hoReturnObject
+31070>>>        Forward Send Popup hoReturnObject
+31072>>>    End_Procedure
+31073>>>
+31073>>>    Procedure Show_oMembers_FromXX String sRowId Integer iDojo
+31076>>>        Send Show 
+31077>>>    End_Procedure
+31078>>>
+31078>>>End_Object 
+31079>    Use Instructors.wo
+Including file: Instructors.wo    (C:\DojoManager\AppSrc\Instructors.wo)
+31079>>>// C:\DojoManager\AppSrc\Members.wo
+31079>>>// Members
+31079>>>//
+31079>>>
+31079>>>Use cWebView.pkg
+31079>>>Use cWebPanel.pkg
+31079>>>Use cWebForm.pkg
+31079>>>
+31079>>>Use cTeachersDataDictionary.dd
+31079>>>
+31079>>>Object oInstructors is a cWebView
+31081>>>    Set piColumnCount to 12
+31082>>>    Set psCaption to "Instructors"
+31083>>>    Set piWidth to 700
+31084>>>
+31084>>>    Object oTeachers_DD is a cTeachersDataDictionary
+31086>>>    End_Object
+31087>>>
+31087>>>    Set Main_DD to oTeachers_DD
+31088>>>    Set Server  to oTeachers_DD
+31089>>>
+31089>>>    Object oWebMainPanel is a cWebPanel
+31091>>>        Set piColumnCount to 12
+31092>>>
+31092>>>        Object oInstructorsName is a cWebForm
+31094>>>            Entry_Item Teachers.Name
+31095>>>            Set piColumnSpan to 12
+31096>>>            Set piColumnIndex to 0
+31097>>>            Set psLabel to "Name:"
+31098>>>            Set peLabelAlign to alignLeft
+31099>>>        End_Object 
+31100>>>
+31100>>>        Object oMembersType is a cWebCombo
+31102>>>            Entry_Item Teachers.Type
+31103>>>            Set piColumnSpan to 6
+31104>>>            Set piColumnIndex to 0
+31105>>>            Set psLabel to "Type:"
+31106>>>            Set peLabelAlign to alignLeft
+31107>>>        End_Object 
+31108>>>    End_Object 
+31109>>>
+31109>>>End_Object 
+31110>    Use Seminars.wo
+Including file: Seminars.wo    (C:\DojoManager\AppSrc\Seminars.wo)
+31110>>>// C:\DojoManager\AppSrc\Seminars.wo
+31110>>>// Seminars
+31110>>>//
+31110>>>
+31110>>>Use cWebView.pkg
+31110>>>Use cWebPanel.pkg
+31110>>>Use cWebForm.pkg
+31110>>>Use cWebEdit.pkg
+31110>>>Use cWebGrid.pkg
+31110>>>Use cWebColumn.pkg
+31110>>>
+31110>>>Use cDojoDataDictionary.dd
+31110>>>Use cSeminarsDataDictionary.dd
+31110>>>Use cSeminarAttendeesDataDictionary.dd
+Including file: cSeminarAttendeesDataDictionary.dd    (C:\DojoManager\DDSrc\cSeminarAttendeesDataDictionary.dd)
+31110>>>>>Use DataDict.pkg
+31110>>>>>
+31110>>>>>Open SeminarAttendees
+31112>>>>>Open Seminars
+31114>>>>>Open Members
+31116>>>>>Open Teachers
+31118>>>>>Open Payments
+31120>>>>>
+31120>>>>>Register_Function ValidateSeminarAttendeesSeminarFee Integer iColumn Number nValue Returns Boolean
+31120>>>>>Register_Function ValidateSeminarAttendeesMembershipFee Integer iColumn Integer iValue Returns Boolean
+31120>>>>>Register_Function ValidateSeminarAttendeesParticipant Integer iColumn String sValue Returns Boolean
+31120>>>>>
+31120>>>>>Class cSeminarAttendeesDataDictionary is a DataDictionary
+31121>>>>>    
+31121>>>>>    Procedure Construct_Object
+31123>>>>>        Forward Send Construct_Object
+31125>>>>>        Set Main_File to SeminarAttendees.File_Number
+31126>>>>>
+31126>>>>>        Set Add_System_File to Payments.File_Number DD_Lock_On_All
+31127>>>>>
+31127>>>>>        Set Add_Server_File to Seminars.File_Number
+31128>>>>>
+31128>>>>>        Set Foreign_Field_Option DD_KEYFIELD DD_NOPUT to True
+31129>>>>>        Set Foreign_Field_Option DD_KEYFIELD DD_FINDREQ to True
+31130>>>>>        Set Foreign_Field_Option DD_INDEXFIELD DD_NOPUT to True
+31131>>>>>        Set Foreign_Field_Option DD_DEFAULT DD_DISPLAYONLY to True
+31132>>>>>
+31132>>>>>        Set Field_Validate_msg Field SeminarAttendees.Participant to get_ValidateSeminarAttendeesParticipant
+31133>>>>>
+31133>>>>>        Set Field_Validate_msg Field SeminarAttendees.SeminarFee to get_ValidateSeminarAttendeesSeminarFee
+31134>>>>>
+31134>>>>>        Set Field_Validate_msg Field SeminarAttendees.MembershipFee to get_ValidateSeminarAttendeesMembershipFee
+31135>>>>>
+31135>>>>>    End_Procedure
+31136>>>>>
+31136>>>>>    Function ValidateSeminarAttendeesSeminarFee Integer iColumn Number nValue Returns Boolean
+31138>>>>>        If (nValue = 0) Begin 
+31140>>>>>            Set Field_Changed_Value Field SeminarAttendees.SeminarFee to Seminars.AttendanceFee
+31141>>>>>        End
+31141>>>>>>
+31141>>>>>    End_Function
+31142>>>>>
+31142>>>>>    Procedure Backout
+31144>>>>>        Forward Send Backout
+31146>>>>>        Move (Seminars.TotAttendanceFee - SeminarAttendees.SeminarFee) to Seminars.TotAttendanceFee
+31147>>>>>        If (OPERATION_MODE = MODE_DELETING) Begin //deleting a participant should also delete payments
+31149>>>>>            If (SeminarAttendees.MembPayID) Begin 
+31151>>>>>                Clear Payments 
+31152>>>>>                Move SeminarAttendees.MembPayID to Payments.PaymentID
+31153>>>>>                Find eq Payments by Index.1
+31154>>>>>>
+31154>>>>>                If (Found) Begin 
+31156>>>>>                    Delete Payments 
+31157>>>>>                End
+31157>>>>>>
+31157>>>>>            End
+31157>>>>>>
+31157>>>>>            If (SeminarAttendees.RankPayID) Begin 
+31159>>>>>                Clear Payments 
+31160>>>>>                Move SeminarAttendees.RankPayID to Payments.PaymentID
+31161>>>>>                Find eq Payments by Index.1
+31162>>>>>>
+31162>>>>>                If (Found) Begin 
+31164>>>>>                    Delete Payments 
+31165>>>>>                End
+31165>>>>>>
+31165>>>>>            End
+31165>>>>>>
+31165>>>>>            If (SeminarAttendees.SeminarPayID) Begin 
+31167>>>>>                Clear Payments 
+31168>>>>>                Move SeminarAttendees.SeminarPayID to Payments.PaymentID
+31169>>>>>                Find eq Payments by Index.1
+31170>>>>>>
+31170>>>>>                If (Found) Begin 
+31172>>>>>                    Delete Payments 
+31173>>>>>                End
+31173>>>>>>
+31173>>>>>            End
+31173>>>>>>
+31173>>>>>        End
+31173>>>>>>
+31173>>>>>    End_Procedure
+31174>>>>>
+31174>>>>>    Procedure Update
+31176>>>>>        Forward Send Update
+31178>>>>>        Move Seminars.Dojo to SeminarAttendees.Dojo
+31179>>>>>        If (SeminarAttendees.MebershipPayed) Begin //membership is payed at the semianr
+31181>>>>>            Lock
+31182>>>>>>
+31182>>>>>            Clear Payments
+31183>>>>>            Move (Settings.PaymentID + 1) to Payments.PaymentID
+31184>>>>>            Move SeminarAttendees.MemberID to Payments.Member
+31185>>>>>            Move (CurrentDateTime()) to Payments.Date
+31186>>>>>            Move 1 to Payments.PaymentType
+31187>>>>>            Move SeminarAttendees.MembershipFee to Payments.Payment
+31188>>>>>            SaveRecord Payments
+31189>>>>>            Unlock
+31190>>>>>>
+31190>>>>>            Reread Settings
+31194>>>>>            Move Payments.PaymentID to Settings.PaymentID 
+31195>>>>>            SaveRecord Settings
+31196>>>>>            Unlock
+31197>>>>>>
+31197>>>>>            Move Payments.PaymentID to SeminarAttendees.MembPayID
+31198>>>>>        End
+31198>>>>>>
+31198>>>>>        If (SeminarAttendees.RankPayed) Begin //ranktest is payed at the semianr
+31200>>>>>            Lock
+31201>>>>>>
+31201>>>>>            Clear Payments
+31202>>>>>            Move (Settings.PaymentID + 1) to Payments.PaymentID
+31203>>>>>            Move SeminarAttendees.MemberID to Payments.Member
+31204>>>>>            Move (CurrentDateTime()) to Payments.Date
+31205>>>>>            Move 2 to Payments.PaymentType
+31206>>>>>            Move SeminarAttendees.RankFee to Payments.Payment
+31207>>>>>            SaveRecord Payments
+31208>>>>>            Unlock
+31209>>>>>>
+31209>>>>>            Reread Settings
+31213>>>>>            Move Payments.PaymentID to Settings.PaymentID 
+31214>>>>>            SaveRecord Settings
+31215>>>>>            Unlock
+31216>>>>>>
+31216>>>>>            Move Payments.PaymentID to SeminarAttendees.RankPayID
+31217>>>>>        End
+31217>>>>>>
+31217>>>>>        If (SeminarAttendees.Payed) Begin //seminar is payed at the semianr
+31219>>>>>            Lock
+31220>>>>>>
+31220>>>>>            Clear Payments
+31221>>>>>            Move (Settings.PaymentID + 1) to Payments.PaymentID
+31222>>>>>            Move SeminarAttendees.MemberID to Payments.Member
+31223>>>>>            Move (CurrentDateTime()) to Payments.Date
+31224>>>>>            Move 3 to Payments.PaymentType
+31225>>>>>            Move SeminarAttendees.SeminarFee to Payments.Payment
+31226>>>>>            SaveRecord Payments
+31227>>>>>            Unlock
+31228>>>>>>
+31228>>>>>            Reread Settings
+31232>>>>>            Move Payments.PaymentID to Settings.PaymentID 
+31233>>>>>            SaveRecord Settings
+31234>>>>>            Unlock
+31235>>>>>>
+31235>>>>>            Move Payments.PaymentID to SeminarAttendees.SeminarPayID
+31236>>>>>        End
+31236>>>>>>
+31236>>>>>
+31236>>>>>        Move (Seminars.TotAttendanceFee + SeminarAttendees.SeminarFee) to Seminars.TotAttendanceFee
+31237>>>>>    End_Procedure
+31238>>>>>
+31238>>>>>    Function ValidateSeminarAttendeesMembershipFee Integer iColumn Integer iValue Returns Boolean
+31240>>>>>        Integer iMemberId
+31240>>>>>        String sName
+31240>>>>>        Boolean bSave
+31240>>>>>        Get Field_Current_Value Field SeminarAttendees.Participant to sName
+31241>>>>>        Get Field_Current_Value Field SeminarAttendees.MemberID to iMemberId
+31242>>>>>        If (iValue = 0) Begin 
+31244>>>>>            Clear Members
+31245>>>>>            Move sName to Members.Name 
+31246>>>>>            Find ge Members by Index.4
+31247>>>>>>
+31247>>>>>            Repeat
+31247>>>>>>
+31247>>>>>                If ((Found) and (Members.Name = sName)) Begin 
+31249>>>>>                    Set Field_Changed_Value Field SeminarAttendees.MemberID to Members.Member
+31250>>>>>                    Set Field_Changed_Value Field SeminarAttendees.ParticipantEmail to (Trim(Members.Email))
+31251>>>>>                    Clear Dojo
+31252>>>>>                    Move Members.Dojo to Dojo.Dojo
+31253>>>>>                    Find eq Dojo by Index.1
+31254>>>>>>
+31254>>>>>                    Set Field_Changed_Value Field SeminarAttendees.ParticipantDojo to (Trim(Dojo.Name))
+31255>>>>>                    Move True to bSave
+31256>>>>>                End
+31256>>>>>>
+31256>>>>>                Find gt Members by Index.4
+31257>>>>>>
+31257>>>>>            Until (bSave)
+31259>>>>>        End
+31259>>>>>>
+31259>>>>>        
+31259>>>>>        Get Field_Current_Value Field SeminarAttendees.MemberID to iMemberId
+31260>>>>>        Clear Members
+31261>>>>>        Move iMemberId to Members.Member
+31262>>>>>        Find eq Members by Index.1
+31263>>>>>>
+31263>>>>>        If (Found) Begin 
+31265>>>>>            If (Members.Type = 1) Begin //full member
+31267>>>>>                Set Field_Changed_Value iColumn to Settings.FullMemberFee
+31268>>>>>            End
+31268>>>>>>
+31268>>>>>            Else Begin //associate member
+31269>>>>>                Set Field_Changed_Value iColumn to Settings.AssociateMemberFee
+31270>>>>>            End
+31270>>>>>>
+31270>>>>>        End
+31270>>>>>>
+31270>>>>>    End_Function
+31271>>>>>
+31271>>>>>    Function ValidateSeminarAttendeesParticipant Integer iColumn String sValue Returns Boolean
+31273>>>>>        Boolean bSave
+31273>>>>>        If (sValue <> "") Begin //if there is a participant, find him/her in members
+31275>>>>>            Clear Members
+31276>>>>>            Move sValue to Members.Name 
+31277>>>>>            Find ge Members by Index.4
+31278>>>>>>
+31278>>>>>            Repeat
+31278>>>>>>
+31278>>>>>                If ((Found) and (Members.Name = sValue)) Begin 
+31280>>>>>                    Set Field_Changed_Value Field SeminarAttendees.MemberID to Members.Member
+31281>>>>>                    Set Field_Changed_Value Field SeminarAttendees.ParticipantEmail to (Trim(Members.Email))
+31282>>>>>                    Clear Dojo
+31283>>>>>                    Move Members.Dojo to Dojo.Dojo
+31284>>>>>                    Find eq Dojo by Index.1
+31285>>>>>>
+31285>>>>>                    Set Field_Changed_Value Field SeminarAttendees.ParticipantDojo to (Trim(Dojo.Name))
+31286>>>>>                    Move True to bSave
+31287>>>>>                End
+31287>>>>>>
+31287>>>>>                Find gt Members by Index.4
+31288>>>>>>
+31288>>>>>            Until (bSave)
+31290>>>>>        End
+31290>>>>>>
+31290>>>>>    End_Function
+31291>>>>>
+31291>>>>>End_Class
+31292>>>Use cMembersDataDictionary.dd
+31292>>>Use cWebTabContainer.pkg
+31292>>>Use cWebTabPage.pkg
+31292>>>
+31292>>>Object oSeminars is a cWebView
+31294>>>    Set piColumnCount to 12
+31295>>>    Set psCaption to "Seminars"
+31296>>>    Set pbServerOnShow to True
+31297>>>    Set pbClearAfterSave to False
+31298>>>    
+31298>>>    Property String psRowId
+31302>>>
+31302>>>    Object oDojo_DD is a cDojoDataDictionary
+31304>>>    End_Object 
+31305>>>
+31305>>>    Object oSeminars_DD is a cSeminarsDataDictionary
+31307>>>        Set DDO_Server to oDojo_DD
+31308>>>        Set Constrain_File to Dojo.File_Number
+31309>>>        // this lets you save a new parent DD from within child DD
+31309>>>        Set Allow_Foreign_New_Save_State to False
+31310>>>    End_Object 
+31311>>>
+31311>>>    Object oSeminarAttendees_DD is a cSeminarAttendeesDataDictionary
+31313>>>        Set DDO_Server to oSeminars_DD
+31314>>>        Set Constrain_File To Seminars.File_Number
+31315>>>        Set Allow_Foreign_New_Save_State to False
+31316>>>    End_Object 
+31317>>>
+31317>>>    Set Main_DD To oSeminars_DD
+31318>>>    Set Server  To oSeminars_DD
+31319>>>
+31319>>>    Object oWebMainPanel is a cWebPanel
+31321>>>        Set piColumnCount to 12
+31322>>>
+31322>>>        Object oDojo_Dojo is a cWebForm
+31324>>>            Entry_Item Dojo.Dojo
+31325>>>
+31325>>>            Set Server to oSeminarAttendees_DD
+31326>>>            Set piColumnSpan to 0
+31327>>>            Set psLabel to "Dojo:"
+31328>>>            Set pbRender to False
+31329>>>        End_Object
+31330>>>
+31330>>>        Object oSeminars_Seminar is a cWebForm
+31332>>>            Entry_Item Seminars.Seminar
+31333>>>            Set piColumnSpan to 0
+31334>>>            Set psLabel to "Seminar:"
+31335>>>            Set pbRender to False
+31336>>>        End_Object
+31337>>>
+31337>>>        Object oSeminarsTopic is a cWebForm
+31339>>>            Entry_Item Seminars.Topic
+31340>>>            Set piColumnSpan to 5
+31341>>>            Set piColumnIndex to 0
+31342>>>            Set psLabel to "Topic:"
+31343>>>            Set peLabelAlign to alignLeft
+31344>>>        End_Object 
+31345>>>
+31345>>>        Object oSeminarsTeachers is a cWebForm
+31347>>>            Entry_Item Seminars.Teachers
+31348>>>            Set piColumnSpan to 5
+31349>>>            Set piColumnIndex to 0
+31350>>>            Set psLabel to "Teachers:"
+31351>>>            Set peLabelAlign to alignLeft
+31352>>>        End_Object 
+31353>>>
+31353>>>        Object oSeminarsStartDate is a cWebForm
+31355>>>            Entry_Item Seminars.StartDate
+31356>>>            Set piColumnSpan to 2
+31357>>>            Set piColumnIndex to 0
+31358>>>            Set psLabel to "StartDate:"
+31359>>>            Set peLabelAlign to alignLeft
+31360>>>        End_Object 
+31361>>>
+31361>>>        Object oSeminarsEndDate is a cWebForm
+31363>>>            Entry_Item Seminars.EndDate
+31364>>>            Set piColumnSpan to 2
+31365>>>            Set piColumnIndex to 3
+31366>>>            Set psLabel to "EndDate:"
+31367>>>            Set peLabelAlign to alignLeft
+31368>>>        End_Object 
+31369>>>
+31369>>>        Object oWebTabContainer1 is a cWebTabContainer
+31371>>>        Object oWebTabPage2 is a cWebTabPage
+31373>>>            Set psCaption to "Attendees"
+31374>>>            Set piColumnCount to 12    
+31375>>>
+31375>>>            Object oDetailGrid is a cWebGrid
+31377>>>                Set Server to oSeminarAttendees_DD
+31378>>>                Set piOrdering to 1
+31379>>>                Set pbFillHeight to True
+31380>>>                Set piColumnSpan to 12
+31381>>>    
+31381>>>                Object oMembersName is a cWebColumn
+31383>>>                    Entry_Item SeminarAttendees.Participant
+31384>>>                    Set psCaption to "Name"
+31385>>>                    Set piWidth to 217
+31386>>>                    Set pbPromptButton to True
+31387>>>                    Set phoPrompt to oMembersWebLookup
+31388>>>                    Procedure Prompt_Callback Handle hoPrompt
+31391>>>                        Forward Send Prompt_Callback hoPrompt
+31393>>>                        WebSet peUpdateMode of hoPrompt to umPromptValue
+31394>>>                    End_Procedure
+31395>>>                End_Object 
+31396>>>    
+31396>>>                Object oMembersID is a cWebColumn
+31398>>>                    Entry_Item SeminarAttendees.MemberID
+31399>>>                    Set psCaption to "MemberID"
+31400>>>                    Set piWidth to 217
+31401>>>                    Set pbRender to False
+31402>>>                End_Object 
+31403>>>
+31403>>>                Object oDojoDojo is a cWebColumn
+31405>>>                    Entry_Item SeminarAttendees.ParticipantDojo
+31406>>>                    Set psCaption to "Dojo"
+31407>>>                    Set piWidth to 174
+31408>>>//                        Set pbPromptButton to True
+31408>>>//                        Set phoPrompt to oDojoWebLookup
+31408>>>                End_Object 
+31409>>>    
+31409>>>                Object oMembersEmail is a cWebColumn
+31411>>>                    Entry_Item SeminarAttendees.ParticipantEmail
+31412>>>                    Set psCaption to "Email"
+31413>>>                    Set piWidth to 191
+31414>>>                End_Object 
+31415>>>    
+31415>>>                Object oSeminarAttendeesSeminarFee is a cWebColumn
+31417>>>                    Entry_Item SeminarAttendees.SeminarFee
+31418>>>                    Set psCaption to "SeminarFee"
+31419>>>                    Set piWidth to 82
+31420>>>                    Set pbFixedWidth to True
+31421>>>                    Set pbResizable to False
+31422>>>                End_Object 
+31423>>>    
+31423>>>                Object oSeminarAttendeesPayed is a cWebColumnCheckbox
+31425>>>                    Entry_Item SeminarAttendees.Payed
+31426>>>                    Set psCaption to "Payed"
+31427>>>                    Set piWidth to 50
+31428>>>                    Set pbFixedWidth to True
+31429>>>                    Set pbResizable to False
+31430>>>                End_Object 
+31431>>>    
+31431>>>                Object oRanksRank is a cWebColumn
+31433>>>                    Entry_Item SeminarAttendees.RankTest
+31434>>>                    Set psCaption to "RankTest"
+31435>>>                    Set piWidth to 66
+31436>>>                    Set pbFixedWidth to True
+31437>>>                    Set pbResizable to False
+31438>>>                    Set pbPromptButton to True
+31439>>>                End_Object 
+31440>>>    
+31440>>>                Object oSeminarAttendeesRankFee is a cWebColumn
+31442>>>                    Entry_Item SeminarAttendees.RankFee
+31443>>>                    Set psCaption to "RankFee"
+31444>>>                    Set piWidth to 63
+31445>>>                    Set pbFixedWidth to True
+31446>>>                    Set pbResizable to False
+31447>>>                End_Object 
+31448>>>    
+31448>>>                Object oSeminarAttendeesRankPayed is a cWebColumnCheckbox
+31450>>>                    Entry_Item SeminarAttendees.RankPayed
+31451>>>                    Set psCaption to "RankPayed"
+31452>>>                    Set piWidth to 78
+31453>>>                    Set pbFixedWidth to True
+31454>>>                    Set pbResizable to False
+31455>>>                End_Object 
+31456>>>    
+31456>>>                Object oTeachersName is a cWebColumn
+31458>>>                    Entry_Item SeminarAttendees.Examiner
+31459>>>                    Set psCaption to "Examinator"
+31460>>>                    Set piWidth to 191
+31461>>>                    Set pbPromptButton to True
+31462>>>                    Set phoPrompt to oTeachersWebLookup
+31463>>>                End_Object 
+31464>>>    
+31464>>>                Object oSeminarAttendeesMembershipFee is a cWebColumn
+31466>>>                    Entry_Item SeminarAttendees.MembershipFee
+31467>>>                    Set psCaption to "MembershipFee"
+31468>>>                    Set piWidth to 100
+31469>>>                    Set pbFixedWidth to True
+31470>>>                    Set pbResizable to False
+31471>>>                End_Object 
+31472>>>    
+31472>>>                Object oSeminarAttendeesMebershipPayed is a cWebColumnCheckbox
+31474>>>                    Entry_Item SeminarAttendees.MebershipPayed
+31475>>>                    Set psCaption to "MebershipPayed"
+31476>>>                    Set piWidth to 123
+31477>>>                End_Object 
+31478>>>
+31478>>>                Object oRemoveParticipant is a cWebColumnImage
+31480>>>                    Set piWidth to 57
+31481>>>                    Set pbFixedWidth to True
+31482>>>                    Set pbResizable to False
+31483>>>                    Set psImageUrl to "Images/Delete.png"
+31484>>>                    Set pbServerOnClick to True
+31485>>>                    
+31485>>>                    Procedure ImageCallback Integer eConfirmMode
+31488>>>                        If (eConfirmMode = cmYes) Begin //delete
+31490>>>                            Send Request_Delete of oSeminarAttendees_DD
+31491>>>                            Send FindDDRecordInBuffer of oDetailGrid
+31492>>>                        End
+31492>>>>
+31492>>>                    End_Procedure
+31493>>>                    WebPublishProcedure ImageCallback
+31494>>>                    
+31494>>>                    Procedure OnClick String sImage String sRowId
+31497>>>                        Forward Send OnClick sImage sRowId
+31499>>>                        Send ShowYesNo Self (RefProc(ImageCallback)) "Detele this participant and all payments?" 
+31500>>>                    End_Procedure
+31501>>>
+31501>>>                    Procedure OnDefineTooltip String  ByRef sTooltip
+31504>>>                        Forward Send OnDefineTooltip (&sTooltip)
+31506>>>                        Move "Delete this participant" to sTooltip
+31507>>>                    End_Procedure
+31508>>>                End_Object
+31509>>>
+31509>>>                Procedure OnLoad
+31512>>>                    Forward Send OnLoad
+31514>>>                    Send Find of oSeminarAttendees_DD FIRST_RECORD 1
+31515>>>                End_Procedure
+31516>>>            End_Object 
+31517>>>        End_Object
+31518>>>
+31518>>>            Object oWebTabPage1 is a cWebTabPage
+31520>>>                Set psCaption to "Information"
+31521>>>                Set piColumnCount to 12    
+31522>>>
+31522>>>                Object oSeminarsNotes is a cWebEdit
+31524>>>                    Entry_Item Seminars.Notes
+31525>>>                    Set piColumnSpan to 10
+31526>>>                    Set piColumnIndex to 0
+31527>>>                    Set psLabel to "Notes:"
+31528>>>                    Set pbFillHeight to True
+31529>>>                    Set peLabelAlign to alignLeft
+31530>>>                    Set piMinHeight to 200
+31531>>>                End_Object 
+31532>>>
+31532>>>                Object oSeminarsTotalCost is a cWebForm
+31534>>>                    Entry_Item Seminars.TotalCost
+31535>>>                    Set piColumnSpan to 3
+31536>>>                    Set piColumnIndex to 0
+31537>>>                    Set psLabel to "Total Cost:"
+31538>>>                    Set peLabelAlign to alignLeft
+31539>>>                End_Object 
+31540>>>
+31540>>>                Object oSeminarsTotAttendanceFee is a cWebForm
+31542>>>                    Entry_Item Seminars.TotAttendanceFee
+31543>>>                    Set piColumnSpan to 3
+31544>>>                    Set psLabel to "Total Fee:"
+31545>>>                    Set peLabelAlign to alignLeft
+31546>>>                End_Object 
+31547>>>
+31547>>>                Object oSeminarsAttendanceFee is a cWebForm
+31549>>>                    Entry_Item Seminars.AttendanceFee
+31550>>>                    Set piColumnSpan to 3
+31551>>>                    Set psLabel to "Attendance Fee:"
+31552>>>                    Set peLabelAlign to alignLeft
+31553>>>                    Set piColumnIndex to 3
+31554>>>                End_Object 
+31555>>>            End_Object
+31556>>>        End_Object
+31557>>>    End_Object 
+31558>>>
+31558>>>    Procedure OnShow
+31561>>>        String sRowId
+31561>>>        WebGet psRowId of oSeminars to sRowId
+31562>>>        Send FindByRowId of oSeminars_DD Seminars.File_Number (DeserializeRowID(sRowId))
+31563>>>        Forward Send OnShow
+31565>>>    End_Procedure
+31566>>>    
+31566>>>    Procedure Show_oSeminars_FromXX String sRowId
+31569>>>        WebSet psRowId of oSeminars to sRowId
+31570>>>        Send Show
+31571>>>    End_Procedure
+31572>>>End_Object 
+31573>    Use Settings.wo
+Including file: Settings.wo    (C:\DojoManager\AppSrc\Settings.wo)
+31573>>>// C:\DojoManager\AppSrc\Settings.wo
+31573>>>// Settings
+31573>>>//
+31573>>>
+31573>>>Use cWebView.pkg
+31573>>>Use cWebPanel.pkg
+31573>>>Use cWebTabContainer.pkg
+31573>>>Use cWebTabPage.pkg
+31573>>>Use cWebForm.pkg
+31573>>>
+31573>>>Use cSettingsDataDictionary.dd
+Including file: cSettingsDataDictionary.dd    (C:\DojoManager\DDSrc\cSettingsDataDictionary.dd)
+31573>>>>>Use DataDict.pkg
+31573>>>>>
+31573>>>>>Open Settings
+31575>>>>>
+31575>>>>>Class cSettingsDataDictionary is a DataDictionary
+31576>>>>>    
+31576>>>>>    Procedure Construct_Object
+31578>>>>>        Forward Send Construct_Object
+31580>>>>>        Set Main_File to Settings.File_Number
+31581>>>>>
+31581>>>>>        Set Foreign_Field_Option DD_KEYFIELD DD_NOPUT to True
+31582>>>>>        Set Foreign_Field_Option DD_KEYFIELD DD_FINDREQ to True
+31583>>>>>        Set Foreign_Field_Option DD_INDEXFIELD DD_NOPUT to True
+31584>>>>>        Set Foreign_Field_Option DD_DEFAULT DD_DISPLAYONLY to True
+31585>>>>>
+31585>>>>>    End_Procedure
+31586>>>>>
+31586>>>>>End_Class
+31587>>>
+31587>>>Object oSettings is a cWebView
+31589>>>    Set piColumnCount to 12
+31590>>>    Set psCaption to "Settings"
+31591>>>    Set piWidth to 700
+31592>>>
+31592>>>    Object oSettings_DD is a cSettingsDataDictionary
+31594>>>    End_Object 
+31595>>>
+31595>>>    Set Main_DD To oSettings_DD
+31596>>>    Set Server  To oSettings_DD
+31597>>>
+31597>>>
+31597>>>    Object oWebMainPanel is a cWebPanel
+31599>>>        Set piColumnCount to 12
+31600>>>
+31600>>>        Object oWebTabContainer is a cWebTabContainer
+31602>>>            Set pbFillHeight to True
+31603>>>            Set piColumnSpan to 12
+31604>>>            Set pbShowLabel to False
+31605>>>
+31605>>>            Object oPage1 is a cWebTabPage
+31607>>>                Set piColumnCount to 12
+31608>>>                Set psCaption to "Fees"
+31609>>>
+31609>>>                Object oSettingsMainDojo is a cWebForm
+31611>>>                    Entry_Item Settings.MainDojo
+31612>>>                    Set piColumnSpan to 4
+31613>>>                    Set piColumnIndex to 0
+31614>>>                    Set psLabel to "Main Dojo:"
+31615>>>                    Set peLabelAlign to alignLeft
+31616>>>                End_Object 
+31617>>>
+31617>>>                Object oSettingsFullMemberFee is a cWebForm
+31619>>>                    Entry_Item Settings.FullMemberFee
+31620>>>                    Set piColumnSpan to 4
+31621>>>                    Set piColumnIndex to 0
+31622>>>                    Set psLabel to "Full Member Fee:"
+31623>>>                    Set peLabelAlign to alignLeft
+31624>>>                End_Object 
+31625>>>
+31625>>>                Object oSettingsAssociateMemberFee is a cWebForm
+31627>>>                    Entry_Item Settings.AssociateMemberFee
+31628>>>                    Set piColumnSpan to 4
+31629>>>                    Set piColumnIndex to 0
+31630>>>                    Set psLabel to "Associate Member Fee:"
+31631>>>                    Set peLabelAlign to alignLeft
+31632>>>                End_Object 
+31633>>>
+31633>>>                Object oSettingsKyuRankFee is a cWebForm
+31635>>>                    Entry_Item Settings.KyuRankFee
+31636>>>                    Set piColumnSpan to 4
+31637>>>                    Set piColumnIndex to 0
+31638>>>                    Set psLabel to "Kyu Rank Fee:"
+31639>>>                    Set peLabelAlign to alignLeft
+31640>>>                End_Object 
+31641>>>
+31641>>>                Object oSettingsShodanFee is a cWebForm
+31643>>>                    Entry_Item Settings.ShodanFee
+31644>>>                    Set piColumnSpan to 4
+31645>>>                    Set piColumnIndex to 0
+31646>>>                    Set psLabel to "Shodan Fee:"
+31647>>>                    Set peLabelAlign to alignLeft
+31648>>>                End_Object 
+31649>>>
+31649>>>                Object oSettingsNidanFee is a cWebForm
+31651>>>                    Entry_Item Settings.NidanFee
+31652>>>                    Set piColumnSpan to 4
+31653>>>                    Set piColumnIndex to 0
+31654>>>                    Set psLabel to "Nidan Fee:"
+31655>>>                    Set peLabelAlign to alignLeft
+31656>>>                End_Object 
+31657>>>
+31657>>>                Object oSettingsSandanFee is a cWebForm
+31659>>>                    Entry_Item Settings.SandanFee
+31660>>>                    Set piColumnSpan to 4
+31661>>>                    Set piColumnIndex to 0
+31662>>>                    Set psLabel to "Sandan Fee:"
+31663>>>                    Set peLabelAlign to alignLeft
+31664>>>                End_Object 
+31665>>>            End_Object 
+31666>>>
+31666>>>            Object oPage2 is a cWebTabPage
+31668>>>                Set piColumnCount to 12
+31669>>>                Set psCaption to "Auto Increment IDs"
+31670>>>
+31670>>>                Object oSettingsMembersID is a cWebForm
+31672>>>                    Entry_Item Settings.MembersID
+31673>>>                    Set piColumnSpan to 4
+31674>>>                    Set piColumnIndex to 0
+31675>>>                    Set psLabel to "Members ID:"
+31676>>>                    Set peLabelAlign to alignLeft
+31677>>>                End_Object 
+31678>>>
+31678>>>                Object oSettingsDojoID is a cWebForm
+31680>>>                    Entry_Item Settings.DojoID
+31681>>>                    Set piColumnSpan to 4
+31682>>>                    Set piColumnIndex to 0
+31683>>>                    Set psLabel to "Dojo ID:"
+31684>>>                    Set peLabelAlign to alignLeft
+31685>>>                End_Object 
+31686>>>
+31686>>>                Object oSettingsInstructorsID is a cWebForm
+31688>>>                    Entry_Item Settings.InstructorsID
+31689>>>                    Set piColumnSpan to 4
+31690>>>                    Set piColumnIndex to 0
+31691>>>                    Set psLabel to "Instructors ID:"
+31692>>>                    Set peLabelAlign to alignLeft
+31693>>>                End_Object 
+31694>>>            End_Object 
+31695>>>        End_Object 
+31696>>>    End_Object 
+31697>>>
+31697>>>End_Object 
+31698>
+31698>    Procedure OnLoad
+31701>        Forward Send OnLoad
+31703>        If (Settings.GuestMembersID < 1000) Begin //initialize guest member id to 1000
+31705>        Reread Settings
+31709>            Move 1000 to Settings.GuestMembersID 
+31710>            SaveRecord Settings
+31711>        Unlock
+31712>        End
+31712>    End_Procedure
+31713>    
+31713>End_Object
+31714>
+31714>Send StartWebApp of oWebApp
+31715>
+Summary
+Memory Available: 2147483647
+Total Warnings : 0
+Total Errors   : 0
+Total Symbols  : 20865
+Total Resources: 0
+Total Commands : 31714
+Total Windows  : 1
+Total Pages    : 1
+Static Data    : 313091
+Message area   : 216367
+Total Blocks   : 13179
